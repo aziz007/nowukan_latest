@@ -1,0 +1,48 @@
+<section id="impact">
+  <div class="container cta">
+    <h2>Bring affordable English learning<br />to your learners at scale.</h2>
+    <p class="lead" style="margin:0 auto">Built for impact. Designed for the world.</p>
+    <div class="btn-row">
+      <a class="btn btn-gold" routerLink="/enterprise">Enterprise</a>
+      <a class="btn btn-primary" routerLink="/contact">Contact NowUkan</a>
+    </div>
+    <div class="footer-features"><div>Offline after installation</div><div>Tablet ready</div><div>One-time low cost</div><div>Speech practice</div><div>Scalable for education</div></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <!-- News & updates signup -->
+    <div class="footer-signup">
+      <p class="footer-signup-title"><strong>Receive news and updates</strong> straight to your inbox . . .</p>
+      <div class="footer-signup-row">
+        <input
+          type="email"
+          class="footer-signup-input"
+          placeholder="Enter your email address"
+          aria-label="Email address"
+          [value]="email()"
+          (input)="email.set($any($event.target).value)"
+        />
+        <button type="button" class="btn btn-gold" (click)="subscribe()">Sign Up</button>
+      </div>
+      @if (signedUp()) {
+        <p class="footer-signup-thanks">Thanks — you're on the list.</p>
+      }
+    </div>
+
+    <!-- Footer link row -->
+    <nav class="footer-links" aria-label="Footer">
+      <a routerLink="/about">About</a>
+      <a routerLink="/legal/terms">Our Terms</a>
+      <a routerLink="/legal/privacy">Privacy Policy</a>
+      <a routerLink="/equal-opportunities">Equal Opportunities</a>
+      <a routerLink="/data-security">Data Security</a>
+      <a routerLink="/collaborate">Collaborate</a>
+      <a routerLink="/helpful-tips">Helpful Tips</a>
+      <a routerLink="/contact">Contact The Team</a>
+    </nav>
+
+    <p class="footer-copyright">&copy; 2026 Copyright nowUKan Ltd</p>
+  </div>
+</footer>
