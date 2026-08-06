@@ -1,0 +1,9 @@
+# NowUkan robots.txt
+User-agent: *
+Allow: /
+
+# Keep utility pages out of search
+Disallow: /cart
+Disallow: /legal
+
+Sitemap: https://nowukan.io/sitemap.xml
