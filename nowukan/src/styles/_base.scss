@@ -242,3 +242,23 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 .drawer-group a{display:block;padding:8px 0;margin:0;background:none;border:none;color:#c9d3e4;font-size:13.5px;font-weight:700;border-radius:0}
 .drawer-group a:hover{color:#fff}
 @media(max-width:760px){.drawer-cols{grid-template-columns:repeat(2,1fr);gap:16px}.drawer-mega{width:94vw}}
+
+/* --- Fix: Chrome scroll-repaint / section overlap on desktop --- */
+/* Each section gets its own solid stacking context so nothing bleeds through
+   during scroll (Chrome compositing bug with stacked backdrop-filter bars). */
+main > * { position: relative; z-index: 1; }
+section { background-color: transparent; isolation: isolate; }
+/* Force stable compositing layers on the sticky bars so they don't smear
+   content underneath them while scrolling. */
+.nav, .quicklinks {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+/* The hero's decorative glow must never paint over following sections. */
+.hero { isolation: isolate; z-index: 1; }
+.earth { z-index: 0; }
+/* Coverflow 3D layer: contain it so transformed phones can't overlap
+   neighbouring sections mid-animation. */
+.journey { isolation: isolate; contain: layout paint; }
+.explain { isolation: isolate; }
