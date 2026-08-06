@@ -4,23 +4,47 @@
     <div class="hero-copy">
       <h1>Affordable English.<span>Limitless Opportunities.</span></h1>
       <p class="lead">NowUkan is an offline-first English development and speech assessment platform built for learners, schools, NGOs, universities, and national-scale education programmes.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#how">Start Learning</a>
-        <a class="btn btn-gold" href="#contact">Request a Pilot</a>
-        <a class="btn btn-dark" href="#pilot">Volume Purchase</a>
+      <div class="btn-row hero-btns">
+        <a class="btn btn-benefits" routerLink="/benefits">Benefits</a>
+        <a class="btn btn-start" routerLink="/journey">Start Learning</a>
+        <a class="btn btn-volume" routerLink="/enterprise">Volume Purchase</a>
+        <a class="btn btn-challenge" routerLink="/challenge">Challenge</a>
+        <a class="btn btn-gold" routerLink="/contact">Request a Pilot</a>
       </div>
       <div class="feature-pills">
-        <div class="pill"><b>↻</b>Offline after installation</div>
-        <div class="pill"><b>▣</b>Tablet ready</div>
-        <div class="pill"><b>∞</b>One-time low cost</div>
-        <div class="pill"><b>◉</b>Speech practice</div>
-        <div class="pill"><b>◎</b>Scalable for education</div>
+        <div class="pill"><b>↻</b>Works online or offline</div>
+        <div class="pill"><b>▣</b>Tablet / Smartphone ready</div>
+        <div class="pill"><b>∞</b>One time low cost</div>
+        <div class="pill"><b>⊘</b>No recurring subscriptions</div>
+        <div class="pill"><b>◉</b>Speech analysis / feedback</div>
+        <div class="pill"><b>◎</b>Real world English</div>
       </div>
     </div>
-    <div class="hero-phones">
-      <figure class="phone p1"><img src="assets/img/img-6c186ce136.jpeg" alt="" /><figcaption></figcaption></figure>
-      <figure class="phone p2"><img src="assets/img/img-3f2fc6685d.jpeg" alt="" /><figcaption></figcaption></figure>
-      <figure class="phone p3"><img src="assets/img/img-c901a9673e.jpeg" alt="" /><figcaption></figcaption></figure>
+    <div class="hero-carousel" aria-label="NowUkan app screens">
+      <div class="carousel-stage">
+        @for (screen of screens; track screen; let i = $index) {
+          <figure
+            class="carousel-phone"
+            [class.is-front]="slot(i) === 0"
+            [class.is-right]="slot(i) === 1"
+            [class.is-back]="slot(i) === 2"
+            [class.is-hidden]="slot(i) > 2"
+          >
+            <img [src]="screen" [alt]="'NowUkan app screen ' + (i + 1)" />
+          </figure>
+        }
+      </div>
+      <div class="carousel-dots">
+        @for (screen of screens; track screen; let i = $index) {
+          <button
+            type="button"
+            class="carousel-dot"
+            [class.active]="active() === i"
+            [attr.aria-label]="'Show app screen ' + (i + 1)"
+            (click)="go(i)"
+          ></button>
+        }
+      </div>
     </div>
   </div>
 </section>

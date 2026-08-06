@@ -10,7 +10,7 @@
       <a routerLink="/mission">Mission</a>
       <a routerLink="/vision">Vision</a>
       <a routerLink="/" fragment="brochure">Brochure</a>
-      <a routerLink="/" fragment="challenge">Challenge</a>
+      <a routerLink="/challenge">Challenge</a>
       <a routerLink="/contact">Contact</a>
 
       <a routerLink="/enterprise" class="nav-cta">Enterprise</a>
@@ -21,7 +21,7 @@
       <button
         class="hamburger"
         type="button"
-        aria-label="Open user journey menu"
+        aria-label="Open full menu"
         [attr.aria-expanded]="drawerOpen()"
         (click)="toggleDrawer()"
       >
@@ -40,12 +40,45 @@
   </div>
 </nav>
 
-<div class="drawer" [class.open]="drawerOpen()" id="journeyDrawer">
-  <h3>Choose your journey</h3>
-  <a routerLink="/journey" (click)="closeDrawer()">Journey <span>How it works &rarr;</span></a>
-  <a routerLink="/mission" (click)="closeDrawer()">Mission <span>Why we exist &rarr;</span></a>
-  <a routerLink="/vision" (click)="closeDrawer()">Vision <span>Where we're going &rarr;</span></a>
-  <a routerLink="/for-institutions" (click)="closeDrawer()">Institutions <span>Classroom use &rarr;</span></a>
-  <a routerLink="/enterprise" (click)="closeDrawer()">Enterprise <span>Organisation rollout &rarr;</span></a>
-  <a routerLink="/contact" (click)="closeDrawer()">Contact <span>Get in touch &rarr;</span></a>
+<div class="drawer drawer-mega" [class.open]="drawerOpen()" id="fullMenu">
+  <div class="drawer-cols">
+    <div class="drawer-group">
+      <h4>Sectors</h4>
+      <a routerLink="/government" (click)="closeDrawer()">Government</a>
+      <a routerLink="/ngos-charities" (click)="closeDrawer()">NGOs &amp; Charities</a>
+      <a routerLink="/local-authorities" (click)="closeDrawer()">Local Authorities</a>
+      <a routerLink="/universities" (click)="closeDrawer()">Universities</a>
+      <a routerLink="/colleges" (click)="closeDrawer()">Colleges</a>
+      <a routerLink="/employers" (click)="closeDrawer()">Employers</a>
+      <a routerLink="/schools" (click)="closeDrawer()">Schools</a>
+    </div>
+
+    <div class="drawer-group">
+      <h4>Programmes</h4>
+      <a routerLink="/refugee-integration" (click)="closeDrawer()">Refugee Integration</a>
+      <a routerLink="/adult-education" (click)="closeDrawer()">Adult Education</a>
+      <a routerLink="/personal-use" (click)="closeDrawer()">Personal Use</a>
+      <a routerLink="/development-partners" (click)="closeDrawer()">Development Partners</a>
+      <a routerLink="/distribution-partners" (click)="closeDrawer()">Distribution Partners</a>
+      <a routerLink="/institutions/pilot-programme" (click)="closeDrawer()">Pilot Programme</a>
+    </div>
+
+    <div class="drawer-group">
+      <h4>How It Works</h4>
+      <a routerLink="/implementation" (click)="closeDrawer()">Implementation</a>
+      <a routerLink="/data-security" (click)="closeDrawer()">Data Security</a>
+      <a routerLink="/learning-method" (click)="closeDrawer()">Learning Method</a>
+      <a routerLink="/account-management" (click)="closeDrawer()">Account Management</a>
+      <a routerLink="/reporting" (click)="closeDrawer()">Reporting</a>
+    </div>
+
+    <div class="drawer-group">
+      <h4>Get Started</h4>
+      <a routerLink="/contact" (click)="closeDrawer()">Book Consultation</a>
+      <a routerLink="/contact" (click)="closeDrawer()">Request Pricing</a>
+      <a routerLink="/enterprise" (click)="closeDrawer()">Enterprise</a>
+      <a routerLink="/download" (click)="closeDrawer()">Free Trial</a>
+      <a routerLink="/contact" (click)="closeDrawer()">Contact Our Team</a>
+    </div>
+  </div>
 </div>
