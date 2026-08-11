@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavComponent } from './components/nav/nav.component';
-import { QuicklinksComponent } from './components/quicklinks/quicklinks.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GdprComponent } from './components/gdpr/gdpr.component';
 import { SeoService } from './core/seo.service';
@@ -10,10 +9,9 @@ import { SeoService } from './core/seo.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, QuicklinksComponent, FooterComponent, GdprComponent],
+  imports: [RouterOutlet, NavComponent, FooterComponent, GdprComponent],
   template: `
     <app-nav />
-    <app-quicklinks />
     <main>
       <router-outlet />
     </main>

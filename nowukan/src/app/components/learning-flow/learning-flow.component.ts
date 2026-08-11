@@ -28,17 +28,17 @@ export class LearningFlowComponent implements OnInit, OnDestroy {
    * Swap the images in src/assets/journey/ (same filenames) to use real UI.
    */
   readonly screens: JourneyScreen[] = [
-    { id: 'K1', img: 'assets/journey/K1.jpg', title: 'Home Dashboard' },
-    { id: 'K2', img: 'assets/journey/K2.jpg', title: 'Topic Selection' },
-    { id: 'K4', img: 'assets/journey/K4.jpg', title: 'Words' },
-    { id: 'A1', img: 'assets/journey/A1.jpg', title: 'Phrases' },
-    { id: 'A2', img: 'assets/journey/A2.jpg', title: 'Dialogue' },
-    { id: 'A3', img: 'assets/journey/A3.jpg', title: 'QuickFire' },
+    { id: 'K1', img: 'assets/journey/K1.jpg', title: 'Welcome' },
+    { id: 'K2', img: 'assets/journey/K2.jpg', title: 'Words' },
+    { id: 'K3', img: 'assets/journey/K3.jpg', title: 'Dialogue' },
+    { id: 'K4', img: 'assets/journey/K4.jpg', title: 'Practice' },
+    { id: 'A1', img: 'assets/journey/A1.jpg', title: 'Home Dashboard' },
+    { id: 'A2', img: 'assets/journey/A2.jpg', title: 'Lessons' },
+    { id: 'A3', img: 'assets/journey/A3.jpg', title: 'Skill Levels' },
     { id: 'A4', img: 'assets/journey/A4.jpg', title: 'Swing-o-meter' },
-    { id: 'T1', img: 'assets/journey/T1.jpg', title: 'ASA Analysis' },
-    { id: 'T2', img: 'assets/journey/T2.jpg', title: 'Speech Feedback' },
-    { id: 'T3', img: 'assets/journey/T3.jpg', title: 'Progress' },
-    { id: 'T4', img: 'assets/journey/T4.jpg', title: 'Level Completed' },
+    { id: 'T1', img: 'assets/journey/T1.jpg', title: 'Practice & Develop' },
+    { id: 'T2', img: 'assets/journey/T2.jpg', title: 'Speak Confidently' },
+    { id: 'T3', img: 'assets/journey/T3.jpg', title: 'Track Progress' },
   ];
 
   readonly active = signal(0);
