@@ -17,8 +17,8 @@ import { ExplainComponent } from '../../components/explain/explain.component';
   ],
   template: `
     <app-hero />
-    <app-learning-flow />
     <app-learning-steps />
+    <app-learning-flow />
     <app-institutions />
     <app-explain />
   `,
