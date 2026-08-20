@@ -8,12 +8,30 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">NGOs and Charities</div>
-        <p class="sub">Affordable, offline-first English for the communities you serve.</p>
-        <p>Full content for this page is coming soon.</p>
+        <p class="eyebrow">Sectors</p>
+        <h1 class="section-title">NGOs &amp; Charities</h1>
+
+        <p class="sub">
+          Reach underserved communities and support learners who may face financial,
+          geographical or connectivity barriers.
+        </p>
+
+        <p>
+          nowUKan's low cost and offline capability make it particularly suitable for
+          community, integration and development programmes, helping organisations reach more
+          people within existing budgets.
+        </p>
+        <p>
+          Whether supporting refugees, migrants, disadvantaged communities or wider development
+          initiatives, nowUKan provides a practical way to extend access to English language
+          learning.
+        </p>
+
+        <p class="note"><strong>Partner with us to help make English accessible to more people.</strong></p>
+
         <div class="btn-row">
-          <a routerLink="/contact" class="btn btn-primary">Contact Our Team</a>
-          <a routerLink="/download" class="btn btn-dark">Free Trial</a>
+          <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
+          <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
         </div>
       </div>
     </section>

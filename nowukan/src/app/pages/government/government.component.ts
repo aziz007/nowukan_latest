@@ -8,12 +8,29 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">Government and Public Sector Programmes</div>
-        <p class="sub">English development and assessment delivered at national scale.</p>
-        <p>Full content for this page is coming soon.</p>
+        <p class="eyebrow">Sectors</p>
+        <h1 class="section-title">Governments</h1>
+
+        <p class="sub">
+          nowUKan is ideal to support national and regional English language initiatives with
+          an affordable, scalable solution designed to reach large numbers of learners.
+        </p>
+
+        <p>
+          We help support education, employment, integration and workforce development
+          programmes, helping governments extend access to English language development and
+          assessment while maintaining predictable, cost-effective budgets.
+        </p>
+        <p>
+          Our offline capability also makes nowUKan suitable for areas where internet access
+          may be limited, helping extend provision to rural and underserved communities.
+        </p>
+
+        <p class="note"><strong>Work with us to expand English language opportunity at scale.</strong></p>
+
         <div class="btn-row">
-          <a routerLink="/contact" class="btn btn-primary">Contact Our Team</a>
-          <a routerLink="/download" class="btn btn-dark">Free Trial</a>
+          <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
+          <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
         </div>
       </div>
     </section>

@@ -2,23 +2,25 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-personal-use',
+  selector: 'app-individuals',
   standalone: true,
   imports: [RouterLink],
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <p class="eyebrow">Programmes</p>
-        <h1 class="section-title">Personal Use</h1>
+        <p class="eyebrow">Sectors</p>
+        <h1 class="section-title">Individuals</h1>
 
         <p class="sub">
-          Whether you are learning English for work, travel, education or everyday life,
-          nowUKan provides an affordable and flexible way to develop your language skills.
+          Develop your English at your own pace with an affordable solution designed around
+          practical language skills, pronunciation, understanding and confidence.
         </p>
 
         <p>
-          Learn at your own pace, practise pronunciation, build vocabulary and improve your
-          confidence, without the cost of an ongoing subscription.
+          With a free trial and exceptionally low-cost, non-recurring pricing, nowUKan makes
+          continued learning accessible without the burden of ongoing monthly subscription
+          fees. Whether you are learning for education, work, travel or everyday communication,
+          nowUKan gives you the tools to continue developing your English.
         </p>
 
         <div class="feature-pills benefits-pills">
@@ -45,8 +47,6 @@ import { RouterLink } from '@angular/router';
           <li>✅ Greater Independence</li>
         </ul>
 
-        <p class="note"><strong>Start your free trial and begin your journey today.</strong></p>
-
         <div class="btn-row">
           <a routerLink="/pricing" class="btn btn-gold">Register Now</a>
           <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
@@ -55,4 +55,4 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
 })
-export class PersonalUseComponent {}
+export class IndividualsComponent {}

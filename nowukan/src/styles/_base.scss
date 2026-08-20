@@ -106,10 +106,13 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 @media(max-width:1100px){.hero-grid,.explain,.explain:nth-child(even),.pilot-panel{grid-template-columns:1fr}.hero-phones{min-height:620px}.institution-grid{grid-template-columns:repeat(2,1fr)}.timeline,.step-shots{grid-template-columns:repeat(4,1fr)}.step:nth-child(4):after{display:none}.nav-links{display:none}.hamburger{display:flex}}
 @media(max-width:760px){.container{padding:0 18px}section{padding:60px 0}.hero{padding-top:38px}.nav{height:66px}.nav-inner{height:66px;padding:0 18px}.brand-integrated{height:44px}h1{font-size:44px}.lead{font-size:16px}.btn-row{flex-direction:column}.btn{width:100%;text-align:center}.feature-pills,.institution-grid,.timeline,.step-shots,.strip,.footer-features{grid-template-columns:1fr}.hero-phones{min-height:760px}.hero-phones .phone{width:46%}.hero-phones .p1{left:0;top:20px}.hero-phones .p2{left:auto;right:0;top:100px}.hero-phones .p3{left:26%;right:auto;top:330px}.step:after{display:none}.explain-images{flex-direction:column;align-items:center}.explain-images .phone,.explain-images .phone.big{width:72%;transform:none}.drawer{left:18px;right:18px;width:auto}}
 /* --- Inner-page shell (used by routed pages beyond the home scroll) --- */
-.page-shell{padding:120px 0 96px;min-height:60vh}
-.page-shell .section-title{font-family:Sora,Inter,sans-serif;font-size:clamp(34px,5vw,60px);letter-spacing:-.04em;margin-bottom:18px}
-.page-shell .sub{max-width:640px;font-size:18px;color:#c9d3e4;margin-bottom:8px}
+.page-shell{padding:56px 0 80px;min-height:50vh}
+.page-shell .section-title{font-family:Sora,Inter,sans-serif;font-size:clamp(30px,4.5vw,52px);letter-spacing:-.03em;margin-bottom:16px;text-align:left}
+.page-shell .sub{max-width:720px;font-size:18px;color:#c9d3e4;margin-bottom:8px;text-align:left}
 .page-shell .sub a{color:var(--gold2);font-weight:800}
+.page-shell .prose{text-align:left}
+.page-shell .btn-row{justify-content:flex-start}
+@media(max-width:760px){.page-shell{padding:40px 0 60px}}
 
 /* --- Nav actions: hamburger + cart grouping --- */
 .nav-actions{display:flex;align-items:center;gap:12px}
@@ -139,12 +142,21 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 .prose p{margin:0 0 14px;font-size:15.5px;line-height:1.7}
 .prose h3{font-size:24px;margin:28px 0 12px}
 .prose .note{color:#c9d3e4;font-size:14px}
+.journey-path{font-size:19px;letter-spacing:.02em;color:#fff}
+.eyebrow{color:var(--gold2);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12.5px;margin-bottom:8px}
+.benefits-pills{max-width:100%;grid-template-columns:repeat(3,1fr);margin-bottom:24px}
+.pill-emoji{font-size:24px;line-height:46px;height:46px}
+@media(max-width:760px){.benefits-pills{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.benefits-pills{grid-template-columns:1fr}}
 .prose ul,.prose ol{margin:0 0 18px;padding-left:22px;color:var(--muted)}
 .prose li{margin:7px 0;line-height:1.6}
 .collab-list{list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .collab-list li{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:#cfd9ec}
 .tips-list li{margin:10px 0}
 @media(max-width:760px){.collab-list{grid-template-columns:1fr}}
+.benefits-impact-list{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.benefits-impact-list{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.benefits-impact-list{grid-template-columns:1fr}}
 
 /* --- GDPR cookie / privacy popup --- */
 .gdpr{position:fixed;left:18px;right:18px;bottom:18px;z-index:300;max-width:560px;margin:0 auto;background:rgba(3,13,30,.97);border:1px solid rgba(255,255,255,.16);border-radius:18px;box-shadow:var(--shadow);padding:22px 22px 20px;backdrop-filter:blur(14px)}
@@ -165,6 +177,10 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 
 /* --- Hero buttons: four brand colours + pilot --- */
 .hero-btns .btn{color:#fff}
+/* Keep the 5 hero buttons on a single row */
+.hero-btns{flex-wrap:nowrap;gap:9px}
+.hero-btns .btn{padding:12px 14px;font-size:13px;white-space:nowrap;flex:0 1 auto}
+@media(max-width:900px){.hero-btns{flex-wrap:wrap}.hero-btns .btn{font-size:12px;padding:11px 12px}}
 .btn-benefits{background:#E5484D}
 .btn-benefits:hover{background:#d63b40}
 .btn-start{background:#F2820E}
@@ -175,7 +191,8 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 .btn-challenge:hover{background:#0f78e8}
 
 /* --- Hero carousel --- */
-.hero-carousel{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-carousel{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:translate(28px,-24px)}
+@media(max-width:1100px){.hero-carousel{transform:none}}
 .carousel-stage{position:relative;width:280px;height:520px;perspective:1400px}
 .carousel-phone{position:absolute;top:0;left:50%;margin:0;width:250px;border-radius:26px;padding:7px;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.13);box-shadow:0 30px 90px rgba(0,0,0,.5);transition:transform .7s cubic-bezier(.4,.05,.2,1),opacity .7s ease,filter .7s ease;transform-origin:center;will-change:transform,opacity}
 .carousel-phone img{border-radius:20px;width:100%;display:block}
@@ -188,7 +205,7 @@ p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
 .carousel-dot{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:background .2s ease,transform .2s ease}
 .carousel-dot:hover{background:rgba(255,255,255,.5)}
 .carousel-dot.active{background:var(--cyan);transform:scale(1.35)}
-@media(max-width:1100px){.hero-carousel{min-height:600px;margin-top:20px}}
+@media(max-width:1100px){.hero-carousel{min-height:600px;margin-top:20px;transform:none}}
 @media(max-width:760px){.carousel-stage{width:240px;height:480px}.carousel-phone{width:210px}}
 
 /* --- Engaging User Journey: 3D coverflow carousel --- */
@@ -264,7 +281,7 @@ section { background-color: transparent; isolation: isolate; }
 .explain { isolation: isolate; }
 
 /* --- Golden brochure icons in the hero feature boxes --- */
-.pill-ico{display:block;width:34px;height:34px;object-fit:contain;margin:0 auto 5px;filter:drop-shadow(0 0 6px rgba(214,165,54,.45))}
+.pill-ico{display:block;width:46px;height:46px;object-fit:contain;margin:0 auto 7px;filter:drop-shadow(0 0 3px rgba(214,165,54,.7)) drop-shadow(0 0 1px rgba(214,165,54,.9)) contrast(1.15) saturate(1.1)}
 
 /* --- Restored 8-step timeline (Engaging User Journey) --- */
 .learning-steps{padding:70px 0 80px;isolation:isolate}
@@ -276,3 +293,42 @@ section { background-color: transparent; isolation: isolate; }
 
 /* --- Real audience icons on institution cards --- */
 .card-ico{width:52px;height:52px;object-fit:contain;display:block;filter:drop-shadow(0 3px 10px rgba(0,0,0,.4))}
+
+/* --- Home icon in nav --- */
+.nav-home{display:inline-grid;place-items:center;color:rgba(255,255,255,.72);transition:color .15s ease}
+.nav-home:hover{color:#fff}
+.nav-home svg{display:block}
+
+/* --- Footer social media icons --- */
+.footer-social{display:flex;justify-content:center;gap:16px;padding:22px 0 4px}
+.footer-social a{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:var(--muted);transition:all .15s ease}
+.footer-social a:hover{color:#fff;background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+
+/* --- Hero tagline (above the main heading) --- */
+.hero-tagline{font-family:Sora,Inter,sans-serif;font-size:15px;font-weight:800;letter-spacing:.02em;color:var(--gold2);margin-bottom:14px;text-transform:none}
+.hero-copy h1{font-size:clamp(30px,4.2vw,52px)}
+
+/* --- Contact page: mail accounts + enquiry form --- */
+.contact-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0 8px}
+.contact-card{display:flex;flex-direction:column;gap:4px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 18px;transition:border-color .15s ease,background .15s ease}
+.contact-card:hover{border-color:var(--blue);background:rgba(22,135,255,.08)}
+.contact-card-label{font-weight:800;font-size:13.5px;color:#fff}
+.contact-card-email{font-size:13.5px;color:var(--gold2);font-weight:700}
+@media(max-width:600px){.contact-cards{grid-template-columns:1fr}}
+
+.contact-form{margin-top:14px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 18px}
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-field-full{grid-column:1/-1}
+.form-field label{font-size:13px;font-weight:800;color:#c9d3e4}
+.form-input{padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#fff;font-size:14.5px;font-family:inherit;width:100%}
+.form-input::placeholder{color:rgba(255,255,255,.4)}
+.form-input:focus{outline:none;border-color:var(--blue)}
+select.form-input{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#c9d3e4 50%),linear-gradient(135deg,#c9d3e4 50%,transparent 50%);background-position:calc(100% - 20px) center,calc(100% - 15px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+select.form-input option{background:#06142B;color:#fff}
+.form-textarea{resize:vertical;min-height:120px}
+.form-error{color:#E5484D;font-size:12.5px;font-weight:700}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+
+/* Honeypot: present in the DOM for bots to fill, invisible/unreachable for real users */
+.hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}

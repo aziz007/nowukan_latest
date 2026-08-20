@@ -17,10 +17,10 @@ import { ExplainComponent } from '../../components/explain/explain.component';
   ],
   template: `
     <app-hero />
-    <app-learning-steps />
-    <app-learning-flow />
     <app-institutions />
+    <app-learning-steps />
     <app-explain />
+    <app-learning-flow />
   `,
 })
 export class HomeComponent {}

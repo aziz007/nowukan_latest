@@ -37,6 +37,11 @@ export const routes: Routes = [
       import('./pages/vision/vision.component').then((m) => m.VisionComponent),
   },
   {
+    path: 'brochure',
+    loadComponent: () =>
+      import('./pages/brochure/brochure.component').then((m) => m.BrochureComponent),
+  },
+  {
     path: 'enterprise',
     loadComponent: () =>
       import('./pages/enterprise/enterprise.component').then((m) => m.EnterpriseComponent),
@@ -98,6 +103,13 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact.component').then((m) => m.ContactComponent),
+  },
+  {
+    path: 'book-a-consultation',
+    loadComponent: () =>
+      import('./pages/book-a-consultation/book-a-consultation.component').then(
+        (m) => m.BookAConsultationComponent,
+      ),
   },
   {
     path: 'download',
@@ -210,14 +222,44 @@ export const routes: Routes = [
       import('./pages/account-management/account-management.component').then((m) => m.AccountManagementComponent),
   },
   {
-    path: 'reporting',
-    loadComponent: () =>
-      import('./pages/reporting/reporting.component').then((m) => m.ReportingComponent),
-  },
-  {
     path: 'personal-use',
     loadComponent: () =>
       import('./pages/personal-use/personal-use.component').then((m) => m.PersonalUseComponent),
+  },
+  {
+    path: 'academia',
+    loadComponent: () =>
+      import('./pages/academia/academia.component').then((m) => m.AcademiaComponent),
+  },
+  {
+    path: 'individuals',
+    loadComponent: () =>
+      import('./pages/individuals/individuals.component').then((m) => m.IndividualsComponent),
+  },
+  {
+    path: 'partner-with-us',
+    loadComponent: () =>
+      import('./pages/partner-with-us/partner-with-us.component').then((m) => m.PartnerWithUsComponent),
+  },
+  {
+    path: 'bespoke',
+    loadComponent: () =>
+      import('./pages/bespoke/bespoke.component').then((m) => m.BespokeComponent),
+  },
+  {
+    path: 'installation',
+    loadComponent: () =>
+      import('./pages/installation/installation.component').then((m) => m.InstallationComponent),
+  },
+  {
+    path: 'translations',
+    loadComponent: () =>
+      import('./pages/translations/translations.component').then((m) => m.TranslationsComponent),
+  },
+  {
+    path: 'gift',
+    loadComponent: () =>
+      import('./pages/gift/gift.component').then((m) => m.GiftComponent),
   },
   { path: '**', redirectTo: '' },
 ];

@@ -1,0 +1,21 @@
+<section class="page-shell">
+  <div class="container prose">
+    <p class="eyebrow">Contact</p>
+    <h1 class="section-title">Contact Us</h1>
+    <p class="sub">Talk to the team, get support, or explore a partnership with nowUKan.</p>
+
+    <div class="contact-cards">
+      @for (account of mailAccounts; track account.address) {
+        <a class="contact-card" [href]="account.mailto">
+          <span class="contact-card-label">{{ account.label }}</span>
+          <span class="contact-card-email">{{ account.address }}</span>
+        </a>
+      }
+    </div>
+
+    <app-enquiry-form
+      heading="Send Us A Message"
+      successMessage="Thanks — your enquiry has been received. We'll be in touch shortly."
+    />
+  </div>
+</section>

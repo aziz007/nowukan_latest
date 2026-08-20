@@ -2,29 +2,23 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-adult-education',
+  selector: 'app-brochure',
   standalone: true,
   imports: [RouterLink],
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <p class="eyebrow">Programmes</p>
-        <h1 class="section-title">Adult Education</h1>
+        <p class="eyebrow">Brochure</p>
+        <h1 class="section-title">Explore nowUKan</h1>
 
         <p class="sub">
-          nowUKan is ideal to support adult learners with accessible English language
-          development and assessment that can complement existing education and training
-          programmes.
+          Discover more about nowUKan, our solutions, technology and approach to English
+          language development and assessment.
         </p>
 
         <p>
-          We provide practical language practice, pronunciation feedback and structured
-          learning that can be used in classrooms or independently at home, helping to develop
-          your vocabulary and build your language confidence.
-        </p>
-        <p>
-          Its low cost and offline capability can help education providers reach more learners
-          while working within limited budgets.
+          Browse our range of brochures to find the information most relevant to you, whether
+          you are a learner, educator, organisation, government, NGO or potential partner.
         </p>
         <p>
           If you are a language tutor, nowUKan can complement and reinforce the English
@@ -36,9 +30,16 @@ import { RouterLink } from '@angular/router';
           continued language development and confidence.
         </p>
         <p>
-          Through our affiliate programme, you can also generate an additional income stream by
-          recommending nowUKan to your students.
+          Through our affiliate programme, you can also generate an additional income stream
+          by recommending nowUKan to your students.
         </p>
+
+        <p class="note"><strong>View, download and share our brochures.</strong></p>
+
+        <div class="btn-row">
+          <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
+          <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
+        </div>
 
         <div class="btn-row">
           <a routerLink="/pricing" class="btn btn-gold">Register Now</a>
@@ -48,4 +49,4 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
 })
-export class AdultEducationComponent {}
+export class BrochureComponent {}

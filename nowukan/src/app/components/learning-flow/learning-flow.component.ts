@@ -28,17 +28,16 @@ export class LearningFlowComponent implements OnInit, OnDestroy {
    * Swap the images in src/assets/journey/ (same filenames) to use real UI.
    */
   readonly screens: JourneyScreen[] = [
-    { id: 'K1', img: 'assets/journey/K1.jpg', title: 'Welcome' },
-    { id: 'K2', img: 'assets/journey/K2.jpg', title: 'Words' },
-    { id: 'K3', img: 'assets/journey/K3.jpg', title: 'Dialogue' },
-    { id: 'K4', img: 'assets/journey/K4.jpg', title: 'Practice' },
-    { id: 'A1', img: 'assets/journey/A1.jpg', title: 'Home Dashboard' },
-    { id: 'A2', img: 'assets/journey/A2.jpg', title: 'Lessons' },
-    { id: 'A3', img: 'assets/journey/A3.jpg', title: 'Skill Levels' },
-    { id: 'A4', img: 'assets/journey/A4.jpg', title: 'Swing-o-meter' },
-    { id: 'T1', img: 'assets/journey/T1.jpg', title: 'Practice & Develop' },
-    { id: 'T2', img: 'assets/journey/T2.jpg', title: 'Speak Confidently' },
-    { id: 'T3', img: 'assets/journey/T3.jpg', title: 'Track Progress' },
+    { id: 's1', img: 'assets/journey/K1.jpg', title: 'Welcome' },
+    { id: 's2', img: 'assets/journey/T1.jpg', title: 'Native Language' },
+    { id: 's3', img: 'assets/journey/A3.jpg', title: 'Skill Level' },
+    { id: 's4', img: 'assets/img/img-9418e1f160.jpeg', title: 'Words' },
+    { id: 's5', img: 'assets/explain/word-speedometer.png', title: 'Swing-o-meter' },
+    { id: 's6', img: 'assets/img/img-7e421e52d5.jpeg', title: 'Phrases' },
+    { id: 's7', img: 'assets/img/img-a808eb8bdb.jpeg', title: 'Dialogue' },
+    { id: 's8', img: 'assets/journey/K4.jpg', title: 'Level 3 Completed' },
+    { id: 's9', img: 'assets/img/img-c8fe49600d.jpeg', title: 'QuickFire' },
+    { id: 's10', img: 'assets/journey/A4.jpg', title: 'Challenge' },
   ];
 
   readonly active = signal(0);

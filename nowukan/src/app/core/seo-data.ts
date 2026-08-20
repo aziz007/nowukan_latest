@@ -43,31 +43,36 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Follow the NowUkan learning journey: from first words to confident real-life conversation, with pronunciation practice at every step.',
   },
   mission: {
-    title: 'Our Mission — NowUkan',
+    title: 'Our Mission — Affordable, Accessible English Learning | NowUkan',
     description:
-      'Our mission is to make real, usable English reachable for every learner, everywhere — affordable, offline-capable and built for scale.',
+      'Our mission is to make English language learning accessible and affordable worldwide — removing barriers of cost, connectivity and access for everyone.',
     schemaType: 'Organization',
   },
   vision: {
-    title: 'Our Vision — NowUkan',
+    title: 'Our Vision — A World Without English Barriers | NowUkan',
     description:
-      'Our vision: a world where language is never the barrier between a person and their potential. Discover what drives NowUkan.',
+      'Our vision: a world where English opportunity has no barriers of cost, connectivity or access — affordable, high-quality English learning for everyone.',
     schemaType: 'Organization',
   },
-  enterprise: {
-    title: 'Enterprise & Institutions — NowUkan',
+  brochure: {
+    title: 'Brochure — Explore nowUKan',
     description:
-      'Roll out NowUkan across your school, university or organisation with dedicated support, licensing and measurable outcomes.',
+      'Browse and download nowUKan brochures for learners, educators, organisations, governments, NGOs and partners, and learn about our affiliate programme.',
+  },
+  enterprise: {
+    title: 'Enterprise — English Learning At Scale | NowUkan',
+    description:
+      'nowUKan Enterprise: high-volume prepaid licences for governments, NGOs, businesses and institutions, with fixed transparent pricing and offline capability.',
   },
   benefits: {
-    title: 'Benefits — Why Choose NowUkan',
+    title: 'Benefits — Learn English Without Subscriptions | NowUkan',
     description:
-      'Why learners, families and institutions choose NowUkan: works offline, one-time low cost, no subscriptions, speech feedback and real-world English.',
+      'Why learners, families and institutions choose NowUkan: works offline, one-time low cost, no subscriptions, on-device speech feedback and real-world English.',
   },
   challenge: {
-    title: 'The Challenge — NowUkan',
+    title: 'The Challenge — Head-to-Head English Test | NowUkan',
     description:
-      'Millions lack affordable access to quality English learning and assessment. See the global challenge NowUkan was built to solve.',
+      'Test your vocabulary, pronunciation and understanding against friends or classmates in the nowUKan Challenge — connect via Bluetooth or Wi-Fi and compete.',
   },
   cart: {
     title: 'Your Cart — NowUkan',
@@ -102,7 +107,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   'institutions/pilot-programme': {
     title: 'Pilot Programme — NowUkan',
     description:
-      'Run a measured NowUkan pilot and see the impact before you scale. Ideal for governments, NGOs and education providers.',
+      'Run a measured nowUKan pilot before scaling regionally or nationally. Free evaluation accounts, tailored pricing — for institutions and government bodies.',
   },
   pricing: {
     title: 'Pricing & Plans — NowUkan',
@@ -127,10 +132,16 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Talk to the NowUkan team or request a pilot for your organisation. Get in touch today.',
     schemaType: 'ContactPage',
   },
-  download: {
-    title: 'Download the App — NowUkan',
+  'book-a-consultation': {
+    title: 'Book A Consultation — NowUkan',
     description:
-      'Download NowUkan free on iOS and Android and start learning real-life English and pronunciation today.',
+      'Book a video consultation with the nowUKan team to discuss licensing, pricing, implementation and large-scale deployment for your organisation.',
+    schemaType: 'ContactPage',
+  },
+  download: {
+    title: 'Free 7-Day Trial — Try nowUKan | NowUkan',
+    description:
+      'Try nowUKan free for 7 days on iOS and Android. No obligation to continue — then one low, one-time cost for life, with no recurring subscription fees.',
   },
   legal: {
     title: 'Legal — NowUkan',
@@ -153,7 +164,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   'data-security': {
     title: 'Data Security — NowUkan',
     description:
-      'How NowUkan protects the security and privacy of our customers and website visitors.',
+      'nowUKan operates offline after installation and never data mines, sells or shares personal information for commercial purposes. Your data belongs to you.',
   },
   collaborate: {
     title: 'Collaborate With Us — NowUkan',
@@ -168,17 +179,17 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   'government': {
     title: 'Government & Public Sector — NowUkan',
     description:
-      'English development and assessment for government and public-sector programmes at national scale.',
+      'Affordable, scalable English language development and assessment for national and regional government programmes, with offline capability for underserved areas.',
   },
   'local-authorities': {
     title: 'Councils & Local Authorities — NowUkan',
     description:
-      'Practical English programmes for councils and local authorities.',
+      'Accessible English language development and assessment for residents, workers and newcomers, helping councils improve integration within limited budgets.',
   },
   'ngos-charities': {
     title: 'NGOs & Charities — NowUkan',
     description:
-      'Affordable, offline-first English learning for NGOs and charities.',
+      'Affordable, offline-first English learning for NGOs and charities supporting refugees, migrants and underserved communities within existing budgets.',
   },
   'universities': {
     title: 'Universities — NowUkan',
@@ -193,17 +204,17 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   'employers': {
     title: 'Employers & Workforce — NowUkan',
     description:
-      'Build workforce English speaking confidence for employability.',
+      'Help employees build the English and communication skills to perform confidently at work, supporting workforce development, career progression and integration.',
   },
   'refugee-integration': {
     title: 'Refugee & Migrant Integration — NowUkan',
     description:
-      'Supporting refugee and migrant integration through accessible English learning.',
+      'Affordable, offline-capable English language support helping refugees and newcomers build confidence and integrate into new communities.',
   },
   'adult-education': {
     title: 'Adult Education & ESOL — NowUkan',
     description:
-      'Self-paced English and ESOL that fits around work and family life.',
+      'Accessible English language development and assessment for adult learners, complementing existing education and training programmes in class or at home.',
   },
   'schools': {
     title: 'Schools & Family Learning — NowUkan',
@@ -226,23 +237,53 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'How NowUkan is deployed and rolled out at institutional scale.',
   },
   'learning-method': {
-    title: 'Learning Methodology — NowUkan',
+    title: 'Learning Method — NowUkan',
     description:
-      'The learning science and structure behind NowUkan.',
+      'Our structured learning journey: vocabulary, phrases, dialogue and pronunciation practice, focused on the real-world English you actually need.',
   },
   'account-management': {
-    title: 'Learner Account Management — NowUkan',
+    title: 'Account Management — NowUkan',
     description:
-      'How learner accounts are assigned, managed and tracked.',
-  },
-  'reporting': {
-    title: 'Measurement & Reporting — NowUkan',
-    description:
-      'Measurable outcomes and reporting for decision-makers.',
+      'How your nowUKan account works, including free trial, paid and Enterprise accounts, and what to do if your device is lost, stolen or replaced.',
   },
   'personal-use': {
-    title: 'Personal & Family Use — NowUkan',
+    title: 'Personal Use — NowUkan',
     description:
-      'Learn real English at your own pace, for you and your family.',
+      'Learn English at your own pace for work, travel, education or everyday life — one-time cost, offline learning, no recurring subscription fees.',
+  },
+  'academia': {
+    title: 'Academia — Universities & Colleges — NowUkan',
+    description:
+      'English language development, pronunciation practice and assessment that complements existing teaching at universities, colleges and academic institutions.',
+  },
+  'individuals': {
+    title: 'Individuals — NowUkan',
+    description:
+      'Develop your English at your own pace with an affordable, one-time-cost solution — offline learning, on-device speech analysis and no recurring fees.',
+  },
+  'partner-with-us': {
+    title: 'Partner With Us — NowUkan',
+    description:
+      'Partner with nowUKan as an educator, NGO, government body, employer, reseller, agent or technology provider to expand access to English learning.',
+  },
+  'bespoke': {
+    title: 'Bespoke Solutions — NowUkan',
+    description:
+      'Tailored nowUKan programmes with bespoke content, activities and learning pathways built around your objectives, learner numbers and budget.',
+  },
+  'installation': {
+    title: 'Installation — NowUkan',
+    description:
+      'Installing nowUKan is quick and works fully offline once installed — ideal for areas with limited or unreliable internet access.',
+  },
+  'translations': {
+    title: 'Translation Support — NowUkan',
+    description:
+      'UI translation support helps learners at lower English fluency levels navigate the nowUKan app in their native language during onboarding.',
+  },
+  'gift': {
+    title: 'Gift nowUKan — NowUkan',
+    description:
+      'Give the gift of English. Sponsor a learner or donate licences with NowUkan.',
   },
 };

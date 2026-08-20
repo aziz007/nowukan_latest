@@ -8,12 +8,34 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">Learning Methodology</div>
-        <p class="sub">The learning science and structure behind NowUkan.</p>
-        <p>Full content for this page is coming soon.</p>
+        <p class="eyebrow">How It Works</p>
+        <h1 class="section-title">Learning Method</h1>
+
+        <p class="sub">
+          nowUKan uses a structured and practical approach to English language development,
+          helping learners build their skills progressively through vocabulary, phrases,
+          dialogue, pronunciation and language retention.
+        </p>
+
+        <p>
+          Our learning journey is designed to encourage regular practice, reinforce learning
+          and build confidence in real-world English communication.
+        </p>
+        <p>
+          We focus on the English you are most likely to use in everyday life, rather than
+          teaching unnecessary or rarely used language. Our approach helps you develop
+          practical vocabulary, strengthen your overall language skills and build the
+          confidence to use English in real-world situations.
+        </p>
+        <p>
+          Take a Free 7 Day Trial and start your English language journey with nowUKan today.
+        </p>
+
+        <p class="note"><strong>Learn. Practise. Retain. Progress.</strong></p>
+
         <div class="btn-row">
-          <a routerLink="/contact" class="btn btn-primary">Contact Our Team</a>
-          <a routerLink="/download" class="btn btn-dark">Free Trial</a>
+          <a routerLink="/pricing" class="btn btn-gold">Register Now</a>
+          <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
         </div>
       </div>
     </section>

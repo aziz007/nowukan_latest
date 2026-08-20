@@ -1,0 +1,76 @@
+<h3>{{ heading }}</h3>
+
+@if (submitted()) {
+  <p class="footer-signup-thanks">{{ successMessage }}</p>
+}
+
+<form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="form-grid">
+    <div class="form-field">
+      <label for="ef-name">Name *</label>
+      <input id="ef-name" type="text" class="form-input" formControlName="name" autocomplete="name" />
+      @if (attemptedSubmit() && form.controls.name.invalid) {
+        <span class="form-error">Please enter your name.</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="ef-email">Email Address *</label>
+      <input id="ef-email" type="email" class="form-input" formControlName="email" autocomplete="email" />
+      @if (attemptedSubmit() && form.controls.email.invalid) {
+        <span class="form-error">Please enter a valid email address.</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="ef-location">Global Location *</label>
+      <input id="ef-location" type="text" class="form-input" formControlName="location" autocomplete="country-name" placeholder="Country / region" />
+      @if (attemptedSubmit() && form.controls.location.invalid) {
+        <span class="form-error">Please enter your location.</span>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="ef-company">Company Name</label>
+      <input id="ef-company" type="text" class="form-input" formControlName="company" autocomplete="organization" />
+    </div>
+
+    <div class="form-field">
+      <label for="ef-website">Website</label>
+      <input id="ef-website" type="text" class="form-input" formControlName="website" autocomplete="url" placeholder="https://" />
+    </div>
+
+    <div class="form-field">
+      <label for="ef-topic">What Can We Help You With? *</label>
+      <select id="ef-topic" class="form-input" formControlName="topic">
+        <option value="" disabled selected>Please select...</option>
+        @for (topic of topics; track topic) {
+          <option [value]="topic">{{ topic }}</option>
+        }
+      </select>
+      @if (attemptedSubmit() && form.controls.topic.invalid) {
+        <span class="form-error">Please choose an option.</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-field form-field-full">
+    <label for="ef-message">Tell Us More</label>
+    <textarea id="ef-message" class="form-input form-textarea" rows="5" formControlName="message"></textarea>
+  </div>
+
+  <!-- Honeypot field: hidden from real users, only bots tend to fill this in. -->
+  <div class="hp-field" aria-hidden="true">
+    <label for="ef-website2">Leave this field blank</label>
+    <input id="ef-website2" type="text" formControlName="website2" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <p class="note">
+    By submitting the sign-up form, you are confirming that you accept and agree to our
+    <a routerLink="/legal/terms">Terms</a> &amp; <a routerLink="/legal/privacy">Privacy Policy</a>.
+  </p>
+
+  <div class="btn-row">
+    <button type="submit" class="btn btn-gold">Submit Enquiry</button>
+  </div>
+</form>
