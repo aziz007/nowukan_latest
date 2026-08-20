@@ -62,7 +62,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   enterprise: {
     title: 'Enterprise — English Learning At Scale | NowUkan',
     description:
-      'nowUKan Enterprise: high-volume prepaid licences for governments, NGOs, businesses and institutions, with fixed transparent pricing and offline capability.',
+      'nowUKan Enterprise: high-volume prepaid licences with fixed, transparent pricing for governments, businesses and institutions — no recurring subscriptions.',
   },
   benefits: {
     title: 'Benefits — Learn English Without Subscriptions | NowUkan',
@@ -115,9 +115,9 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Simple, affordable plans for learners, families and institutions. See NowUkan pricing and start a free trial.',
   },
   about: {
-    title: 'About NowUkan',
+    title: 'About The Team — Where Innovation Meets Excellence | NowUkan',
     description:
-      'NowUkan makes real English reachable for everyone. Learn about our approach to affordable, inclusive English learning.',
+      'Meet the team behind nowUKan — building in-house technology and content to make English language learning simpler, more affordable and accessible worldwide.',
     schemaType: 'Organization',
   },
   faqs: {
@@ -138,6 +138,11 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Book a video consultation with the nowUKan team to discuss licensing, pricing, implementation and large-scale deployment for your organisation.',
     schemaType: 'ContactPage',
   },
+  'get-started': {
+    title: 'Get Started — NowUkan',
+    description:
+      'Personal use or multiple user licences? Start a free 7-day trial, or book a consultation for tailored, transparent pricing on volume licences.',
+  },
   download: {
     title: 'Free 7-Day Trial — Try nowUKan | NowUkan',
     description:
@@ -149,12 +154,14 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     noindex: true,
   },
   'legal/terms': {
-    title: 'Our Terms — NowUkan',
-    description: 'The Terms of Service that govern use of the NowUkan website and app.',
+    title: 'Terms & Conditions — NowUkan',
+    description:
+      'The full Terms and Conditions governing use of the nowUKan website, app and Enterprise licensing programme.',
   },
   'legal/privacy': {
     title: 'Privacy Policy — NowUkan',
-    description: 'How NowUkan collects, uses and protects your personal data.',
+    description:
+      'How nowUKan Ltd collects, uses, stores and protects your personal data, and your rights under UK data protection law.',
   },
   'equal-opportunities': {
     title: 'Equal Opportunities — NowUkan',
@@ -284,6 +291,6 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   'gift': {
     title: 'Gift nowUKan — NowUkan',
     description:
-      'Give the gift of English. Sponsor a learner or donate licences with NowUkan.',
+      'Give someone the gift of English. An affordable way to give a friend, family member, colleague or employee access to nowUKan.',
   },
 };

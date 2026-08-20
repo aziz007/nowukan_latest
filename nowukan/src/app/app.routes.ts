@@ -105,6 +105,11 @@ export const routes: Routes = [
       import('./pages/contact/contact.component').then((m) => m.ContactComponent),
   },
   {
+    path: 'get-started',
+    loadComponent: () =>
+      import('./pages/get-started/get-started.component').then((m) => m.GetStartedComponent),
+  },
+  {
     path: 'book-a-consultation',
     loadComponent: () =>
       import('./pages/book-a-consultation/book-a-consultation.component').then(

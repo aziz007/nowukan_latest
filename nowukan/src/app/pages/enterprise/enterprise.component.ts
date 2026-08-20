@@ -11,29 +11,29 @@ import { RouterLink } from '@angular/router';
         <p class="eyebrow">Enterprise</p>
         <h1 class="section-title">English Language Development at Scale</h1>
 
-        <p class="sub">
-          Designed for organisations that need to provide English language development and
-          assessment to large numbers of learners, nowUKan Enterprise offers high-volume
-          prepaid user licences that can be purchased and distributed across your organisation
-          or wider network.
-        </p>
+        <p class="sub">Need to provide English language development to a large number of users?</p>
 
         <p>
-          Ideal for governments, NGOs, businesses, educational institutions and large-scale
-          programmes, our Enterprise Scheme provides a simple and extremely cost-effective way
-          to extend access to English language learning and assessment.
-        </p>
-
-        <p class="note"><strong>Buy. Distribute. Empower.</strong></p>
-
-        <p>
-          Purchase prepaid user licences in volume and distribute them across your employees,
-          students, colleagues, schools, universities, communities or wider network.
+          Our Enterprise Programme is designed for organisations that need to provide
+          high-quality English language development and assessment to large numbers of
+          learners, without the complexity or cost of traditional subscription-based
+          solutions.
         </p>
         <p>
-          With a scalable and affordable approach, nowUKan Enterprise provides a fixed,
-          transparent cost that does not change, helping organisations plan their budgets with
-          confidence while reaching more learners.
+          The programme provides high-volume prepaid user licences that organisations can
+          distribute across employees, students, schools, universities, communities, partner
+          organisations or wider networks.
+        </p>
+        <p>
+          Whether you are supporting a workforce, delivering an education or training
+          programme, widening access within a community, or providing English language
+          development across multiple locations, nowUKan offers a flexible and scalable
+          approach.
+        </p>
+        <p>
+          With fixed, transparent pricing, no recurring monthly subscriptions and scalable
+          deployment, organisations can plan their budgets with confidence while extending
+          access to more learners.
         </p>
 
         <div class="feature-pills benefits-pills">
@@ -43,6 +43,23 @@ import { RouterLink } from '@angular/router';
           <div class="pill"><span class="pill-ico pill-emoji">💰</span>Cost Effective</div>
           <div class="pill"><span class="pill-ico pill-emoji">🌍</span>Scalable</div>
         </div>
+
+        <h3>Our Enterprise Programme Can Help You</h3>
+        <ul class="collab-list">
+          <li>Provide English language development and assessment to large user groups</li>
+          <li>Allocate licences across different teams, departments, schools or programmes</li>
+          <li>Scale access as your learner population grows</li>
+          <li>Keep costs predictable, fixed and transparent</li>
+          <li>Support learners across multiple locations and communities, including rural communities</li>
+          <li>Combine language development and assessment within one accessible platform</li>
+          <li>Avoid the complexity of managing individual learner subscriptions</li>
+        </ul>
+
+        <p>
+          Whether you need licences for hundreds, thousands or millions of users, we can work
+          with you to understand your requirements and provide a cost-effective and scalable
+          solution.
+        </p>
 
         <h3>Built for Large-Scale Impact</h3>
         <p>
@@ -59,13 +76,8 @@ import { RouterLink } from '@angular/router';
         <p class="note"><strong>One organisation. Thousands of learners. One simple solution.</strong></p>
 
         <p>
-          To discuss our Enterprise programme, arrange a video call with a senior member of our
-          team.
-        </p>
-        <p>
-          We will take the time to understand your requirements, help you launch a trial
-          programme, and recommend the most suitable and cost-effective package for your
-          organisation.
+          Explore our Enterprise Programme and discover how nowUKan can help you make English
+          language development more accessible at scale.
         </p>
 
         <p class="note"><strong>Note:</strong> minimum order requirements apply to the Enterprise programme.</p>
