@@ -1,0 +1,105 @@
+<section class="page-shell">
+  <div class="container prose">
+    <p class="eyebrow">Get Started</p>
+    <h1 class="section-title">Register Now</h1>
+    <p class="sub">Create your nowUKan account and start your free 7-day trial.</p>
+
+    @if (submitted()) {
+      <p class="footer-signup-thanks">
+        Thanks — your account request has been received. Check your email to get started.
+      </p>
+    } @else {
+      <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="rg-firstName">First Name *</label>
+            <input id="rg-firstName" type="text" class="form-input" formControlName="firstName" autocomplete="given-name" />
+            @if (attemptedSubmit() && form.controls.firstName.invalid) {
+              <span class="form-error">Please enter your first name.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="rg-lastName">Last Name *</label>
+            <input id="rg-lastName" type="text" class="form-input" formControlName="lastName" autocomplete="family-name" />
+            @if (attemptedSubmit() && form.controls.lastName.invalid) {
+              <span class="form-error">Please enter your last name.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="rg-email">Email Address *</label>
+            <input id="rg-email" type="email" class="form-input" formControlName="email" autocomplete="email" />
+            @if (attemptedSubmit() && form.controls.email.invalid) {
+              <span class="form-error">Please enter a valid email address.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="rg-contact">Phone Number</label>
+            <input id="rg-contact" type="tel" class="form-input" formControlName="contact" autocomplete="tel" placeholder="+44 7700 900000" />
+          </div>
+
+          <div class="form-field">
+            <label for="rg-password">Password *</label>
+            <input id="rg-password" type="password" class="form-input" formControlName="password" autocomplete="new-password" />
+            @if (attemptedSubmit() && form.controls.password.invalid) {
+              <span class="form-error">Password must be at least 8 characters.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="rg-password2">Confirm Password *</label>
+            <input id="rg-password2" type="password" class="form-input" formControlName="password_confirmation" autocomplete="new-password" />
+            @if (attemptedSubmit() && form.errors?.['passwordMismatch']) {
+              <span class="form-error">Passwords do not match.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="rg-location">Location</label>
+            <input id="rg-location" type="text" class="form-input" formControlName="location" autocomplete="country-name" placeholder="Country / region" />
+          </div>
+
+          <div class="form-field">
+            <label for="rg-age">Age</label>
+            <input id="rg-age" type="number" min="0" class="form-input" formControlName="age" />
+            @if (attemptedSubmit() && form.controls.age.errors?.['tooYoung']) {
+              <span class="form-error">You must be 14 or over to register (or have a parent/guardian register on your behalf).</span>
+            }
+          </div>
+        </div>
+
+        <div class="form-field form-field-full">
+          <label class="form-checkbox">
+            <input type="checkbox" formControlName="agreeTerms" />
+            <span>
+              I accept and agree to the
+              <a routerLink="/legal/terms">Terms &amp; Conditions</a> and
+              <a routerLink="/legal/privacy">Privacy Policy</a>. *
+            </span>
+          </label>
+          @if (attemptedSubmit() && form.controls.agreeTerms.invalid) {
+            <span class="form-error">You must accept the Terms &amp; Conditions and Privacy Policy to continue.</span>
+          }
+        </div>
+
+        <!-- Honeypot field: hidden from real users, only bots tend to fill this in. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="rg-website2">Leave this field blank</label>
+          <input id="rg-website2" type="text" formControlName="website2" tabindex="-1" autocomplete="off" />
+        </div>
+
+        @if (errorMessage()) {
+          <p class="form-error form-error-banner">{{ errorMessage() }}</p>
+        }
+
+        <div class="btn-row">
+          <button type="submit" class="btn btn-gold" [disabled]="submitting()">
+            {{ submitting() ? 'Creating your account…' : 'Register Now' }}
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</section>

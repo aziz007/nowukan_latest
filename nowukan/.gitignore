@@ -4,3 +4,4 @@
 /ngtmp
 *.log
 .DS_Store
+.env

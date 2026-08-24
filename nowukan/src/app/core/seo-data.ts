@@ -143,6 +143,12 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     description:
       'Personal use or multiple user licences? Start a free 7-day trial, or book a consultation for tailored, transparent pricing on volume licences.',
   },
+  'register': {
+    title: 'Register Now — Create Your Account | NowUkan',
+    description:
+      'Create your free nowUKan account and start your 7-day trial. One-time pricing, no recurring subscription fees.',
+    noindex: true,
+  },
   download: {
     title: 'Free 7-Day Trial — Try nowUKan | NowUkan',
     description:

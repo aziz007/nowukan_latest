@@ -48,7 +48,7 @@ import { RouterLink } from '@angular/router';
         </ul>
 
         <div class="btn-row">
-          <a routerLink="/pricing" class="btn btn-gold">Register Now</a>
+          <a routerLink="/register" class="btn btn-gold">Register Now</a>
           <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
         </div>
       </div>

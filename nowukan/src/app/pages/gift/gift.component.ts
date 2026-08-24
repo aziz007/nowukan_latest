@@ -28,7 +28,7 @@ import { RouterLink } from '@angular/router';
         <p class="note"><strong>Give the gift of English and help change someone's life forever!</strong></p>
 
         <div class="btn-row">
-          <a routerLink="/pricing" class="btn btn-gold">Register Now</a>
+          <a routerLink="/register" class="btn btn-gold">Register Now</a>
           <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
         </div>
       </div>

@@ -110,6 +110,11 @@ export const routes: Routes = [
       import('./pages/get-started/get-started.component').then((m) => m.GetStartedComponent),
   },
   {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/register/register.component').then((m) => m.RegisterComponent),
+  },
+  {
     path: 'book-a-consultation',
     loadComponent: () =>
       import('./pages/book-a-consultation/book-a-consultation.component').then(

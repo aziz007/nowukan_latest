@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
@@ -13,6 +14,65 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+app.use(express.json());
+
+/**
+ * Registration proxy.
+ *
+ * The Angular app (browser code) must never hold the nowUKan external API
+ * key directly — anything shipped to the browser is public. This route
+ * runs server-side only, attaches the key from the environment, and
+ * forwards the request to the real API.
+ *
+ * Configure EXTERNAL_API_KEY and (optionally) EXTERNAL_API_BASE_URL via
+ * environment variables — see .env.example.
+ */
+app.post('/api/register', async (req, res) => {
+  const apiKey = process.env['EXTERNAL_API_KEY'];
+  const baseUrl =
+    process.env['EXTERNAL_API_BASE_URL'] || 'https://staging.nowukan.app/api/external';
+
+  if (!apiKey) {
+    console.error('EXTERNAL_API_KEY is not set — registration proxy cannot run.');
+    res.status(500).json({ error: 'Registration is temporarily unavailable.' });
+    return;
+  }
+
+  const { firstName, lastName, email, password, password_confirmation, contact, location, age } =
+    req.body ?? {};
+
+  if (!firstName || !lastName || !email || !password || !password_confirmation) {
+    res.status(400).json({ error: 'Missing required fields.' });
+    return;
+  }
+
+  try {
+    const upstream = await fetch(`${baseUrl}/users`, {
+      method: 'POST',
+      headers: {
+        'X-API-Key': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        password,
+        password_confirmation,
+        contact: contact || null,
+        location: location || null,
+        age: age || null,
+      }),
+    });
+
+    const data = await upstream.json().catch(() => ({}));
+    res.status(upstream.status).json(data);
+  } catch (err) {
+    console.error('Registration proxy error:', err);
+    res.status(502).json({ error: 'Unable to reach the registration service. Please try again.' });
+  }
+});
 
 /** Serve static files from the browser build. */
 app.use(

@@ -339,3 +339,10 @@ select.form-input option{background:#06142B;color:#fff}
 .path-grid .card{min-height:0}
 .path-grid .card .btn-row{margin-top:20px}
 @media(max-width:760px){.path-grid{grid-template-columns:1fr}}
+
+/* --- Register form: checkbox + error banner + disabled button --- */
+.form-checkbox{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#c9d3e4;cursor:pointer}
+.form-checkbox input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--blue)}
+.form-checkbox a{color:var(--gold2)}
+.form-error-banner{background:rgba(229,72,77,.1);border:1px solid rgba(229,72,77,.35);border-radius:8px;padding:12px 14px;margin:16px 0 0;font-size:13.5px}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
