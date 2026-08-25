@@ -8,17 +8,23 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">Collaborate With Us</div>
+        <p class="eyebrow">Collaborate</p>
+        <h1 class="section-title">Collaborate With Us</h1>
 
         <p class="sub">We welcome collaboration with like-minded professionals worldwide.</p>
 
-        <ul class="collab-list">
-          <li><strong>EdTech Sales Leaders</strong></li>
-          <li><strong>KOL &amp; Influencers</strong></li>
-          <li><strong>Marketing Agencies</strong></li>
-          <li><strong>Governments &amp; NGOs</strong></li>
-          <li><strong>eLearning Providers</strong></li>
-          <li><strong>Academic Institutions</strong></li>
+        <ul>
+          <li>Marketing agencies</li>
+          <li>Influencers / KOL's</li>
+          <li>Educational professionals</li>
+          <li>Teachers and lecturers</li>
+          <li>Academic institutions</li>
+          <li>Edtech providers</li>
+          <li>Training providers / VET</li>
+          <li>Government and non-government organisations</li>
+          <li>HR and Learning &amp; Development teams</li>
+          <li>Policy makers and public-sector bodies</li>
+          <li>Journalists and industry publications</li>
         </ul>
 
         <p>
@@ -50,7 +56,7 @@ import { RouterLink } from '@angular/router';
         </p>
 
         <div class="btn-row">
-          <a routerLink="/contact" class="btn btn-primary">Contact The Team</a>
+          <a routerLink="/book-a-consultation" class="btn btn-primary">Contact The Team</a>
           <a routerLink="/" class="btn btn-dark">Back to Home</a>
         </div>
       </div>

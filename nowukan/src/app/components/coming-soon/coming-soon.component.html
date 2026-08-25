@@ -1,0 +1,37 @@
+@if (visible()) {
+  <div class="coming-soon-backdrop" role="dialog" aria-modal="true" aria-label="Coming soon">
+    <div class="coming-soon-modal">
+      <button type="button" class="coming-soon-close" (click)="close()" aria-label="Close">&times;</button>
+
+      <p class="eyebrow">Coming Soon</p>
+      <h2>The nowUKan App Will Be Available To Trial And Buy Very Soon</h2>
+
+      <p>
+        We're putting the finishing touches in place and can't wait for you to get started.
+      </p>
+
+      @if (signedUp()) {
+        <p class="footer-signup-thanks">
+          Thanks — we'll let you know as soon as the app is ready to try.
+        </p>
+      } @else {
+        <p class="coming-soon-signup-label">
+          Sign up for updates and we'll let you know as soon as the app is ready to try.
+        </p>
+        <div class="footer-signup-row">
+          <input
+            type="email"
+            class="footer-signup-input"
+            placeholder="Your email address"
+            aria-label="Email address"
+            [value]="email()"
+            (input)="email.set($any($event.target).value)"
+          />
+          <button type="button" class="btn btn-gold" (click)="subscribe()">Notify Me</button>
+        </div>
+      }
+
+      <button type="button" class="coming-soon-dismiss" (click)="close()">Continue browsing</button>
+    </div>
+  </div>
+}

@@ -1,7 +1,7 @@
 <nav class="nav">
   <div class="nav-inner">
-    <a routerLink="/" class="brand-integrated" aria-label="NowUkan">
-      <img src="assets/img/img-41e07446e0.png" alt="NowUkan logo" />
+    <a routerLink="/" class="brand-integrated" aria-label="nowUKan">
+      <img src="assets/img/img-41e07446e0.png" alt="nowUKan logo" />
     </a>
 
     <div class="nav-links">
@@ -12,7 +12,7 @@
         </svg>
       </a>
       <a routerLink="/journey">Journey</a>
-      <a routerLink="/" fragment="benefits">Benefits</a>
+      <a routerLink="/benefits">Benefits</a>
       <a routerLink="/mission">Mission</a>
       <a routerLink="/vision">Vision</a>
       <a routerLink="/brochure">Brochure</a>
@@ -46,6 +46,7 @@
   </div>
 </nav>
 
+<div class="drawer-backdrop" [class.open]="drawerOpen()" (click)="closeDrawer()"></div>
 <div class="drawer drawer-mega" [class.open]="drawerOpen()" id="fullMenu">
   <div class="drawer-cols">
     <div class="drawer-group">

@@ -4,12 +4,12 @@
     <h1 class="section-title">Contact Us</h1>
     <p class="sub">Talk to the team, get support, or explore a partnership with nowUKan.</p>
 
-    <div class="contact-cards">
+    <div class="contact-mail-list">
       @for (account of mailAccounts; track account.address) {
-        <a class="contact-card" [href]="account.mailto">
-          <span class="contact-card-label">{{ account.label }}</span>
-          <span class="contact-card-email">{{ account.address }}</span>
-        </a>
+        <div class="contact-mail-row">
+          <span class="contact-mail-label">{{ account.label }}</span>
+          <a class="contact-mail-email" [href]="account.mailto">{{ account.address }}</a>
+        </div>
       }
     </div>
 

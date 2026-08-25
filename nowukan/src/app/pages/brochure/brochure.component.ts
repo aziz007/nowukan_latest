@@ -36,6 +36,17 @@ import { RouterLink } from '@angular/router';
 
         <p class="note"><strong>View, download and share our brochures.</strong></p>
 
+        <h3>Download A Regional Brochure</h3>
+        <ul class="brochure-list">
+          <li><a href="assets/brochures/european.pdf" target="_blank" rel="noopener">European</a></li>
+          <li><a href="assets/brochures/south-asia.pdf" target="_blank" rel="noopener">South Asia</a></li>
+          <li><a href="assets/brochures/south-east-asia.pdf" target="_blank" rel="noopener">South East Asia</a></li>
+          <li><a href="assets/brochures/south-america.pdf" target="_blank" rel="noopener">South America</a></li>
+          <li><a href="assets/brochures/middle-east.pdf" target="_blank" rel="noopener">Middle East</a></li>
+          <li><a href="assets/brochures/african-continent.pdf" target="_blank" rel="noopener">African Continent</a></li>
+          <li><a href="assets/brochures/chinese.pdf" target="_blank" rel="noopener">Chinese</a></li>
+        </ul>
+
         <div class="btn-row">
           <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
           <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
@@ -43,7 +54,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="btn-row">
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/register" class="btn btn-primary">Buy Now</a>
         </div>
       </div>
     </section>

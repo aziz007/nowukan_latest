@@ -28,12 +28,17 @@ import { RouterLink } from '@angular/router';
           <div class="pill"><span class="pill-ico pill-emoji">🚫</span>No adverts to interrupt your learning</div>
         </div>
 
-        <p>
-          Powered by OSIE, our Offline Speech Intelligence Engine, nowUKan delivers speech
-          feedback directly on the device, helping learners develop pronunciation, vocabulary,
-          confidence and practical English skills without relying on a continuous internet
-          connection.
-        </p>
+        <div class="benefit-shot">
+          <figure class="step-phone">
+            <img src="assets/explain/word-speedometer.png" alt="nowUKan on-device pronunciation scoring screen" />
+          </figure>
+          <p>
+            Powered by OSIE, our Offline Speech Intelligence Engine, nowUKan delivers speech
+            feedback directly on the device, helping learners develop pronunciation,
+            vocabulary, confidence and practical English skills without relying on a
+            continuous internet connection.
+          </p>
+        </div>
 
         <h3>Real-World Impact</h3>
         <p>
@@ -63,7 +68,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="btn-row">
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/pricing" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/register" class="btn btn-primary">Buy Now</a>
         </div>
       </div>
     </section>

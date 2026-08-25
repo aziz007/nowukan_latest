@@ -45,7 +45,7 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <h3>Our Enterprise Programme Can Help You</h3>
-        <ul class="collab-list">
+        <ul>
           <li>Provide English language development and assessment to large user groups</li>
           <li>Allocate licences across different teams, departments, schools or programmes</li>
           <li>Scale access as your learner population grows</li>

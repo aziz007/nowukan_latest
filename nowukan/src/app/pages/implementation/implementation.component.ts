@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
     <section class="page-shell">
       <div class="container prose">
         <div class="section-title">Implementation and Deployment</div>
-        <p class="sub">How NowUkan is deployed and rolled out at institutional scale.</p>
+        <p class="sub">How nowUKan is deployed and rolled out at institutional scale.</p>
         <p>Full content for this page is coming soon.</p>
         <div class="btn-row">
           <a routerLink="/contact" class="btn btn-primary">Contact Our Team</a>

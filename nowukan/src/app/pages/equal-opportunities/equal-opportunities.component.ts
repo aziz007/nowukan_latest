@@ -8,7 +8,8 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">Equal Opportunities</div>
+        <p class="eyebrow">About</p>
+        <h1 class="section-title">Equal Opportunities</h1>
 
         <p class="sub">
           We believe that the English language unlocks opportunities, drives economic

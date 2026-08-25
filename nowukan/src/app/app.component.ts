@@ -4,12 +4,13 @@ import { filter } from 'rxjs/operators';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GdprComponent } from './components/gdpr/gdpr.component';
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 import { SeoService } from './core/seo.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, FooterComponent, GdprComponent],
+  imports: [RouterOutlet, NavComponent, FooterComponent, GdprComponent, ComingSoonComponent],
   template: `
     <app-nav />
     <main>
@@ -17,6 +18,7 @@ import { SeoService } from './core/seo.service';
     </main>
     <app-footer />
     <app-gdpr />
+    <app-coming-soon />
   `,
 })
 export class AppComponent {

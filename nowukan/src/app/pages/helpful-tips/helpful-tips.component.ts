@@ -8,7 +8,8 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container prose">
-        <div class="section-title">Helpful Tips &amp; Advice</div>
+        <p class="eyebrow">Helpful Tips</p>
+        <h1 class="section-title">Helpful Tips &amp; Advice</h1>
 
         <p class="sub">
           We all learn differently and at our own pace, so one approach will never suit
@@ -51,6 +52,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="btn-row">
           <a routerLink="/download" class="btn btn-primary">Free Trial</a>
+          <a routerLink="/register" class="btn btn-gold">Buy Now</a>
           <a routerLink="/" class="btn btn-dark">Back to Home</a>
         </div>
       </div>

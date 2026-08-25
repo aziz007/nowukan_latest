@@ -109,15 +109,16 @@ export class RegisterComponent {
       }
 
       const data = await response.json().catch(() => ({}));
+      const specificMessage = this.extractErrorMessage(data);
 
       if (response.status === 422) {
         this.errorMessage.set(
-          data?.message ||
+          specificMessage ||
             'That email address is already registered. Try logging in instead, or use a different email.',
         );
       } else {
         this.errorMessage.set(
-          data?.message || 'Something went wrong creating your account. Please try again.',
+          specificMessage || `Something went wrong creating your account (status ${response.status}). Please try again.`,
         );
       }
     } catch {
@@ -127,5 +128,17 @@ export class RegisterComponent {
     } finally {
       this.submitting.set(false);
     }
+  }
+
+  /** Handles a few common API error shapes: {message}, {error}, {errors: {field: [msg]}}. */
+  private extractErrorMessage(data: any): string | null {
+    if (!data) return null;
+    if (typeof data.message === 'string') return data.message;
+    if (typeof data.error === 'string') return data.error;
+    if (data.errors && typeof data.errors === 'object') {
+      const messages = Object.values(data.errors).flat();
+      if (messages.length) return messages.join(' ');
+    }
+    return null;
   }
 }

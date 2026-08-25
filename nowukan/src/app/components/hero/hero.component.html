@@ -22,7 +22,7 @@
         <div class="pill"><img class="pill-ico" src="assets/icons/real-world-english.png" alt="" />Real world English</div>
       </div>
     </div>
-    <div class="hero-carousel" aria-label="NowUkan app screens">
+    <div class="hero-carousel" aria-label="nowUKan app screens">
       <div class="carousel-stage">
         @for (screen of screens; track screen; let i = $index) {
           <figure
@@ -32,7 +32,7 @@
             [class.is-back]="slot(i) === 2"
             [class.is-hidden]="slot(i) > 2"
           >
-            <img [src]="screen" [alt]="'NowUkan app screen ' + (i + 1)" />
+            <img [src]="screen" [alt]="'nowUKan app screen ' + (i + 1)" />
           </figure>
         }
       </div>
