@@ -28,16 +28,9 @@ export class LearningFlowComponent implements OnInit, OnDestroy {
    * Swap the images in src/assets/journey/ (same filenames) to use real UI.
    */
   readonly screens: JourneyScreen[] = [
-    { id: 's1', img: 'assets/journey/K1.jpg', title: 'Welcome' },
-    { id: 's2', img: 'assets/journey/T1.jpg', title: 'Native Language' },
-    { id: 's3', img: 'assets/journey/A3.jpg', title: 'Skill Level' },
-    { id: 's4', img: 'assets/img/img-9418e1f160.jpeg', title: 'Words' },
-    { id: 's5', img: 'assets/explain/word-speedometer.png', title: 'Swing-o-meter' },
-    { id: 's6', img: 'assets/img/img-7e421e52d5.jpeg', title: 'Phrases' },
-    { id: 's7', img: 'assets/img/img-a808eb8bdb.jpeg', title: 'Dialogue' },
-    { id: 's8', img: 'assets/journey/K4.jpg', title: 'Level 3 Completed' },
-    { id: 's9', img: 'assets/img/img-c8fe49600d.jpeg', title: 'QuickFire' },
-    { id: 's10', img: 'assets/journey/A4.jpg', title: 'Challenge' },
+    { id: 's1', img: 'assets/journey/K2.png', title: 'Junior' },
+    { id: 's2', img: 'assets/journey/A1.png', title: 'Skilled' },
+    { id: 's3', img: 'assets/journey/T1.png', title: 'Advanced' },
   ];
 
   readonly active = signal(0);

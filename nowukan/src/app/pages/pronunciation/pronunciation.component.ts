@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container">
-        <div class="section-title">Pronunciation</div>
+        <h1 class="section-title">Pronunciation</h1>
         <p class="sub">Real-time feedback that helps every sound land clearly.</p>
         <div class="btn-row">
           <a routerLink="/download" class="btn btn-primary">Download the App</a>

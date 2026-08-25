@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container">
-        <div class="section-title">Your Cart</div>
+        <h1 class="section-title">Your Cart</h1>
         <p class="sub">
           Your cart is empty for now. Checkout will be available here shortly.
         </p>

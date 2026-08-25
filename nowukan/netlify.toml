@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "dist/nowukan/browser"
   functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
+
+# Site-wide password gate — runs before every page is served.
+[[edge_functions]]
+  path = "/*"
+  function = "gate"
 
 # The Angular app calls /api/register — transparently route that to the
 # Netlify Function so no frontend code needs to know about the

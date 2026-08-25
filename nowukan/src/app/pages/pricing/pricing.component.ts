@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <section class="page-shell">
       <div class="container">
-        <div class="section-title">Pricing</div>
+        <h1 class="section-title">Pricing</h1>
         <p class="sub">Simple plans for learners, families and institutions.</p>
         <div class="btn-row">
           <a routerLink="/download" class="btn btn-primary">Download the App</a>
