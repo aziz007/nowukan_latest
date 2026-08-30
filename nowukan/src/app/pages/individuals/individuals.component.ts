@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Sectors</p>
         <h1 class="section-title">Individuals</h1>
 

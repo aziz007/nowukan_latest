@@ -3,7 +3,7 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <div class="hero-tagline">Affordable English. Limitless Opportunities.</div>
-      <h1>English Language Development &amp; Speech Assessment <span>— Accessible to Everyone</span></h1>
+      <h1>English Language Development &amp; Speech Assessment <span>Accessible to Everyone</span></h1>
       <p class="lead">nowUKan is a next-generation English language development and speech assessment platform designed to make high-quality English learning and assessment more affordable, accessible and inclusive.</p>
       <p class="lead">Built for learners, schools, colleges, universities, governments, NGOs, employers and education programmes, nowUKan combines practical English development with speech and pronunciation practice in a simple, engaging and scalable solution that works completely offline after installation.</p>
       <div class="btn-row hero-btns">
@@ -22,31 +22,8 @@
         <div class="pill"><img class="pill-ico" src="assets/icons/real-world-english.png" alt="" />Real world English</div>
       </div>
     </div>
-    <div class="hero-carousel" aria-label="nowUKan app screens">
-      <div class="carousel-stage">
-        @for (screen of screens; track screen; let i = $index) {
-          <figure
-            class="carousel-phone"
-            [class.is-front]="slot(i) === 0"
-            [class.is-right]="slot(i) === 1"
-            [class.is-back]="slot(i) === 2"
-            [class.is-hidden]="slot(i) > 2"
-          >
-            <img [src]="screen" [alt]="'nowUKan app screen ' + (i + 1)" />
-          </figure>
-        }
-      </div>
-      <div class="carousel-dots">
-        @for (screen of screens; track screen; let i = $index) {
-          <button
-            type="button"
-            class="carousel-dot"
-            [class.active]="active() === i"
-            [attr.aria-label]="'Show app screen ' + (i + 1)"
-            (click)="go(i)"
-          ></button>
-        }
-      </div>
+    <div class="hero-visual" aria-label="nowUKan app preview">
+      <img src="assets/journey/T1.png" alt="nowUKan app — practice and develop your English, level up your skills" />
     </div>
   </div>
 </section>

@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Free Trial</p>
         <h1 class="section-title">Try nowUKan Free for 7 Days</h1>
 
@@ -24,9 +24,10 @@ import { RouterLink } from '@angular/router';
 
         <h3>Start Your Free Trial Today</h3>
         <div class="btn-row">
-          <a class="btn btn-primary" href="#" rel="noopener">Download on the App Store</a>
-          <a class="btn btn-primary" href="#" rel="noopener">Get it on Google Play</a>
+          <a class="btn btn-benefits" href="#" rel="noopener">Download on the App Store</a>
+          <a class="btn btn-benefits" href="#" rel="noopener">Get it on Google Play</a>
         </div>
+        <br />
 
         <p>
           Your 7-day free trial gives you the opportunity to experience nowUKan before deciding
@@ -40,7 +41,7 @@ import { RouterLink } from '@angular/router';
 
         <p class="sub">
           Prefer a classroom rollout?
-          <a routerLink="/pilot-programme">Request a pilot →</a>
+          <a routerLink="/institutions/pilot-programme">Request a pilot →</a>
         </p>
       </div>
     </section>

@@ -9,7 +9,7 @@ if (typeof document !== 'undefined') {
   link.rel = 'stylesheet';
   link.href =
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900' +
-    '&family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@500;700&display=swap';
+    '&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap';
   document.head.appendChild(link);
 }
 

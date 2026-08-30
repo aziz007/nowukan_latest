@@ -4,6 +4,7 @@ import { LearningFlowComponent } from '../../components/learning-flow/learning-f
 import { LearningStepsComponent } from '../../components/learning-steps/learning-steps.component';
 import { InstitutionsComponent } from '../../components/institutions/institutions.component';
 import { ExplainComponent } from '../../components/explain/explain.component';
+import { CompetitionPromoComponent } from '../../components/competition-promo/competition-promo.component';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,14 @@ import { ExplainComponent } from '../../components/explain/explain.component';
     LearningStepsComponent,
     InstitutionsComponent,
     ExplainComponent,
+    CompetitionPromoComponent,
   ],
   template: `
     <app-hero />
-    <app-institutions />
     <app-learning-steps />
+    <app-institutions />
     <app-explain />
+    <app-competition-promo />
     <app-learning-flow />
   `,
 })

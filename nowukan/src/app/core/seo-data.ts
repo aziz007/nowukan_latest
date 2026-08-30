@@ -27,7 +27,7 @@ export const SITE_NAME = 'nowUKan';
 
 export const SEO_DATA: Record<string, SeoEntry> = {
   '': {
-    title: 'nowUKan — Learn Real English & Improve Pronunciation',
+    title: 'nowUKan — Learn Real English & Improve Your Pronunciation',
     description:
       'nowUKan is an affordable English-learning app for real-life English and pronunciation. Built for learners, families and institutions worldwide. Start a free trial.',
     schemaType: 'WebSite',
@@ -142,6 +142,12 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     title: 'Get Started — nowUKan',
     description:
       'Personal use or multiple user licences? Start a free 7-day trial, or book a consultation for tailored, transparent pricing on volume licences.',
+  },
+  'win-free-english': {
+    title: 'Win Free Lifetime English For Your School — nowUKan',
+    description:
+      'Enter for a chance to win a free lifetime nowUKan English licence for your entire school, college or university. No purchase necessary.',
+    noindex: true,
   },
   'register': {
     title: 'Register Now — Create Your Account | nowUKan',

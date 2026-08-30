@@ -110,6 +110,13 @@ export const routes: Routes = [
       import('./pages/get-started/get-started.component').then((m) => m.GetStartedComponent),
   },
   {
+    path: 'win-free-english',
+    loadComponent: () =>
+      import('./pages/win-free-english/win-free-english.component').then(
+        (m) => m.WinFreeEnglishComponent,
+      ),
+  },
+  {
     path: 'register',
     loadComponent: () =>
       import('./pages/register/register.component').then((m) => m.RegisterComponent),

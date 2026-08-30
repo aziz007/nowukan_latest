@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Programmes</p>
         <h1 class="section-title">Personal Use</h1>
 
@@ -22,16 +22,16 @@ import { RouterLink } from '@angular/router';
         </p>
 
         <div class="feature-pills benefits-pills">
-          <div class="pill"><img class="pill-ico" src="assets/icons/one-time-cost.png" alt="" />One time cost</div>
-          <div class="pill"><span class="pill-ico pill-emoji">♾️</span>Lifetime access</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/no-subscription.png" alt="" />No recurring fees</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/works-offline.png" alt="" />Fully offline learning</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/real-world-english.png" alt="" />Real-world content</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/speech-analysis.png" alt="" />On-device speech analysis</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/no-internet.png" alt="" />On-device voice technology</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🎯</span>Engaging learning methodology</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🔒</span>Zero data mining / monitoring</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🚫</span>No adverts to interrupt your learning</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>One time cost</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>Lifetime access</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>No recurring fees</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>Fully offline learning</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>Real-world content</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>On-device speech analysis</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>On-device voice technology</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>Engaging learning methodology</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>Zero data mining / monitoring</div>
+          <div class="pill"><span class="pill-ico pill-tick-plain">✓</span>No adverts to interrupt your learning</div>
         </div>
 
         <p class="note"><strong>Start your journey with nowUKan today.</strong></p>

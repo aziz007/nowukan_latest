@@ -2,56 +2,15 @@
   <div class="container">
     <div class="section-title">
       <h2>IN DEVELOPMENT 3-1</h2>
-      <div class="sub">A simple, structured journey to real English confidence.</div>
+      <div class="sub">Junior | Skilled | Advanced</div>
     </div>
 
-    <div class="coverflow">
-      <button type="button" class="cf-arrow cf-prev" aria-label="Previous screen" (click)="prev()">
-        <span>&#8249;</span>
-      </button>
-
-      <div class="cf-stage">
-        @for (screen of screens; track screen.id; let i = $index) {
-          <figure
-            class="cf-card"
-            [class.is-active]="offset(i) === 0"
-            [class.is-far]="absOffset(i) > 2"
-            [style.--off]="offset(i)"
-            [style.--aoff]="absOffset(i)"
-            [style.zIndex]="100 - absOffset(i)"
-            (click)="go(i)"
-          >
-            <div class="cf-glow"></div>
-            <img [src]="screen.img" [alt]="'nowUKan ' + screen.title + ' screen'" />
-            <figcaption>
-              <b>{{ screen.id }}</b>
-              <span>{{ screen.title }}</span>
-            </figcaption>
-          </figure>
-        }
-      </div>
-
-      <button type="button" class="cf-arrow cf-next" aria-label="Next screen" (click)="next()">
-        <span>&#8250;</span>
-      </button>
-    </div>
-
-    <!-- Active step caption -->
-    <div class="cf-caption">
-      <span class="cf-step">Step {{ active() + 1 }} / {{ screens.length }}</span>
-      <span class="cf-title">{{ screens[active()].title }}</span>
-    </div>
-
-    <!-- Progress dots -->
-    <div class="cf-dots">
-      @for (screen of screens; track screen.id; let i = $index) {
-        <button
-          type="button"
-          class="cf-dot"
-          [class.active]="active() === i"
-          [attr.aria-label]="'Go to ' + screen.title"
-          (click)="go(i)"
-        ></button>
+    <div class="tier-preview">
+      @for (screen of screens; track screen.id) {
+        <figure class="tier-card">
+          <img [src]="screen.img" [alt]="'nowUKan — ' + screen.title" />
+          <figcaption>{{ screen.title }}</figcaption>
+        </figure>
       }
     </div>
   </div>

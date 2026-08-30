@@ -7,34 +7,42 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
-        <p class="eyebrow">How It Works</p>
-        <h1 class="section-title">Translation Support</h1>
+      <div class="container journey-layout">
+        <div class="journey-copy prose">
+          <p class="eyebrow">How It Works</p>
+          <h1 class="section-title">Translation Support</h1>
 
-        <p class="sub">
-          Key instructional content within the app is supported by our UI translation option,
-          helping learners at lower fluency levels of English navigate the application.
-        </p>
+          <p class="sub">
+            Key instructional content within the app is supported by our UI translation option,
+            helping learners at lower fluency levels of English navigate the application.
+          </p>
 
-        <p>
-          During the onboarding process, you simply select your native language to help you
-          navigate the app and access translation support where we feel it may be needed.
-        </p>
-        <p>
-          Translation services may be turned off at any time by selecting English in the
-          language section, which can be found inside the account section of the app.
-        </p>
-        <p>
-          Need help understanding something else, or have a question? Our support team is here
-          to help:
-          <a href="mailto:support@nowukan.io?subject=Support%20From%20Website">support&#64;nowukan.io</a>
-        </p>
+          <p>
+            During the onboarding process, you simply select your native language to help you
+            navigate the app and access translation support where we feel it may be needed.
+          </p>
+          <p>
+            Translation services may be turned off at any time by selecting English in the
+            language section, which can be found inside the account section of the app.
+          </p>
+          <p>
+            Need help understanding something else, or have a question? Our support team is here
+            to help:
+            <a href="mailto:support@nowukan.io?subject=Support%20From%20Website">support&#64;nowukan.io</a>
+          </p>
 
-        <p class="note"><strong>Understand more. Learn faster. Build confidence.</strong></p>
+          <p class="note"><strong>Understand more. Learn faster. Build confidence.</strong></p>
 
-        <div class="btn-row">
-          <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/register" class="btn btn-primary">Buy Now</a>
+          <div class="btn-row">
+            <a routerLink="/register" class="btn btn-benefits">Register Now</a>
+            <a routerLink="/register" class="btn btn-benefits">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="journey-visual">
+          <figure class="step-phone">
+            <img src="assets/img/img-3f2fc6685d.jpeg" alt="nowUKan native language selection screen" />
+          </figure>
         </div>
       </div>
     </section>

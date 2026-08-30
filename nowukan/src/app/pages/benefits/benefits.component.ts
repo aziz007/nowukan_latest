@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Benefits</p>
         <h1 class="section-title">Transform English Language Learning — Without the Subscriptions</h1>
         <p class="sub">
@@ -15,17 +15,17 @@ import { RouterLink } from '@angular/router';
           development and assessment, designed to remove traditional barriers to learning.
         </p>
 
-        <div class="feature-pills benefits-pills">
-          <div class="pill"><img class="pill-ico" src="assets/icons/one-time-cost.png" alt="" />One time cost</div>
-          <div class="pill"><span class="pill-ico pill-emoji">♾️</span>Lifetime access</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/no-subscription.png" alt="" />No recurring fees</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/works-offline.png" alt="" />Fully offline learning</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/real-world-english.png" alt="" />Real-world content</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/speech-analysis.png" alt="" />On-device speech analysis</div>
-          <div class="pill"><img class="pill-ico" src="assets/icons/no-internet.png" alt="" />On-device voice technology</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🎯</span>Engaging learning methodology</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🔒</span>Zero data mining / monitoring</div>
-          <div class="pill"><span class="pill-ico pill-emoji">🚫</span>No adverts to interrupt your learning</div>
+        <div class="feature-pills benefits-pills benefits-pills-5">
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>One time cost</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>Lifetime access</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>No recurring fees</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>Fully offline learning</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>Real-world content</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>On-device speech analysis</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>On-device voice technology</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>Engaging learning methodology</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>Zero data mining / monitoring</div>
+          <div class="pill"><span class="pill-ico pill-tick">✓</span>No adverts to interrupt your learning</div>
         </div>
 
         <div class="benefit-shot">
@@ -67,8 +67,9 @@ import { RouterLink } from '@angular/router';
         to everyone.</p>
 
         <div class="btn-row">
-          <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/register" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
+          <a routerLink="/register" class="btn btn-benefits">Register Now</a>
+          <a routerLink="/register" class="btn btn-benefits">Buy Now</a>
         </div>
       </div>
     </section>

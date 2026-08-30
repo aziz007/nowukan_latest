@@ -1,0 +1,116 @@
+<section class="page-shell">
+  <div class="container prose">
+    <p class="eyebrow">Competition</p>
+    <h1 class="section-title">Win Free Lifetime English For Your Entire School!</h1>
+    <p class="sub">No purchase necessary.</p>
+
+    <p>
+      Simply complete the entry form below for your chance to win a free lifetime licence of
+      English for everyone at your school, college or university.
+    </p>
+    <p>
+      One student and one member of the faculty may enter the competition, so don't forget to
+      tell your teacher!
+    </p>
+    <p>
+      Winners will be notified by email and will also be announced on our website. Good luck!
+    </p>
+
+    <p class="note"><strong>Closing date: 31st January 2027.</strong></p>
+
+    @if (submitted()) {
+      <p class="footer-signup-thanks">
+        Thanks — your entry has been received. Good luck, and check your email for updates.
+      </p>
+    } @else {
+      <h3>Entry Form</h3>
+
+      <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="wf-name">Your Name *</label>
+            <input id="wf-name" type="text" class="form-input" formControlName="name" autocomplete="name" />
+            @if (attemptedSubmit() && form.controls.name.invalid) {
+              <span class="form-error">Please enter your name.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="wf-email">Your Email Address *</label>
+            <input id="wf-email" type="email" class="form-input" formControlName="email" autocomplete="email" />
+            @if (attemptedSubmit() && form.controls.email.invalid) {
+              <span class="form-error">Please enter a valid email address.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="wf-school">School Name *</label>
+            <input id="wf-school" type="text" class="form-input" formControlName="schoolName" />
+            @if (attemptedSubmit() && form.controls.schoolName.invalid) {
+              <span class="form-error">Please enter your school's name.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="wf-website">School Website</label>
+            <input id="wf-website" type="text" class="form-input" formControlName="schoolWebsite" placeholder="https://" />
+          </div>
+
+          <div class="form-field">
+            <label for="wf-students">Number Of Students</label>
+            <input id="wf-students" type="number" min="0" class="form-input" formControlName="studentCount" />
+          </div>
+
+          <div class="form-field">
+            <label for="wf-country">Country Of Residence *</label>
+            <input id="wf-country" type="text" class="form-input" formControlName="country" autocomplete="country-name" />
+            @if (attemptedSubmit() && form.controls.country.invalid) {
+              <span class="form-error">Please enter your country.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="wf-role">Are You A Student / Faculty Member? *</label>
+            <select id="wf-role" class="form-input" formControlName="role">
+              <option value="" disabled selected>Please select...</option>
+              @for (role of roles; track role) {
+                <option [value]="role">{{ role }}</option>
+              }
+            </select>
+            @if (attemptedSubmit() && form.controls.role.invalid) {
+              <span class="form-error">Please choose an option.</span>
+            }
+          </div>
+
+          <div class="form-field">
+            <label for="wf-schoolType">School Type *</label>
+            <select id="wf-schoolType" class="form-input" formControlName="schoolType">
+              <option value="" disabled selected>Please select...</option>
+              @for (type of schoolTypes; track type) {
+                <option [value]="type">{{ type }}</option>
+              }
+            </select>
+            @if (attemptedSubmit() && form.controls.schoolType.invalid) {
+              <span class="form-error">Please choose an option.</span>
+            }
+          </div>
+        </div>
+
+        <!-- Honeypot field: hidden from real users, only bots tend to fill this in. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="wf-website2">Leave this field blank</label>
+          <input id="wf-website2" type="text" formControlName="website2" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <p class="note">
+          By submitting this entry form, you are confirming that you accept and agree to our
+          <a routerLink="/legal/terms">Terms</a> &amp; <a routerLink="/legal/privacy">Privacy Policy</a>.
+        </p>
+
+        <div class="btn-row">
+          <button type="submit" class="btn btn-gold">Submit Entry</button>
+        </div>
+      </form>
+    }
+  </div>
+</section>

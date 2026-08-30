@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Enterprise</p>
         <h1 class="section-title">English Language Development at Scale</h1>
 
@@ -36,7 +36,7 @@ import { RouterLink } from '@angular/router';
           access to more learners.
         </p>
 
-        <div class="feature-pills benefits-pills">
+        <div class="feature-pills benefits-pills benefits-pills-5">
           <div class="pill"><span class="pill-ico pill-emoji">🏢</span>High Volume</div>
           <div class="pill"><img class="pill-ico" src="assets/icons/one-time-cost.png" alt="" />Prepaid Licences</div>
           <div class="pill"><span class="pill-ico pill-emoji">📦</span>Easy Distribution</div>
@@ -83,8 +83,8 @@ import { RouterLink } from '@angular/router';
         <p class="note"><strong>Note:</strong> minimum order requirements apply to the Enterprise programme.</p>
 
         <div class="btn-row">
-          <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
-          <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
+          <a routerLink="/book-a-consultation" class="btn btn-benefits">Book A Consultation</a>
+          <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
         </div>
       </div>
     </section>
