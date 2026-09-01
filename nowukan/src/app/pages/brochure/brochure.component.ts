@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
 
           <div class="btn-row">
             <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
-            <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
+            <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
           </div>
 
           <div class="btn-row">

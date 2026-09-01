@@ -37,8 +37,8 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
-            <img src="assets/journey/T1.png" alt="nowUKan — practice and develop your English, worldwide" />
+          <figure class="brochure-cover">
+            <img src="assets/journey/ngo-cover.jpg" alt="nowUKan NGO Edition — English for Change, Empowering NGOs, Transforming Lives" />
           </figure>
         </div>
       </div>

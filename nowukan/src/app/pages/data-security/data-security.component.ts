@@ -30,8 +30,8 @@ import { RouterLink } from '@angular/router';
           <p class="note"><strong>Your data belongs to you. Your privacy matters to us.</strong></p>
 
           <div class="btn-row">
-            <a routerLink="/register" class="btn btn-benefits">Register Now</a>
-            <a routerLink="/register" class="btn btn-benefits">Buy Now</a>
+            <a routerLink="/register" class="btn btn-gold">Register Now</a>
+            <a routerLink="/register" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 

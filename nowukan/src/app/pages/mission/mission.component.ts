@@ -49,14 +49,14 @@ import { RouterLink } from '@angular/router';
 
           <div class="btn-row">
             <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
-            <a routerLink="/register" class="btn btn-benefits">Register Now</a>
-            <a routerLink="/register" class="btn btn-benefits">Buy Now</a>
+            <a routerLink="/register" class="btn btn-gold">Register Now</a>
+            <a routerLink="/register" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 
         <div class="journey-visual">
           <figure class="step-phone">
-            <img src="assets/journey/T1.png" alt="nowUKan — practice and develop your English, worldwide" />
+            <img src="assets/journey/mission-hello.jpg" alt="nowUKan — Practice &amp; Develop Your English. Hello." />
           </figure>
         </div>
       </div>

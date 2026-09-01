@@ -60,7 +60,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="step-phone">
-            <img src="assets/img/img-9418e1f160.jpeg" alt="nowUKan Words section screen" />
+            <img src="assets/explain/lesson-flow.jpg" alt="nowUKan Lesson Flow — Words, Phrases, Dialogue, QuickFire" />
           </figure>
         </div>
       </div>

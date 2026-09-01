@@ -43,7 +43,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="step-phone">
-            <img src="assets/explain/quickfire-results.png" alt="nowUKan results and trophy screen" />
+            <img src="assets/journey/challenge-screen.jpg" alt="nowUKan Challenge — 2 players required, connect via Bluetooth or Wi-Fi" />
           </figure>
         </div>
       </div>
