@@ -70,7 +70,7 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
+          <figure class="brochure-cover">
             <img src="assets/explain/osie-panel.jpg" alt="nowUKan OSIE — Offline Speech Intelligence Engine features" />
           </figure>
         </div>

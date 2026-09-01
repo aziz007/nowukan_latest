@@ -1,0 +1,30 @@
+<section id="engaging-journey" class="learning-steps">
+  <div class="container">
+    <div class="section-title">
+      <h2>ENGAGING USER JOURNEY</h2>
+      <div class="sub">A simple, structured journey to real English confidence.</div>
+    </div>
+
+    @for (row of rows; track $index) {
+      <!-- Numbered step markers for this row -->
+      <div class="timeline">
+        @for (step of row; track step.n) {
+          <div class="step">
+            <div class="step-num">{{ step.n }}</div>
+            <span>{{ step.label }}</span>
+          </div>
+        }
+      </div>
+
+      <!-- App screen for each step in this row -->
+      <div class="step-shots">
+        @for (step of row; track step.n) {
+          <figure class="step-phone">
+            <img [src]="step.img" [alt]="'nowUKan ' + step.label + ' screen'" />
+            <figcaption>{{ step.label }}</figcaption>
+          </figure>
+        }
+      </div>
+    }
+  </div>
+</section>

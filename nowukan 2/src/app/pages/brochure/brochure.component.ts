@@ -52,9 +52,6 @@ import { RouterLink } from '@angular/router';
           <div class="btn-row">
             <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
             <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
-          </div>
-
-          <div class="btn-row">
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
             <a routerLink="/register" class="btn btn-primary">Buy Now</a>
           </div>

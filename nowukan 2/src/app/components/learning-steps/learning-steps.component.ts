@@ -25,4 +25,7 @@ export class LearningStepsComponent {
     { n: 9, label: 'QuickFire', img: 'assets/img/img-c8fe49600d.jpeg' },
     { n: 10, label: 'Progress & Completion', img: 'assets/explain/quickfire-results.png' },
   ];
+
+  /** Steps grouped into rows of 5 — each row renders its own timeline + image strip. */
+  readonly rows: Step[][] = [this.steps.slice(0, 5), this.steps.slice(5, 10)];
 }
