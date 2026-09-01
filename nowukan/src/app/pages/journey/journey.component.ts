@@ -62,9 +62,6 @@ import { RouterLink } from '@angular/router';
           <figure class="step-phone">
             <img src="assets/img/img-9418e1f160.jpeg" alt="nowUKan Words section screen" />
           </figure>
-          <figure class="step-phone">
-            <img src="assets/explain/word-speedometer.png" alt="nowUKan on-device pronunciation scoring screen" />
-          </figure>
         </div>
       </div>
     </section>

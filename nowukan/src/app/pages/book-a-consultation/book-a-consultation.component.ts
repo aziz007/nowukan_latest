@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form.component';
 
 @Component({
   selector: 'app-book-a-consultation',
   standalone: true,
-  imports: [RouterLink, EnquiryFormComponent],
+  imports: [EnquiryFormComponent],
   template: `
     <section class="page-shell">
-      <div class="container prose">
+      <div class="container prose prose-wide">
         <p class="eyebrow">Consultation</p>
         <h1 class="section-title">Book A Consultation</h1>
 
@@ -44,7 +43,6 @@ import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form
         <div class="btn-row">
           <!-- TODO: replace with the real Calendly scheduling link -->
           <a href="#" target="_blank" rel="noopener" class="btn btn-dark">Book Via Calendly</a>
-          <a routerLink="/collaborate" class="btn btn-dark">Collaborate With Us</a>
         </div>
 
         <app-enquiry-form

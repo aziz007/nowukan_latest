@@ -63,9 +63,15 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">🤝</span>
+          <div class="collab-visual-panel">
+            <span class="collab-visual-ico">🤝</span>
             <span class="icon-badge-label">Let's Work<br />Together</span>
+            <div class="collab-visual-icons">
+              <div class="collab-visual-icon"><span>📢</span><small>Marketing</small></div>
+              <div class="collab-visual-icon"><span>🎓</span><small>Education</small></div>
+              <div class="collab-visual-icon"><span>🏛️</span><small>Government</small></div>
+              <div class="collab-visual-icon"><span>📰</span><small>Media</small></div>
+            </div>
           </div>
         </div>
       </div>
