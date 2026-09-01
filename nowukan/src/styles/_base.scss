@@ -215,10 +215,10 @@ p{margin:0;color:#fff;font-size:17.5px;line-height:1.62}
 /* --- In Development 3-1: static tier preview (no carousel) --- */
 .journey{padding:80px 0 90px;overflow:hidden}
 .tier-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;margin:36px auto 0}
-.tier-card{position:relative;margin:0;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.tier-card{margin:0;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(0,0,0,.5);background:rgba(5,20,45,.6)}
 .tier-card img{width:100%;display:block;aspect-ratio:.563;object-fit:cover;object-position:top;transition:transform .4s ease}
 .tier-card:hover img{transform:scale(1.03)}
-.tier-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 0 14px;text-align:center;font-family:Quicksand,Inter,sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.03em;color:#fff;background:linear-gradient(0deg,rgba(2,8,23,.92),transparent)}
+.tier-card figcaption{padding:16px 0 18px;text-align:center;font-family:Quicksand,Inter,sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.03em;color:#fff}
 @media(max-width:760px){.tier-preview{grid-template-columns:1fr;max-width:320px}}
 
 /* --- Institution cards: static arrow marker (easy to make links later) --- */
@@ -370,7 +370,7 @@ select.form-input option{background:#06142B;color:#fff}
 @media(max-width:600px){.journey-visual{flex-direction:column;align-items:center}}
 
 /* --- Reusable: prose pages that should use the full page width --- */
-.prose-wide.prose{max-width:none}
+.prose-wide.prose{max-width:var(--max)}
 
 /* --- Brochure cover display --- */
 .brochure-cover{margin:0;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 90px rgba(0,0,0,.5)}
