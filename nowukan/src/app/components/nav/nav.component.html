@@ -1,36 +1,88 @@
 <nav class="nav">
   <div class="nav-inner">
-    <a routerLink="/" class="brand-integrated" aria-label="nowUKan">
-      <img src="assets/img/img-41e07446e0.png" alt="nowUKan logo" />
+
+    <!-- =========================
+         LOGO
+    ========================== -->
+    <a
+      routerLink="/"
+      class="brand-integrated"
+      aria-label="nowUKan Home"
+    >
+      <img
+        src="assets/img/img-41e07446e0.png"
+        alt="nowUKan logo"
+      />
     </a>
 
+
+    <!-- =========================
+         DESKTOP NAVIGATION
+    ========================== -->
     <div class="nav-links">
-      <a routerLink="/" class="nav-home" aria-label="Home">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- Home -->
+      <a
+        routerLink="/"
+        class="nav-home"
+        aria-label="Home"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M3 9.5 12 3l9 6.5"></path>
           <path d="M5 9.5V20a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1V9.5"></path>
         </svg>
       </a>
+
       <a routerLink="/journey">Journey</a>
+
       <a routerLink="/benefits">Benefits</a>
+
       <a routerLink="/mission">Mission</a>
+
       <a routerLink="/vision">Vision</a>
+
       <a routerLink="/brochure">Brochure</a>
+
       <a routerLink="/challenge">Challenge</a>
+
       <a routerLink="/contact">Contact</a>
 
-      <a routerLink="/enterprise" class="nav-cta">Enterprise</a>
-      <a routerLink="/download" class="nav-cta nav-cta-alt">Free Trial</a>
-    </div>
 
-    <div class="nav-actions">
-      <a routerLink="/" class="nav-home-mobile" aria-label="Home">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9.5 12 3l9 6.5"></path>
-          <path d="M5 9.5V20a1 1 0 0 0 1 1h3v-6h6v6h3a1 1 0 0 0 1-1V9.5"></path>
-        </svg>
+      <!-- Enterprise -->
+      <a
+        routerLink="/enterprise"
+        class="nav-cta"
+      >
+        Enterprise
       </a>
 
+
+      <!-- Free Trial -->
+      <a
+        routerLink="/download"
+        class="nav-cta nav-cta-alt"
+      >
+        <span>Free Trial</span>
+      </a>
+
+    </div>
+
+
+    <!-- =========================
+         RIGHT SIDE ACTIONS
+    ========================== -->
+    <div class="nav-actions">
+
+      <!-- Hamburger -->
       <button
         class="hamburger"
         type="button"
@@ -38,63 +90,287 @@
         [attr.aria-expanded]="drawerOpen()"
         (click)="toggleDrawer()"
       >
-        <span class="hamburger-lines"><span></span><span></span><span></span></span>
+        <span class="hamburger-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
 
-      <a routerLink="/cart" class="cart-link" aria-label="View cart">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- Cart -->
+      <a
+        routerLink="/cart"
+        class="cart-link"
+        aria-label="View cart"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+
+          <path
+            d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+          ></path>
         </svg>
       </a>
+
     </div>
+
   </div>
 </nav>
 
-<div class="drawer-backdrop" [class.open]="drawerOpen()" (click)="closeDrawer()"></div>
-<div class="drawer drawer-mega" [class.open]="drawerOpen()" id="fullMenu">
+
+<!-- =====================================================
+     DRAWER BACKDROP
+====================================================== -->
+
+<div
+  class="drawer-backdrop"
+  [class.open]="drawerOpen()"
+  (click)="closeDrawer()"
+></div>
+
+
+<!-- =====================================================
+     FULL MENU DRAWER
+====================================================== -->
+
+<div
+  class="drawer drawer-mega"
+  [class.open]="drawerOpen()"
+  id="fullMenu"
+>
+
   <div class="drawer-cols">
+
+
+    <!-- =========================
+         SECTORS
+    ========================== -->
+
     <div class="drawer-group">
+
       <h4>Sectors</h4>
-      <a routerLink="/government" (click)="closeDrawer()">Government</a>
-      <a routerLink="/ngos-charities" (click)="closeDrawer()">NGOs &amp; Charities</a>
-      <a routerLink="/academia" (click)="closeDrawer()">Academia</a>
-      <a routerLink="/local-authorities" (click)="closeDrawer()">Local Authorities</a>
-      <a routerLink="/employers" (click)="closeDrawer()">Employers</a>
-      <a routerLink="/individuals" (click)="closeDrawer()">Individuals</a>
+
+      <a
+        routerLink="/government"
+        (click)="closeDrawer()"
+      >
+        Government
+      </a>
+
+      <a
+        routerLink="/ngos-charities"
+        (click)="closeDrawer()"
+      >
+        NGOs &amp; Charities
+      </a>
+
+      <a
+        routerLink="/academia"
+        (click)="closeDrawer()"
+      >
+        Academia
+      </a>
+
+      <a
+        routerLink="/local-authorities"
+        (click)="closeDrawer()"
+      >
+        Local Authorities
+      </a>
+
+      <a
+        routerLink="/employers"
+        (click)="closeDrawer()"
+      >
+        Employers
+      </a>
+
+      <a
+        routerLink="/individuals"
+        (click)="closeDrawer()"
+      >
+        Individuals
+      </a>
+
     </div>
 
+
+    <!-- =========================
+         PROGRAMMES
+    ========================== -->
+
     <div class="drawer-group">
+
       <h4>Programmes</h4>
-      <a routerLink="/personal-use" (click)="closeDrawer()">Personal Use</a>
-      <a routerLink="/adult-education" (click)="closeDrawer()">Adult Education</a>
-      <a routerLink="/institutions/pilot-programme" (click)="closeDrawer()">Pilot Programme</a>
-      <a routerLink="/refugee-integration" (click)="closeDrawer()">Refugee Integration</a>
-      <a routerLink="/partner-with-us" (click)="closeDrawer()">Partner With Us</a>
-      <a routerLink="/bespoke" (click)="closeDrawer()">Bespoke</a>
+
+      <a
+        routerLink="/personal-use"
+        (click)="closeDrawer()"
+      >
+        Personal Use
+      </a>
+
+      <a
+        routerLink="/adult-education"
+        (click)="closeDrawer()"
+      >
+        Adult Education
+      </a>
+
+      <a
+        routerLink="/institutions/pilot-programme"
+        (click)="closeDrawer()"
+      >
+        Pilot Programme
+      </a>
+
+      <a
+        routerLink="/refugee-integration"
+        (click)="closeDrawer()"
+      >
+        Refugee Integration
+      </a>
+
+      <a
+        routerLink="/partner-with-us"
+        (click)="closeDrawer()"
+      >
+        Partner With Us
+      </a>
+
+      <a
+        routerLink="/bespoke"
+        (click)="closeDrawer()"
+      >
+        Bespoke
+      </a>
+
     </div>
 
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
     <div class="drawer-group">
+
       <h4>How It Works</h4>
-      <a routerLink="/data-security" (click)="closeDrawer()">Data Security</a>
-      <a routerLink="/learning-method" (click)="closeDrawer()">Learning Method</a>
-      <a routerLink="/installation" (click)="closeDrawer()">Installation</a>
-      <a routerLink="/translations" (click)="closeDrawer()">Translations</a>
-      <a routerLink="/account-management" (click)="closeDrawer()">Account Management</a>
-      <a routerLink="/helpful-tips" (click)="closeDrawer()">Helpful Tips</a>
+
+      <a
+        routerLink="/data-security"
+        (click)="closeDrawer()"
+      >
+        Data Security
+      </a>
+
+      <a
+        routerLink="/learning-method"
+        (click)="closeDrawer()"
+      >
+        Learning Method
+      </a>
+
+      <a
+        routerLink="/installation"
+        (click)="closeDrawer()"
+      >
+        Installation
+      </a>
+
+      <a
+        routerLink="/translations"
+        (click)="closeDrawer()"
+      >
+        Translations
+      </a>
+
+      <a
+        routerLink="/account-management"
+        (click)="closeDrawer()"
+      >
+        Account Management
+      </a>
+
+      <a
+        routerLink="/helpful-tips"
+        (click)="closeDrawer()"
+      >
+        Helpful Tips
+      </a>
+
     </div>
 
+
+    <!-- =========================
+         GET STARTED
+    ========================== -->
+
     <div class="drawer-group">
+
       <h4>Get Started</h4>
-      <a routerLink="/get-started" (click)="closeDrawer()">Get Started</a>
-      <a routerLink="/book-a-consultation" (click)="closeDrawer()">Book Consultation</a>
-      <a routerLink="/pricing" (click)="closeDrawer()">Request Pricing</a>
-      <a routerLink="/enterprise" (click)="closeDrawer()">Enterprise</a>
-      <a routerLink="/download" (click)="closeDrawer()">Free Trial</a>
-      <a routerLink="/contact" (click)="closeDrawer()">Contact Us</a>
-      <a routerLink="/gift" (click)="closeDrawer()">Gift nowUKan</a>
+
+      <a
+        routerLink="/get-started"
+        (click)="closeDrawer()"
+      >
+        Get Started
+      </a>
+
+      <a
+        routerLink="/book-a-consultation"
+        (click)="closeDrawer()"
+      >
+        Book Consultation
+      </a>
+
+      <a
+        routerLink="/pricing"
+        (click)="closeDrawer()"
+      >
+        Request Pricing
+      </a>
+
+      <a
+        routerLink="/enterprise"
+        (click)="closeDrawer()"
+      >
+        Enterprise
+      </a>
+
+      <a
+        routerLink="/download"
+        (click)="closeDrawer()"
+      >
+        Free Trial
+      </a>
+
+      <a
+        routerLink="/contact"
+        (click)="closeDrawer()"
+      >
+        Contact Us
+      </a>
+
+      <a
+        routerLink="/gift"
+        (click)="closeDrawer()"
+      >
+        Gift nowUKan
+      </a>
+
     </div>
+
   </div>
+
 </div>

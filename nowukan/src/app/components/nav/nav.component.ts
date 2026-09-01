@@ -15,10 +15,14 @@ export class NavComponent {
   readonly drawerOpen = signal(false);
 
   constructor() {
-    // Always close the menu when navigation completes — so activating any link
-    // (even to the current page or a fragment) closes the drawer.
+    // Always close the menu when navigation completes
     this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .pipe(
+        filter(
+          (e): e is NavigationEnd =>
+            e instanceof NavigationEnd
+        )
+      )
       .subscribe(() => this.drawerOpen.set(false));
   }
 
