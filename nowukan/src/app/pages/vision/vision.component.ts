@@ -19,13 +19,17 @@ import { RouterLink } from '@angular/router';
           </p>
 
           <p>
-            We aim to help remove the barriers of cost, connectivity and access, giving
+            We aim to remove barriers of cost, connectivity and access, giving
             individuals and communities the opportunity to learn, communicate and reach their
             full potential.
           </p>
           <p>
-            Through innovation, collaboration and responsible technology, we want to make English
-            language opportunity more accessible, inclusive and impactful worldwide.
+            Through innovation, collaboration and responsible technology, we are making English
+            language development more accessible, inclusive and impactful worldwide.
+          </p>
+          <p>
+            Our vision and commitment are also reflected in our ongoing development, including
+            nowUKan Junior, which is already in the pipeline.
           </p>
 
           <p class="note"><strong>Breaking barriers. Opening opportunities. Empowering people.</strong></p>

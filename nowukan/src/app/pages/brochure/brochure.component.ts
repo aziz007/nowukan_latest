@@ -18,21 +18,24 @@ import { RouterLink } from '@angular/router';
           </p>
 
           <p>
-            Browse our range of brochures to find the information most relevant to you, whether
-            you are a learner, educator, organisation, government, NGO or potential partner.
+            Browse our range of brochures and download the regional brochure most relevant to
+            you, whether you are a learner, educator, organisation, government, NGO or potential
+            partner.
+          </p>
+
+          <h3>Professional Educators</h3>
+          <p>
+            If you are a language tutor, nowUKan can complement and reinforce the English skills
+            you teach, giving your students additional opportunities to practise vocabulary,
+            pronunciation and communication outside your lessons.
           </p>
           <p>
-            If you are a language tutor, nowUKan can complement and reinforce the English
-            language skills you teach, providing your students with additional opportunities to
-            practise vocabulary, pronunciation and communication outside your lessons.
-          </p>
-          <p>
-            nowUKan is a valuable addition to your teaching and can help support your students'
-            continued language development and confidence.
+            nowUKan is a valuable addition to your teaching, supporting continued language
+            development, greater confidence and independent practice.
           </p>
           <p>
             Through our affiliate programme, you can also generate an additional income stream
-            by recommending nowUKan to your students.
+            by recommending nowUKan to your students and their families.
           </p>
 
           <p class="note"><strong>View, download and share our brochures.</strong></p>
@@ -58,10 +61,20 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="brochure-cover">
-            <img src="assets/brochures/european-cover.jpg" alt="nowUKan European Edition brochure cover" />
-            <figcaption>European Edition</figcaption>
-          </figure>
+          <div class="brochure-stack">
+            <figure class="brochure-cover">
+              <img src="assets/brochures/european-cover.jpg" alt="nowUKan European Edition brochure cover" />
+              <figcaption>European Edition</figcaption>
+            </figure>
+            <figure class="brochure-cover">
+              <img src="assets/journey/government-cover.jpg" alt="nowUKan Global Government Edition brochure cover" />
+              <figcaption>Global Government Edition</figcaption>
+            </figure>
+            <figure class="brochure-cover">
+              <img src="assets/journey/ngo-cover.jpg" alt="nowUKan NGO Edition brochure cover" />
+              <figcaption>NGO Edition</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>

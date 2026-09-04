@@ -18,8 +18,8 @@ import { RouterLink } from '@angular/router';
           </p>
 
           <p>
-            We believe that English can unlock opportunities, improve lives and help people
-            participate more fully in education, employment and society.
+            We believe English opens doors to opportunity, improves lives, and empowers people
+            to participate more fully in education, employment and global society.
           </p>
           <p>
             By combining innovative technology, proven learning methods and an affordable,
@@ -55,8 +55,8 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="brochure-cover">
-            <img src="assets/journey/mission-global.jpg" alt="nowUKan Global Edition — Empowering millions across the globe" />
+          <figure class="people-cutout">
+            <img src="assets/img/community-people.png" alt="A diverse group of nowUKan learners using the app" />
           </figure>
         </div>
       </div>

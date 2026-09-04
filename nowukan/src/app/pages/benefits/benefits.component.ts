@@ -1,45 +1,50 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/>
+  <path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 @Component({
   selector: 'app-benefits',
   standalone: true,
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container journey-layout">
-        <div class="journey-copy prose">
+      <div class="container prose-wide">
+        <div class="prose">
           <p class="eyebrow">Benefits</p>
           <h1 class="section-title">Transform English Language Learning — Without the Subscriptions</h1>
           <p class="sub">
             nowUKan provides an affordable, scalable and inclusive approach to English language
-            development and assessment, designed to remove traditional barriers to learning.
+            development and assessment, designed to remove the traditional barriers to learning.
           </p>
 
           <div class="feature-pills benefits-pills benefits-pills-5">
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>One time cost</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>Lifetime access</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>No recurring fees</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>Fully offline learning</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>Real-world content</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>On-device speech analysis</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>On-device voice technology</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>Engaging learning methodology</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>Zero data mining / monitoring</div>
-            <div class="pill"><span class="pill-ico pill-tick">✓</span>No adverts to interrupt your learning</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>One time cost</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Lifetime access</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>No recurring fees</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Fully offline learning</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Real-world content</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>On-device speech analysis</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>On-device voice technology</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Engaging learning methodology</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Zero data mining / monitoring</div>
+            <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>No adverts to interrupt your learning</div>
           </div>
 
           <p>
-            Powered by OSIE, our Offline Speech Intelligence Engine, nowUKan delivers speech
-            feedback directly on the device, helping learners develop pronunciation,
-            vocabulary, confidence and practical English skills without relying on a
-            continuous internet connection.
+            Powered by OSIE, our Offline Speech Intelligence Engine, nowUKan delivers real time
+            feedback directly on the device, helping learners recognise areas of weakness, focus
+            their practice, and build confidence in their English.
           </p>
 
-          <h3>Real-World Impact</h3>
+          <h3>Real World Impact</h3>
           <p>
             Designed for governments, NGOs, educational institutions, employers and individual
-            learners, nowUKan makes it possible to reach more people within existing budgets.
+            learners, nowUKan helps reach more people within existing budget constraints, making
+            high-quality English development more affordable and accessible.
           </p>
           <p>English language development to support:</p>
 
@@ -67,12 +72,6 @@ import { RouterLink } from '@angular/router';
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
             <a routerLink="/register" class="btn btn-primary">Buy Now</a>
           </div>
-        </div>
-
-        <div class="journey-visual">
-          <figure class="brochure-cover">
-            <img src="assets/explain/osie-panel.jpg" alt="nowUKan OSIE — Offline Speech Intelligence Engine features" />
-          </figure>
         </div>
       </div>
     </section>

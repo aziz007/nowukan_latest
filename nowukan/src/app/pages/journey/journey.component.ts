@@ -39,9 +39,9 @@ import { RouterLink } from '@angular/router';
 
           <h3>Learn. Practise. Progress.</h3>
           <p>
-            With simple navigation, clear visual feedback on every pronunciation attempt, and an
-            engaging user experience, nowUKan keeps you focused on what matters — developing your
-            English language skills and building confidence.
+            With simple navigation, clear pronunciation feedback, and an engaging experience,
+            nowUKan keeps you focused on developing your English skills and language
+            confidence.
           </p>
           <p>
             To support your overall development, we have included dedicated sections covering

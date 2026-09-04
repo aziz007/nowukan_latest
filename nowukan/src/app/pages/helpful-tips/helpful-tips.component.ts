@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section class="page-shell">
+    <section class="page-shell page-shell-tight">
       <div class="container journey-layout">
         <div class="journey-copy prose">
           <p class="eyebrow">Helpful Tips</p>
@@ -60,7 +60,20 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <div class="icon-badge-panel">
-            <span class="icon-badge-ico">💡</span>
+            <span class="icon-badge-ico">
+              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="tipsIconGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#F6C85F"/>
+                    <stop offset="1" stop-color="#D6A536"/>
+                  </linearGradient>
+                </defs>
+                <path d="M50 14a26 26 0 0 0-14 48c3 2 4 5 4 8v4h20v-4c0-3 1-6 4-8a26 26 0 0 0-14-48z" fill="none" stroke="url(#tipsIconGrad)" stroke-width="5" stroke-linejoin="round"/>
+                <path d="M42 84h16" stroke="url(#tipsIconGrad)" stroke-width="5" stroke-linecap="round"/>
+                <path d="M44 92h12" stroke="url(#tipsIconGrad)" stroke-width="5" stroke-linecap="round"/>
+                <path d="M54 32 L44 50 L52 50 L46 66 L60 46 L52 46 Z" fill="#1687FF" stroke="#1687FF" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </span>
             <span class="icon-badge-label">16 Tips To<br />Learn Faster</span>
           </div>
         </div>
