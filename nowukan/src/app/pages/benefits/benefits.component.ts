@@ -12,8 +12,8 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose-wide">
-        <div class="prose">
+      <div class="container">
+        <div class="prose prose-wide">
           <p class="eyebrow">Benefits</p>
           <h1 class="section-title">Transform English Language Learning — Without the Subscriptions</h1>
           <p class="sub">
