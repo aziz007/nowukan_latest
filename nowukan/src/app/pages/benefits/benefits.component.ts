@@ -15,7 +15,7 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
       <div class="container">
         <div class="prose prose-wide">
           <p class="eyebrow">Benefits</p>
-          <h1 class="section-title">Transform English Language Learning — Without the Subscriptions</h1>
+          <h1 class="section-title">Transform English Language Learning Without the Subscriptions</h1>
           <p class="sub">
             nowUKan provides an affordable, scalable and inclusive approach to English language
             development and assessment, designed to remove the traditional barriers to learning.

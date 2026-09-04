@@ -56,7 +56,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="brochure-cover">
-            <img src="assets/journey/mission-global.jpg" alt="nowUKan Global Edition — Empowering millions across the globe" />
+            <img src="assets/journey/mission-global-cropped.jpg" alt="nowUKan — Empowering millions across the globe" />
           </figure>
         </div>
       </div>
