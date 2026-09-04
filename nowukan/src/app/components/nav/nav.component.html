@@ -57,6 +57,17 @@
 <div class="drawer drawer-mega" [class.open]="drawerOpen()" id="fullMenu">
   <div class="drawer-cols">
     <div class="drawer-group">
+      <h4>Menu</h4>
+      <a routerLink="/journey" (click)="closeDrawer()">Journey</a>
+      <a routerLink="/benefits" (click)="closeDrawer()">Benefits</a>
+      <a routerLink="/mission" (click)="closeDrawer()">Mission</a>
+      <a routerLink="/vision" (click)="closeDrawer()">Vision</a>
+      <a routerLink="/brochure" (click)="closeDrawer()">Brochure</a>
+      <a routerLink="/challenge" (click)="closeDrawer()">Challenge</a>
+      <a routerLink="/contact" (click)="closeDrawer()">Contact</a>
+    </div>
+
+    <div class="drawer-group">
       <h4>Sectors</h4>
       <a routerLink="/government" (click)="closeDrawer()">Government</a>
       <a routerLink="/ngos-charities" (click)="closeDrawer()">NGOs &amp; Charities</a>
