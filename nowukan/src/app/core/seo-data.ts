@@ -74,6 +74,21 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     description:
       'Test your vocabulary, pronunciation and understanding against friends or classmates in the nowUKan Challenge — connect via Bluetooth or Wi-Fi and compete.',
   },
+  'institutions/pilot-programme': {
+    title: 'Pilot Programme — Try nowUKan Risk-Free | nowUKan',
+    description:
+      'Run a structured pilot of nowUKan with your learners before rolling out at scale — see real results before you commit.',
+  },
+  'legal/terms': {
+    title: 'Terms & Conditions — nowUKan',
+    description:
+      'Read the nowUKan Terms & Conditions covering use of the app, purchases, licences and your rights as a user.',
+  },
+  'legal/privacy': {
+    title: 'Privacy Policy — nowUKan',
+    description:
+      'Read the nowUKan Privacy Policy — how we handle your data, what we collect, and our commitment to not selling or mining personal information.',
+  },
   cart: {
     title: 'Your Cart — nowUKan',
     description: 'Review your nowUKan plan selection and continue to checkout.',
