@@ -41,23 +41,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="localAuthIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <path d="M50 10c-16 0-28 12-28 28 0 20 28 50 28 50s28-30 28-50c0-16-12-28-28-28z" fill="none" stroke="url(#localAuthIconGrad)" stroke-width="5" stroke-linejoin="round"/>
-                <circle cx="42" cy="36" r="7" fill="none" stroke="url(#localAuthIconGrad)" stroke-width="5"/>
-                <circle cx="58" cy="36" r="7" fill="none" stroke="#1687FF" stroke-width="5"/>
-                <path d="M32 52c0-7 6-10 10-10M68 52c0-7-6-10-10-10" fill="none" stroke="url(#localAuthIconGrad)" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Supporting Local<br />Communities</span>
-          </div>
+          <figure class="people-cutout">
+            <img src="assets/img/local-authorities.webp" alt="Local authorities and communities supported by nowUKan" />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Supporting Local<br />Communities</div>
         </div>
       </div>
     </section>

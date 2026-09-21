@@ -46,23 +46,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual journey-visual-lower">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="aboutIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <path d="M50 6c14 10 20 26 20 42 0 6-2 12-5 17l-15 15-15-15c-3-5-5-11-5-17 0-16 6-32 20-42z" fill="none" stroke="url(#aboutIconGrad)" stroke-width="4" stroke-linejoin="round"/>
-                <circle cx="50" cy="40" r="8" fill="none" stroke="url(#aboutIconGrad)" stroke-width="4"/>
-                <path d="M34 62 L22 74 M66 62 L78 74" stroke="url(#aboutIconGrad)" stroke-width="4" stroke-linecap="round"/>
-                <path d="M42 80 Q50 96 58 80" fill="none" stroke="#1687FF" stroke-width="4" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Building The<br />Future Of Learning</span>
-          </div>
+          <figure class="people-cutout">
+            <img src="assets/img/about-global-team.webp" alt="A global team of nowUKan learners and innovators" />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Building The<br />Future Of Learning</div>
         </div>
       </div>
     </section>

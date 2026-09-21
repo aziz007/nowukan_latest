@@ -56,7 +56,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual journey-visual-lower">
           <figure class="people-cutout">
-            <img src="assets/img/mission-students-abc.png" alt="A diverse group of nowUKan learners studying together" />
+            <img src="assets/img/mission-students-abc.webp" alt="A diverse group of nowUKan learners studying together" />
           </figure>
         </div>
       </div>

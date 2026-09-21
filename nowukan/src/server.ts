@@ -114,6 +114,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
             currency: plan.currency,
             product_data: { name: plan.name },
             unit_amount: plan.amount,
+            // Explicit, rather than relying on the account's default: tax is
+            // always calculated and added ON TOP of unit_amount, never
+            // absorbed into it. £11.99 is always what the buyer sees as the
+            // pre-tax price.
+            tax_behavior: 'exclusive',
             ...(plan.mode === 'subscription'
               ? { recurring: { interval: plan.interval || 'month' } }
               : {}),

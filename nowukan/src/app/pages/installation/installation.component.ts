@@ -64,7 +64,7 @@ import { RouterLink } from '@angular/router';
             <span class="icon-badge-label">Works Offline<br />After Install</span>
           </div>
           <figure class="people-cutout">
-            <img src="assets/img/installation-graphic.png" alt="nowUKan installing and working fully offline" />
+            <img src="assets/img/installation-graphic.webp" alt="nowUKan installing and working fully offline" />
           </figure>
         </div>
       </div>

@@ -35,24 +35,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="giftIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <rect x="18" y="46" width="64" height="42" rx="4" fill="none" stroke="url(#giftIconGrad)" stroke-width="5"/>
-                <rect x="12" y="32" width="76" height="16" rx="3" fill="none" stroke="url(#giftIconGrad)" stroke-width="5"/>
-                <line x1="50" y1="32" x2="50" y2="88" stroke="url(#giftIconGrad)" stroke-width="5"/>
-                <path d="M50 32c-4-14-28-16-28-4c0 8 14 8 28 4z" fill="none" stroke="url(#giftIconGrad)" stroke-width="5" stroke-linejoin="round"/>
-                <path d="M50 32c4-14 28-16 28-4c0 8-14 8-28 4z" fill="none" stroke="url(#giftIconGrad)" stroke-width="5" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Give The Gift<br />Of English</span>
-          </div>
+          <figure class="people-cutout">
+            <img src="assets/img/gift-nowukan.webp" alt="Give the gift of nowUKan — unwrapping an English learning gift" />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Give The Gift<br />Of English</div>
         </div>
       </div>
     </section>

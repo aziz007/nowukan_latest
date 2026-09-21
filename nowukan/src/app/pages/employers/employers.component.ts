@@ -44,23 +44,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="employersIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <rect x="14" y="38" width="72" height="46" rx="6" fill="none" stroke="url(#employersIconGrad)" stroke-width="5"/>
-                <path d="M36 38v-8c0-4 3-7 7-7h14c4 0 7 3 7 7v8" fill="none" stroke="url(#employersIconGrad)" stroke-width="5" stroke-linejoin="round"/>
-                <path d="M14 58h72" stroke="url(#employersIconGrad)" stroke-width="5"/>
-                <rect x="43" y="52" width="14" height="12" rx="2" fill="none" stroke="#1687FF" stroke-width="5"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Workplace<br />Communication</span>
-          </div>
+          <figure class="people-cutout">
+            <img src="assets/img/employee-growth.webp" alt="A team of employees growing their skills and careers with nowUKan" />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Workplace<br />Communication</div>
         </div>
       </div>
     </section>

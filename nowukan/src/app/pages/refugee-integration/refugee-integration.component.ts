@@ -46,9 +46,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
-            <img src="assets/journey/K2.jpg" alt="nowUKan app home dashboard screen" />
+          <figure class="people-cutout">
+            <img src="assets/img/refugee-integration.webp" alt="A family being welcomed and supported with nowUKan" />
           </figure>
+          <div class="icon-badge-label" style="text-align:center">Supporting<br />New Communities</div>
         </div>
       </div>
     </section>

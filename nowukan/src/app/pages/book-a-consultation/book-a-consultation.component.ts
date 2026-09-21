@@ -52,24 +52,10 @@ import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form
         </div>
 
         <div class="journey-visual">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="consultIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <rect x="16" y="22" width="68" height="60" rx="8" fill="none" stroke="url(#consultIconGrad)" stroke-width="5"/>
-                <path d="M16 40h68" stroke="url(#consultIconGrad)" stroke-width="5"/>
-                <path d="M32 14v14M68 14v14" stroke="url(#consultIconGrad)" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="64" cy="62" r="16" fill="none" stroke="#1687FF" stroke-width="5"/>
-                <path d="M64 55v8l6 4" fill="none" stroke="#1687FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Book Your<br />Consultation</span>
-          </div>
+          <figure class="people-cutout">
+            <img src="assets/img/book-consultation.webp" alt="Two people discussing a nowUKan consultation" />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Book Your<br />Consultation</div>
         </div>
       </div>
     </section>

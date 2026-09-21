@@ -307,7 +307,7 @@ section { background-color: transparent; isolation: isolate; }
 /* --- Home icon in nav --- */
 .nav-home{display:inline-grid;place-items:center;color:#fff;transition:opacity .15s ease}
 .nav-home:hover{opacity:.8}
-.nav-home svg{display:block}
+.nav-home svg,.nav-home img{display:block}
 
 /* --- Footer social media icons --- */
 .footer-social{display:flex;justify-content:center;gap:16px;padding:22px 0 4px}
@@ -399,6 +399,11 @@ select.form-input option{background:#06142B;color:#fff}
 .icon-caption-card small{color:#fff;font-weight:700;font-size:13.5px;font-family:Quicksand,Inter,sans-serif;line-height:1.3}
 @media(max-width:760px){.icon-caption-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.icon-caption-grid{grid-template-columns:1fr}}
+.success-shell{display:flex;align-items:center;justify-content:center;min-height:70vh}
+.success-card{max-width:600px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.success-title{font-family:Quicksand,Inter,sans-serif;font-size:clamp(28px,4vw,40px);color:#fff;margin:8px 0 16px}
+.success-message{color:var(--muted);font-size:16px;line-height:1.7;max-width:480px;margin:0 0 28px}
+.success-credentials{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:18px 24px;margin:0 0 24px;text-align:left;color:#fff;font-size:15px;line-height:1.9}
 @media(max-width:900px){.competition-grid{grid-template-columns:1fr;gap:36px}}
 @media(max-width:480px){.competition-icons{grid-template-columns:repeat(2,1fr)}.competition-badge-label{font-size:18px}}
 

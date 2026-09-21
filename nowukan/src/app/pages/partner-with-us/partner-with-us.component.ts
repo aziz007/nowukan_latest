@@ -44,9 +44,10 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
-            <img src="assets/img/img-a808eb8bdb.jpeg" alt="nowUKan dialogue practice screen" />
+          <figure class="people-cutout">
+            <img src="assets/img/partner-with-us.webp" alt="A global network of nowUKan partners shaking hands" />
           </figure>
+          <div class="icon-badge-label" style="text-align:center">Building Global<br />Partnerships</div>
         </div>
       </div>
     </section>
