@@ -409,6 +409,7 @@ select.form-input option{background:#06142B;color:#fff}
 
 /* --- Journey page: wide two-column layout, real screens on the right --- */
 .journey-layout{display:grid;grid-template-columns:1fr 320px;gap:96px;align-items:start}
+.journey-layout-reverse{grid-template-columns:320px 1fr}
 .journey-layout .journey-copy.prose{max-width:none}
 .journey-visual{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px}
 .journey-visual-lower{margin-top:260px}
