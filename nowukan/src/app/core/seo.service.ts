@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {
   DEFAULT_OG_IMAGE,
+  LOGO_IMAGE,
   SEO_DATA,
   SITE_NAME,
   SITE_ORIGIN,
@@ -58,6 +59,12 @@ export class SeoService {
     this.setProperty('og:description', entry.description);
     this.setProperty('og:url', canonical);
     this.setProperty('og:image', image);
+    this.setProperty('og:image:alt', `${SITE_NAME} — Affordable English. Limitless Opportunities.`);
+    if (!entry.image) {
+      // Dimensions of the default share image, so platforms don't have to guess.
+      this.setProperty('og:image:width', '1200');
+      this.setProperty('og:image:height', '630');
+    }
 
     // --- Twitter / X card ---
     this.setName('twitter:card', 'summary_large_image');
@@ -135,14 +142,14 @@ export class SeoService {
         '@type': schemaType === 'WebSite' ? 'WebSite' : 'Organization',
         name: SITE_NAME,
         url: SITE_ORIGIN,
-        logo: this.absolute(DEFAULT_OG_IMAGE),
+        logo: this.absolute(LOGO_IMAGE),
         description: entry.description,
       };
       if (schemaType === 'WebSite') {
         (data as Record<string, unknown>)['publisher'] = {
           '@type': 'Organization',
           name: SITE_NAME,
-          logo: this.absolute(DEFAULT_OG_IMAGE),
+          logo: this.absolute(LOGO_IMAGE),
         };
       }
     } else {

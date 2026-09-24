@@ -1,14 +1,15 @@
 {
   "name": "nowukan",
   "version": "1.0.0",
-  "description": "NowUkan public website — Angular 20 SSR",
+  "description": "NowUkan public website \u2014 Angular 20 SSR",
   "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "serve:ssr": "node dist/nowukan/server/server.mjs"
+    "serve:ssr": "node dist/nowukan/server/server.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "private": true,
   "dependencies": {

@@ -45,8 +45,8 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
-            <img src="assets/img/img-6c186ce136.jpeg" alt="nowUKan home dashboard screen" />
+          <figure class="visual-card">
+            <img src="assets/img/account-management-crm.webp" alt="Account management — users, settings and CRM tools" />
           </figure>
         </div>
       </div>

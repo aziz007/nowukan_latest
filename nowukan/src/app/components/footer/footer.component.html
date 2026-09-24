@@ -24,10 +24,15 @@
           [value]="email()"
           (input)="email.set($any($event.target).value)"
         />
-        <button type="button" class="btn btn-gold" (click)="subscribe()">Sign Up</button>
+        <button type="button" class="btn btn-gold" [disabled]="loading()" (click)="subscribe()">
+          {{ loading() ? 'Signing up…' : 'Sign Up' }}
+        </button>
       </div>
       @if (signedUp()) {
         <p class="footer-signup-thanks">Thanks — you're on the list.</p>
+      }
+      @if (error()) {
+        <p class="footer-signup-thanks" style="color:#ff8a8a">{{ error() }}</p>
       }
     </div>
 

@@ -38,7 +38,7 @@ const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
 app.post(
   '/api/stripe-webhook',
   express.raw({ type: 'application/json' }),
-  (req, res) => {
+  async (req, res) => {
     const webhookSecret = process.env['STRIPE_WEBHOOK_SECRET'];
 
     if (!stripe || !webhookSecret) {
@@ -58,23 +58,74 @@ app.post(
       return;
     }
 
-    switch (event.type) {
-      case 'checkout.session.completed': {
-        const session = event.data.object as Stripe.Checkout.Session;
-        // TODO: this is where real fulfilment goes — e.g. look up
-        // session.customer_email / session.metadata, mark the order as
-        // paid in your database, send a confirmation email, provision
-        // account access, etc. Logged for now so you can see it firing.
-        console.log('✅ Checkout session completed:', session.id, session.customer_email);
-        break;
-      }
-      default:
-        console.log(`Unhandled Stripe event type: ${event.type}`);
+    if (event.type !== 'checkout.session.completed') {
+      res.json({ received: true });
+      return;
     }
 
-    res.json({ received: true });
+    const session = event.data.object as Stripe.Checkout.Session;
+    if (session.payment_status !== 'paid') {
+      console.log('Checkout completed but not paid yet:', session.id, session.payment_status);
+      res.json({ received: true });
+      return;
+    }
+
+    // The buyer types their email on Stripe's page, so read it from there.
+    const email = session.customer_details?.email || session.customer_email;
+    if (!email) {
+      console.error('Paid checkout has no email — cannot update CRM:', session.id);
+      res.json({ received: true });
+      return;
+    }
+
+    try {
+      await sendPaymentStatusToCrm(email);
+      console.log('✅ Payment status sent to CRM:', email, session.id);
+      res.json({ received: true });
+    } catch (err) {
+      // 500 makes Stripe retry this webhook automatically (for up to 3 days).
+      console.error('❌ Failed to send payment status to CRM:', email, session.id, err);
+      res.status(500).send('CRM update failed.');
+    }
   },
 );
+
+/**
+ * Tells the CRM that this user has paid.
+ *
+ * ASSUMED ENDPOINT — the API docs provided so far only cover the GET
+ * (read-only) version of /users/billing-status. Confirm the write endpoint
+ * with the backend developer; the path, method and status value can be
+ * changed via .env without touching this code:
+ *   CRM_BILLING_STATUS_PATH   (default /users/billing-status)
+ *   CRM_BILLING_STATUS_METHOD (default POST)
+ *   CRM_PAID_STATUS           (default Paid)
+ */
+async function sendPaymentStatusToCrm(email: string): Promise<void> {
+  const apiKey = process.env['EXTERNAL_API_KEY'];
+  const baseUrl =
+    process.env['EXTERNAL_API_BASE_URL'] || 'https://staging.nowukan.app/api/external';
+  const path = process.env['CRM_BILLING_STATUS_PATH'] || '/users/billing-status';
+  const method = process.env['CRM_BILLING_STATUS_METHOD'] || 'POST';
+  const status = process.env['CRM_PAID_STATUS'] || 'Paid';
+
+  if (!apiKey) throw new Error('EXTERNAL_API_KEY is not set.');
+
+  const response = await fetch(`${baseUrl}${path}`, {
+    method,
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({ email, billing_status: status }),
+  });
+
+  if (!response.ok) {
+    const body = await response.text().catch(() => '');
+    throw new Error(`CRM responded ${response.status}: ${body.slice(0, 500)}`);
+  }
+}
 
 app.use(express.json());
 
@@ -140,6 +191,69 @@ app.post('/api/create-checkout-session', async (req, res) => {
   } catch (err) {
     console.error('Stripe checkout session error:', err);
     res.status(502).json({ error: 'Unable to start checkout. Please try again.' });
+  }
+});
+
+/**
+ * Newsletter signup — footer "Receive news and updates" form.
+ *
+ * Sends a simple notification email to your team inbox for each signup via
+ * Resend (https://resend.com). Configure RESEND_API_KEY,
+ * NEWSLETTER_NOTIFY_EMAIL (where the notification goes) and
+ * NEWSLETTER_FROM_EMAIL (must be a domain you've verified in Resend) via
+ * environment variables — see .env.example.
+ *
+ * Note: this only notifies your team per signup. It does not add the
+ * address to a mailing list — if you want to actually send newsletters to
+ * these people later, you'll want a proper list/marketing tool as well.
+ */
+app.post('/api/newsletter-signup', async (req, res) => {
+  const resendApiKey = process.env['RESEND_API_KEY'];
+  const notifyEmail = process.env['NEWSLETTER_NOTIFY_EMAIL'];
+  const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
+
+  if (!resendApiKey || !notifyEmail || !fromEmail) {
+    console.error(
+      'Newsletter signup received but RESEND_API_KEY / NEWSLETTER_NOTIFY_EMAIL / NEWSLETTER_FROM_EMAIL is not set.',
+    );
+    res.status(500).json({ error: 'Signup is temporarily unavailable.' });
+    return;
+  }
+
+  const email = (req.body?.email ?? '').trim();
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!isValidEmail) {
+    res.status(400).json({ error: 'Please enter a valid email address.' });
+    return;
+  }
+
+  try {
+    const upstream = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: notifyEmail,
+        subject: 'New newsletter signup — nowUKan',
+        text: `A new visitor signed up for news and updates: ${email}`,
+      }),
+    });
+
+    if (!upstream.ok) {
+      const detail = await upstream.text().catch(() => '');
+      console.error('Resend error:', upstream.status, detail);
+      res.status(502).json({ error: 'Unable to complete signup. Please try again.' });
+      return;
+    }
+
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Newsletter signup error:', err);
+    res.status(502).json({ error: 'Unable to complete signup. Please try again.' });
   }
 });
 

@@ -21,7 +21,10 @@ export interface SeoEntry {
 export const SITE_ORIGIN = 'https://nowukan.io';
 
 /** Default share image used when a page doesn't specify its own. */
-export const DEFAULT_OG_IMAGE = '/assets/img/img-41e07446e0.png';
+export const DEFAULT_OG_IMAGE = '/assets/img/og-share.jpg';
+
+/** Logo used in Organization / WebSite structured data. */
+export const LOGO_IMAGE = '/assets/img/img-41e07446e0.png';
 
 export const SITE_NAME = 'nowUKan';
 
@@ -29,7 +32,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   '': {
     title: 'nowUKan — Learn Real English & Improve Your Pronunciation',
     description:
-      'nowUKan is an affordable English-learning app for real-life English and pronunciation. Built for learners, families and institutions worldwide. Start a free trial.',
+      'nowUKan is an affordable app for real-life English and pronunciation practice, built for learners, families and institutions worldwide. Start a free trial.',
     schemaType: 'WebSite',
   },
   'how-it-works': {
@@ -43,7 +46,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Follow the nowUKan learning journey: from first words to confident real-life conversation, with pronunciation practice at every step.',
   },
   mission: {
-    title: 'Our Mission — Affordable, Accessible English Learning | nowUKan',
+    title: 'Our Mission — Affordable, Accessible English | nowUKan',
     description:
       'Our mission is to make English language learning accessible and affordable worldwide — removing barriers of cost, connectivity and access for everyone.',
     schemaType: 'Organization',
@@ -74,20 +77,15 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     description:
       'Test your vocabulary, pronunciation and understanding against friends or classmates in the nowUKan Challenge — connect via Bluetooth or Wi-Fi and compete.',
   },
-  'institutions/pilot-programme': {
-    title: 'Pilot Programme — Try nowUKan Risk-Free | nowUKan',
-    description:
-      'Run a structured pilot of nowUKan with your learners before rolling out at scale — see real results before you commit.',
+  'checkout/success': {
+    title: 'Payment Successful — nowUKan',
+    description: 'Thank you for your purchase. Your nowUKan Lifetime Access payment was successful.',
+    noindex: true,
   },
-  'legal/terms': {
-    title: 'Terms & Conditions — nowUKan',
-    description:
-      'Read the nowUKan Terms & Conditions covering use of the app, purchases, licences and your rights as a user.',
-  },
-  'legal/privacy': {
-    title: 'Privacy Policy — nowUKan',
-    description:
-      'Read the nowUKan Privacy Policy — how we handle your data, what we collect, and our commitment to not selling or mining personal information.',
+  'checkout/cancel': {
+    title: 'Checkout Cancelled — nowUKan',
+    description: 'Your nowUKan checkout was cancelled. No payment has been taken.',
+    noindex: true,
   },
   cart: {
     title: 'Your Cart — nowUKan',
@@ -234,11 +232,15 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     title: 'Universities — nowUKan',
     description:
       'Enhance student employability and communication skills at scale with nowUKan.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'colleges': {
     title: 'Colleges & Training Providers — nowUKan',
     description:
       'Flexible English development for colleges and training providers.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'employers': {
     title: 'Employers & Workforce — nowUKan',
@@ -259,21 +261,29 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     title: 'Schools & Family Learning — nowUKan',
     description:
       'Structured, engaging English for schools and family learning programmes.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'development-partners': {
     title: 'International Development Partners — nowUKan',
     description:
       'Scale English learning across international development programmes.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'distribution-partners': {
     title: 'Distribution Partners — nowUKan',
     description:
       'Become a nowUKan ambassador or distribution partner.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'implementation': {
     title: 'Implementation & Deployment — nowUKan',
     description:
       'How nowUKan is deployed and rolled out at institutional scale.',
+    // Placeholder page ('coming soon') — remove noindex once real content is added.
+    noindex: true,
   },
   'learning-method': {
     title: 'Learning Method — nowUKan',

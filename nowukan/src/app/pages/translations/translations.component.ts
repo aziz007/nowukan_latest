@@ -41,7 +41,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="step-phone">
-            <img src="assets/img/img-3f2fc6685d.jpeg" alt="nowUKan native language selection screen" />
+            <img src="assets/img/native-language-screen.jpeg" alt="nowUKan native language selection screen" />
           </figure>
         </div>
       </div>

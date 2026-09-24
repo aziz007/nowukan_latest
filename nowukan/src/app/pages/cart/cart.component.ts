@@ -13,9 +13,12 @@ import { RouterLink } from '@angular/router';
         <p class="sub">One-time purchase. Lifetime access. No recurring fees.</p>
 
         <div class="cart-line">
-          <div>
-            <strong>nowUKan — Lifetime Access</strong>
-            <p class="note" style="margin:4px 0 0">One-time payment · full app access · all future updates</p>
+          <div class="cart-line-item">
+            <img class="cart-line-icon" src="assets/img/price-tag-coin.webp" alt="" aria-hidden="true" width="56" height="66" />
+            <div>
+              <strong>nowUKan — Lifetime Access</strong>
+              <p class="note" style="margin:4px 0 0">One-time payment · full app access · all future updates</p>
+            </div>
           </div>
           <div class="cart-line-price">£11.99</div>
         </div>

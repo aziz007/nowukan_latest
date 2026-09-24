@@ -42,14 +42,14 @@ import { RouterLink } from '@angular/router';
 
           <h3>Download A Regional Brochure</h3>
           <ul class="brochure-list">
-            <li><a href="assets/brochures/european.pdf" target="_blank" rel="noopener">European</a></li>
-            <li><a href="assets/brochures/south-asia.pdf" target="_blank" rel="noopener">South Asia</a></li>
-            <li><a href="assets/brochures/south-east-asia.pdf" target="_blank" rel="noopener">South East Asia</a></li>
-            <li><a href="assets/brochures/south-america.pdf" target="_blank" rel="noopener">South America</a></li>
-            <li><a href="assets/brochures/middle-east.pdf" target="_blank" rel="noopener">Middle East</a></li>
-            <li><a href="assets/brochures/african-continent.pdf" target="_blank" rel="noopener">African Continent</a></li>
-            <li><a href="assets/brochures/central-eastern-europe.pdf" target="_blank" rel="noopener">Central / Eastern Europe</a></li>
-            <li><a href="assets/brochures/chinese-speaking.pdf" target="_blank" rel="noopener">Chinese Speaking</a></li>
+            <li><a href="brochures/nowukan-brochure-europe.pdf" download target="_blank" rel="noopener">European</a></li>
+            <li><a href="brochures/nowukan-brochure-south-asia.pdf" download target="_blank" rel="noopener">South Asia</a></li>
+            <li><a href="brochures/nowukan-brochure-south-east-asia.pdf" download target="_blank" rel="noopener">South East Asia</a></li>
+            <li><a href="brochures/nowukan-brochure-south-america.pdf" download target="_blank" rel="noopener">South America</a></li>
+            <li><a href="brochures/nowukan-brochure-middle-east.pdf" download target="_blank" rel="noopener">Middle East</a></li>
+            <li><a href="brochures/nowukan-brochure-africa.pdf" download target="_blank" rel="noopener">African Continent</a></li>
+            <li><a href="brochures/nowukan-brochure-central-eastern-europe.pdf" download target="_blank" rel="noopener">Central / Eastern Europe</a></li>
+            <li><a href="brochures/nowukan-brochure-china.pdf" download target="_blank" rel="noopener">Chinese Speaking</a></li>
           </ul>
 
           <div class="btn-row">

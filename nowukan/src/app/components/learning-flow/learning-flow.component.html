@@ -1,15 +1,20 @@
 <section id="how" class="journey">
   <div class="container">
     <div class="section-title">
-      <h2>IN DEVELOPMENT 4-1</h2>
-      <div class="sub">Junior | Skilled | Advanced | IELTS Preparation</div>
+      <h2>IN DEVELOPMENT 5-1</h2>
+      <div class="sub ukan-products">
+        <span class="p-junior">UKan Junior</span><span class="sep" aria-hidden="true">|</span>
+        <span class="p-read">UKan Read</span><span class="sep" aria-hidden="true">|</span>
+        <span class="p-spell">UKan Spell</span><span class="sep" aria-hidden="true">|</span>
+        <span class="p-listen">UKan Listen</span><span class="sep" aria-hidden="true">|</span>
+        <span class="p-talk">UKan Talk</span>
+      </div>
     </div>
 
     <div class="tier-preview">
       @for (screen of screens; track screen.id) {
         <figure class="tier-card">
-          <img [src]="screen.img" [alt]="'nowUKan — ' + screen.title" />
-          <figcaption>{{ screen.title }}</figcaption>
+          <img [src]="screen.img" [alt]="'nowUKan app preview — ' + screen.title" />
         </figure>
       }
     </div>

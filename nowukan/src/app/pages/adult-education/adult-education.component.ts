@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container journey-layout">
+      <div class="container journey-layout journey-layout-wide">
         <div class="journey-copy prose">
           <p class="eyebrow">Programmes</p>
           <h1 class="section-title">Adult Education</h1>
@@ -44,8 +44,13 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="step-phone">
-            <img src="assets/img/img-a808eb8bdb.jpeg" alt="nowUKan Dialogue section screen" />
+          <figure class="people-cutout">
+            <img
+              src="assets/img/adult-education.webp"
+              alt="Adult learners studying English together in class and at home, around a glowing open book and connected globe"
+              width="1536"
+              height="961"
+            />
           </figure>
         </div>
       </div>

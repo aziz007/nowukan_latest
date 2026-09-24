@@ -242,9 +242,16 @@ app-gdpr:has(.gdpr) ~ app-whatsapp-button .whatsapp-fab{bottom:150px}
 
 /* --- Hero visual (single static image) --- */
 .hero-visual{position:relative;min-height:0;display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
-.hero-visual img{max-width:480px;width:100%;border-radius:26px;box-shadow:0 40px 110px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);display:block}
+/* Hero product video (portrait 9:16). Size is reserved up-front so nothing shifts when it loads. */
+.hero-media{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#1a1a1a;box-shadow:0 40px 110px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+.hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-video{opacity:0;transition:opacity .6s ease}
+.hero-media.is-playing .hero-video{opacity:1}
+.hero-sound{position:absolute;right:12px;bottom:12px;z-index:2;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(4,14,31,.65);color:#fff;cursor:pointer;backdrop-filter:blur(6px);transition:background .15s ease}
+.hero-sound:hover{background:rgba(214,165,54,.85);color:#031022}
+.hero-sound:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
 @media(max-width:1100px){.hero-visual{min-height:0;margin-top:20px}}
-@media(max-width:760px){.hero-visual img{max-width:280px}}
+@media(max-width:760px){.hero-media{max-width:260px}}
 
 /* --- In Development 3-1: static tier preview (no carousel) --- */
 .journey{padding:48px 0 56px;overflow:hidden}
@@ -409,9 +416,10 @@ select.form-input option{background:#06142B;color:#fff}
 
 /* --- Journey page: wide two-column layout, real screens on the right --- */
 .journey-layout{display:grid;grid-template-columns:1fr 320px;gap:96px;align-items:start}
+.journey-copy>.eyebrow,.journey-copy>.section-title{margin-right:-416px}
 .journey-layout-reverse{grid-template-columns:320px 1fr}
 .journey-layout .journey-copy.prose{max-width:none}
-.journey-visual{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px}
+.journey-visual{position:sticky;top:100px;margin-top:60px;display:flex;flex-direction:column;gap:20px}
 .journey-visual-lower{margin-top:260px}
 .journey-visual-mid{margin-top:120px}
 .journey-visual .step-phone{margin:0;max-width:240px;margin-left:auto;margin-right:auto}
@@ -421,7 +429,7 @@ select.form-input option{background:#06142B;color:#fff}
 .contact-social-btn svg{width:28px;height:28px}
 .contact-social-btn:hover{color:#031022;background:var(--gold2);border-color:var(--gold2);transform:translateY(-2px)}
 @media(max-width:1000px){.contact-social{flex-direction:row;flex-wrap:wrap;justify-content:center}.contact-social-lower{margin-top:20px}.contact-social-btn{width:58px;height:58px}.contact-social-btn svg{width:22px;height:22px}}
-@media(max-width:1000px){.journey-layout{grid-template-columns:1fr}.journey-visual{position:static;flex-direction:row;justify-content:center;margin-top:20px}.journey-visual .step-phone{max-width:220px}.journey-visual-lower{margin-top:20px}.journey-visual-mid{margin-top:20px}}
+@media(max-width:1000px){.journey-layout{grid-template-columns:1fr}.journey-copy>.eyebrow,.journey-copy>.section-title{margin-right:0}.journey-visual{position:static;flex-direction:row;justify-content:center;margin-top:20px}.journey-visual .step-phone{max-width:220px}.journey-visual-lower{margin-top:20px}.journey-visual-mid{margin-top:20px}}
 @media(max-width:600px){.journey-visual{flex-direction:column;align-items:center}}
 
 /* --- Reusable: prose pages that should use the full page width --- */
@@ -454,3 +462,43 @@ select.form-input option{background:#06142B;color:#fff}
 .collab-visual-icons{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%;margin-top:12px}
 .collab-visual-icon{display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 8px}
 .collab-visual-icon small{color:#fff;font-weight:700;font-size:12.5px;font-family:Quicksand,Inter,sans-serif}
+
+/* --- Landscape illustration shown as a framed card (e.g. Account Management) --- */
+.visual-card{margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 50px rgba(0,0,0,.4);background:#fff}
+.visual-card img{width:100%;display:block}
+.journey-visual .visual-card{max-width:420px;margin-left:auto;margin-right:auto}
+@media(max-width:1000px){.journey-visual .visual-card{max-width:360px}}
+
+/* --- Cart: gold price-tag icon beside the product line --- */
+.cart-line-item{display:flex;align-items:center;gap:18px;min-width:0}
+.cart-line-icon{flex:0 0 auto;width:56px;height:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+@media(max-width:560px){.cart-line{flex-wrap:wrap}.cart-line-item{gap:14px}.cart-line-icon{width:46px}}
+
+/* --- Free Trial page badge --- */
+.trial-badge{max-width:280px;margin:0 auto}
+.trial-badge img{filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+@media(max-width:1000px){.trial-badge{max-width:220px}}
+
+/* --- In Development: coloured UKan product names --- */
+.ukan-products{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;font-weight:800}
+.ukan-products .sep{color:rgba(255,255,255,.55);font-weight:600}
+.ukan-products .p-junior{color:#ef4a3f}
+.ukan-products .p-read{color:#f28a2e}
+.ukan-products .p-spell{color:#4fbf3a}
+.ukan-products .p-listen{color:#4a90e8}
+.ukan-products .p-talk{color:#d77ad8}
+/* Same product colours, used inline within a sentence (e.g. Vision page) */
+.ukan-products-inline{font-weight:800}
+.ukan-products-inline .sep{color:rgba(255,255,255,.55);font-weight:600;margin:0 .45em}
+.ukan-products-inline .p-junior{color:#ef4a3f}
+.ukan-products-inline .p-read{color:#f28a2e}
+.ukan-products-inline .p-spell{color:#4fbf3a}
+.ukan-products-inline .p-listen{color:#4a90e8}
+.ukan-products-inline .p-talk{color:#d77ad8}
+.ukan-products-inline > span:not(.sep){white-space:nowrap}
+
+/* --- Wider image column for landscape illustrations (Pilot Programme, Adult Education) --- */
+@media(min-width:1001px){
+  .journey-layout-wide{grid-template-columns:1fr 440px;gap:64px}
+  .journey-layout-wide .journey-copy>.eyebrow,.journey-layout-wide .journey-copy>.section-title{margin-right:-504px}
+}

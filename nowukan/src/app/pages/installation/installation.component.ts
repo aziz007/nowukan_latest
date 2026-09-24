@@ -7,30 +7,26 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell page-shell-tight">
-      <div class="container prose prose-wide">
-        <p class="eyebrow">How It Works</p>
-        <h1 class="section-title">Installation</h1>
-
-        <p class="sub">Installing nowUKan is quick and straightforward.</p>
-
-        <p>
-          Once installed, the application can operate offline, allowing you to continue
-          learning without relying on a continuous internet connection.
-        </p>
-        <p>
-          This makes nowUKan particularly suitable for learners and organisations in areas
-          where internet access may be limited or unreliable.
-        </p>
-        <p>
-          If you have any technical issue or simply need help, please reach out to our tech
-          team: <a href="mailto:tech@nowukan.io?subject=Tech%20Team%20-%20Website">tech&#64;nowukan.io</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="page-shell page-shell-tight">
       <div class="container journey-layout">
         <div class="journey-copy prose">
+          <p class="eyebrow">How It Works</p>
+          <h1 class="section-title">Installation</h1>
+
+          <p class="sub">Installing nowUKan is quick and straightforward.</p>
+
+          <p>
+            Once installed, the application can operate offline, allowing you to continue<br />
+            learning without relying on a continuous internet connection.
+          </p>
+          <p>
+            This makes nowUKan particularly suitable for learners and organisations in<br />
+            areas where internet access may be limited or unreliable.
+          </p>
+          <p>
+            If you have any technical issue or simply need help, please reach out to our<br />
+            tech team: <a href="mailto:tech@nowukan.io?subject=Tech%20Team%20-%20Website">tech&#64;nowukan.io</a>
+          </p>
+
           <h3>Minimum Device<br />Requirements</h3>
           <ul>
             <li>Operating system:<br />[confirm minimum Android / iOS version]</li>

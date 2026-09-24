@@ -16,11 +16,6 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
         <div class="prose prose-wide">
           <p class="eyebrow">Benefits</p>
           <h1 class="section-title">Transform English Language Learning Without the Subscription</h1>
-          <p class="sub">
-            nowUKan provides an affordable, scalable and inclusive approach to English language
-            development and assessment, designed to remove the traditional barriers of other
-            applications.
-          </p>
 
           <div class="feature-pills benefits-pills benefits-pills-5">
             <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>One time cost</div>
@@ -34,6 +29,12 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
             <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Zero data mining / monitoring</div>
             <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>No adverts to interrupt your learning</div>
           </div>
+
+          <p>
+            nowUKan provides an affordable, scalable and inclusive approach to English language
+            development and assessment, designed to remove the traditional barriers of other
+            applications.
+          </p>
 
           <p>
             Powered by OSIE, our Offline Speech Intelligence Engine, nowUKan delivers real time
