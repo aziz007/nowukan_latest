@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
                 <path d="M50 69v9" stroke="url(#dsIconGrad)" stroke-width="5" stroke-linecap="round"/>
               </svg>
             </span>
-            <span class="icon-badge-label">Zero Data<br />Mining</span>
+            <span class="icon-badge-label">Zero Data <br />Mining</span>
           </div>
         </div>
       </div>

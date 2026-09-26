@@ -47,7 +47,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/partner-with-us.webp" alt="A global network of nowUKan partners shaking hands" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Building Global<br />Partnerships</div>
+          <div class="icon-badge-label" style="text-align:center">Building Global <br />Partnerships</div>
         </div>
       </div>
     </section>

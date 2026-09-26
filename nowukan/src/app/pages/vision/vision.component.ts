@@ -30,12 +30,8 @@ import { RouterLink } from '@angular/router';
           </p>
           <p>
             Our vision and commitment are also reflected in our ongoing development,
-            <span class="ukan-products-inline">
-              <span class="p-junior">UKan Junior</span><span class="sep" aria-hidden="true">|</span>
-              <span class="p-read">UKan Read</span><span class="sep" aria-hidden="true">|</span>
-              <span class="p-spell">UKan Spell</span><span class="sep" aria-hidden="true">|</span>
-              <span class="p-listen">UKan Listen</span><span class="sep" aria-hidden="true">|</span>
-              <span class="p-talk">UKan Talk</span></span>, which are already in the pipeline.
+            <span class="ukan-products-inline"><span class="p-junior">UKan Junior</span><span class="sep" aria-hidden="true"> | </span><span class="p-read">UKan Read</span><span class="sep" aria-hidden="true"> | </span><span class="p-spell">UKan Spell</span><span class="sep" aria-hidden="true"> | </span><span class="p-listen">UKan Listen</span><span class="sep" aria-hidden="true"> | </span><span class="p-talk">UKan Talk</span></span>,
+            which are already in the pipeline.
           </p>
 
           <p class="note"><strong>Breaking barriers. Opening opportunities. Empowering people.</strong></p>
@@ -47,7 +43,7 @@ import { RouterLink } from '@angular/router';
           </div>
         </div>
 
-        <div class="journey-visual">
+        <div class="journey-visual journey-visual-below-long-title">
           <figure class="people-cutout">
             <img
               src="assets/img/vision-breaking-barriers.webp"

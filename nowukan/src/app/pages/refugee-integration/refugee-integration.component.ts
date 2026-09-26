@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/refugee-integration.webp" alt="A family being welcomed and supported with nowUKan" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Supporting<br />New Communities</div>
+          <div class="icon-badge-label" style="text-align:center">Supporting <br />New Communities</div>
         </div>
       </div>
     </section>

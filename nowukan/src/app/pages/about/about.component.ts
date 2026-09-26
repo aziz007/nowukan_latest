@@ -19,15 +19,15 @@ import { RouterLink } from '@angular/router';
 
           <p>
             Our dedicated team is committed to making language learning and assessment more
-            affordable,<br />scalable and accessible to people around the world.
+            affordable, <br />scalable and accessible to people around the world.
           </p>
           <p>
             We develop our technology and content in-house, giving us greater control over the
-            quality,<br />security, reliability and continued development of our solutions.
+            quality, <br />security, reliability and continued development of our solutions.
           </p>
           <p>
             By not relying on third-party technology, we can respond quickly to changing needs,
-            continuously<br />innovate and maintain a consistent experience for our partners and
+            continuously <br />innovate and maintain a consistent experience for our partners and
             end users.
           </p>
           <p>
@@ -49,7 +49,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/about-global-team.webp" alt="A global team of nowUKan learners and innovators" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Building The<br />Future Of Learning</div>
+          <div class="icon-badge-label" style="text-align:center">Building The <br />Future Of Learning</div>
         </div>
       </div>
     </section>

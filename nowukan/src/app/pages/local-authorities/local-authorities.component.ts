@@ -44,7 +44,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/local-authorities.webp" alt="Local authorities and communities supported by nowUKan" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Supporting Local<br />Communities</div>
+          <div class="icon-badge-label" style="text-align:center">Supporting Local <br />Communities</div>
         </div>
       </div>
     </section>

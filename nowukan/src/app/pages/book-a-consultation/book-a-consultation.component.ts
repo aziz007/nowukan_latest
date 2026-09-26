@@ -55,7 +55,7 @@ import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form
           <figure class="people-cutout">
             <img src="assets/img/book-consultation.webp" alt="Two people discussing a nowUKan consultation" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Book Your<br />Consultation</div>
+          <div class="icon-badge-label" style="text-align:center">Book Your <br />Consultation</div>
         </div>
       </div>
     </section>

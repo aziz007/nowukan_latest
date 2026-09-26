@@ -38,7 +38,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/gift-nowukan.webp" alt="Give the gift of nowUKan — unwrapping an English learning gift" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Give The Gift<br />Of English</div>
+          <div class="icon-badge-label" style="text-align:center">Give The Gift <br />Of English</div>
         </div>
       </div>
     </section>

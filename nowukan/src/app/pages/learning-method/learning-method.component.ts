@@ -44,7 +44,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="step-phone">
-            <img src="assets/img/img-7e421e52d5.jpeg" alt="nowUKan Phrases section screen" />
+            <img src="assets/img/learning-method-speech-score.webp" alt="nowUKan pronunciation feedback screen — a speech meter showing 71%, That Was Very Clear, with Playback, Try Again and Next buttons" />
           </figure>
         </div>
       </div>

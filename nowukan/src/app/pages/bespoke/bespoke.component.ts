@@ -50,7 +50,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/bespoke-collaboration.webp" alt="A team collaborating on a bespoke nowUKan solution" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Built Around<br />Your Requirements</div>
+          <div class="icon-badge-label" style="text-align:center">Built Around <br />Your Requirements</div>
         </div>
       </div>
     </section>

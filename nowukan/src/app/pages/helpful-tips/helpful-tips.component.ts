@@ -62,7 +62,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/helpful-tips-steps.webp" alt="Steps to learning success — practice, progress and achievement" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">16 Tips To<br />Learn Faster</div>
+          <div class="icon-badge-label icon-badge-label-oneline" style="text-align:center">Helpful Tips for Your Learning Journey</div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -52,7 +52,7 @@ interface VideoEntry {
   `,
 })
 export class VideosComponent {
-  private readonly sanitizer = new DomSanitizer();
+  private readonly sanitizer = inject(DomSanitizer);
 
   /**
    * PLACEHOLDER video list — replace youtubeId, title and description for

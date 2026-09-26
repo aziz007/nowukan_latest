@@ -76,7 +76,7 @@ import { RouterLink } from '@angular/router';
                 <circle cx="62" cy="50" r="26" fill="none" stroke="#1687FF" stroke-width="6"/>
               </svg>
             </span>
-            <span class="icon-badge-label">Let's Work<br />Together</span>
+            <span class="icon-badge-label">Let's Work <br />Together</span>
             <div class="collab-visual-icons">
               <div class="collab-visual-icon">
                 <svg viewBox="0 0 100 100" width="30" height="30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -47,7 +47,7 @@ import { RouterLink } from '@angular/router';
           <figure class="people-cutout">
             <img src="assets/img/employee-growth.webp" alt="A team of employees growing their skills and careers with nowUKan" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">Workplace<br />Communication</div>
+          <div class="icon-badge-label" style="text-align:center">Workplace <br />Communication</div>
         </div>
       </div>
     </section>

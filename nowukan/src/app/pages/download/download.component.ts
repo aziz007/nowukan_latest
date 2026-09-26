@@ -13,17 +13,17 @@ import { RouterLink } from '@angular/router';
           <h1 class="section-title">Try nowUKan Free for 7 Days</h1>
 
           <p class="sub">
-            Experience nowUKan for yourself with our<br />
+            Experience nowUKan for yourself with our <br />
             7-day free trial.
           </p>
 
           <p>
-            Explore the learning journey, practise your English, test your pronunciation<br />
-            and discover how our platform can help you develop your language skills<br />
+            Explore the learning journey, practise your English, test your pronunciation <br />
+            and discover how our platform can help you develop your language skills <br />
             and confidence.
           </p>
           <p>
-            There is no obligation to continue. Take the time to explore the app,<br />
+            There is no obligation to continue. Take the time to explore the app, <br />
             understand how it works and decide whether nowUKan is right for you.
           </p>
 
@@ -35,12 +35,12 @@ import { RouterLink } from '@angular/router';
           </div>
 
           <p>
-            Your 7-day free trial gives you the opportunity to experience nowUKan<br />
+            Your 7-day free trial gives you the opportunity to experience nowUKan <br />
             before deciding whether to continue.
           </p>
           <p>
-            If you choose to continue, our exceptionally low-cost, one-time pricing<br />
-            means there are no recurring monthly subscription fees. You pay once<br />
+            If you choose to continue, our exceptionally low-cost, one-time pricing <br />
+            means there are no recurring monthly subscription fees. You pay once <br />
             and can use the app for life.
           </p>
 
@@ -50,11 +50,11 @@ import { RouterLink } from '@angular/router';
           </p>
         </div>
 
-        <div class="journey-visual">
+        <div class="journey-visual journey-visual-below-long-title">
           <figure class="people-cutout trial-badge">
             <img src="assets/img/free-trial-badge.webp" alt="100% Free Trial — try nowUKan now" width="512" height="514" />
           </figure>
-          <div class="icon-badge-label" style="text-align:center">7 Days Free<br />No Obligation</div>
+          <div class="icon-badge-label" style="text-align:center">7 Days Free <br />No Obligation</div>
         </div>
       </div>
     </section>

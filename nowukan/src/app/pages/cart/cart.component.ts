@@ -16,11 +16,22 @@ import { RouterLink } from '@angular/router';
           <div class="cart-line-item">
             <img class="cart-line-icon" src="assets/img/price-tag-coin.webp" alt="" aria-hidden="true" width="56" height="66" />
             <div>
-              <strong>nowUKan — Lifetime Access</strong>
-              <p class="note" style="margin:4px 0 0">One-time payment · full app access · all future updates</p>
+              <strong>nowUKan — Lifetime Access (Buy Direct)</strong>
+              <p class="note" style="margin:4px 0 0">One-time payment · Full app access · All future updates · Occasional promo codes</p>
             </div>
           </div>
           <div class="cart-line-price">£11.99</div>
+        </div>
+
+        <div class="cart-line cart-line-secondary">
+          <div class="cart-line-item">
+            <img class="cart-line-icon" src="assets/img/price-tag-coin.webp" alt="" aria-hidden="true" width="56" height="66" />
+            <div>
+              <strong>nowUKan — Lifetime Access (App Store Price)</strong>
+              <p class="note" style="margin:4px 0 0">One-time payment · Full app access · All future updates · No promotional codes</p>
+            </div>
+          </div>
+          <div class="cart-line-price">£14.99</div>
         </div>
         <p class="note" style="margin-top:8px">Local tax (VAT/GST), if applicable, is calculated and added at checkout.</p>
 

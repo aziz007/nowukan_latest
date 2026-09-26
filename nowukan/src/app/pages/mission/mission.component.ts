@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="container journey-layout">
         <div class="journey-copy prose">
           <p class="eyebrow">Mission</p>
-          <h1 class="section-title">Making English Language Learning Accessible<br />and Affordable to Everyone!</h1>
+          <h1 class="section-title">Making English Language Learning <br />Accessible and Affordable to Everyone!</h1>
 
           <p class="sub">
             Our mission was to make English language development and assessment affordable and

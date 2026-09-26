@@ -193,7 +193,7 @@ app-gdpr:has(.gdpr) ~ app-whatsapp-button .whatsapp-fab{bottom:150px}
 .pill-tick-plain{display:block;height:46px;line-height:46px;margin:0 auto 7px;color:var(--green);font-size:28px;font-weight:900}
 @media(max-width:900px){.benefits-pills-5{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.benefits-pills{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.benefits-pills{grid-template-columns:1fr}}
+@media(max-width:480px){.benefits-pills{grid-template-columns:1fr 1fr;gap:8px}}
 .prose ul,.prose ol{margin:0 0 18px;padding-left:22px;color:var(--muted)}
 .prose li{margin:7px 0;line-height:1.6}
 .collab-list{list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
@@ -264,8 +264,6 @@ app-gdpr:has(.gdpr) ~ app-whatsapp-button .whatsapp-fab{bottom:150px}
 
 /* --- Institution cards: static arrow marker (easy to make links later) --- */
 .card{position:relative}
-.card.has-arrow:after{content:"\203A";position:absolute;top:18px;right:20px;font-size:24px;font-weight:900;line-height:1;color:var(--cyan);opacity:.75;transition:transform .15s ease,opacity .15s ease}
-.card.has-arrow:hover:after{opacity:1;transform:translateX(3px)}
 
 /* --- Mega hamburger menu (grouped, multi-column) --- */
 .drawer-mega{width:min(860px,92vw);max-height:78vh;overflow-y:auto;padding:26px}
@@ -442,7 +440,9 @@ select.form-input option{background:#06142B;color:#fff}
 .brochure-stack{display:flex;flex-direction:column;gap:16px;align-items:center}
 .brochure-stack .brochure-cover{width:64%;box-shadow:0 18px 50px rgba(0,0,0,.45)}
 .people-cutout{margin:0;background:transparent}
-.people-cutout img{width:100%;display:block;background:transparent}
+.people-cutout img{width:100%;height:auto;max-width:100%;display:block;background:transparent}
+/* Figures inside the image column must never grow wider than the column (stops sideways scroll on phones). */
+.journey-visual .people-cutout{min-width:0;max-width:100%}
 
 /* --- Reusable icon badge panel for "How It Works" style pages --- */
 .icon-badge-panel{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;background:linear-gradient(160deg,rgba(214,165,54,.14),rgba(22,135,255,.08));border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:50px 24px;box-shadow:0 30px 90px rgba(0,0,0,.35)}
@@ -489,7 +489,7 @@ select.form-input option{background:#06142B;color:#fff}
 .ukan-products .p-talk{color:#d77ad8}
 /* Same product colours, used inline within a sentence (e.g. Vision page) */
 .ukan-products-inline{font-weight:800}
-.ukan-products-inline .sep{color:rgba(255,255,255,.55);font-weight:600;margin:0 .45em}
+.ukan-products-inline .sep{color:rgba(255,255,255,.55);font-weight:600}
 .ukan-products-inline .p-junior{color:#ef4a3f}
 .ukan-products-inline .p-read{color:#f28a2e}
 .ukan-products-inline .p-spell{color:#4fbf3a}
@@ -502,3 +502,34 @@ select.form-input option{background:#06142B;color:#fff}
   .journey-layout-wide{grid-template-columns:1fr 440px;gap:64px}
   .journey-layout-wide .journey-copy>.eyebrow,.journey-layout-wide .journey-copy>.section-title{margin-right:-504px}
 }
+
+/* Mobile safety: single column can never be forced wider than the screen by long content. */
+@media(max-width:1000px){.journey-layout,.journey-layout-reverse{grid-template-columns:minmax(0,1fr)}}
+
+/* --- Tablets & phones: the manual line breaks in page copy are for desktop only.
+       On narrower screens they create ragged, broken lines, so let the text flow. --- */
+@media(max-width:1000px){
+  .journey-copy p br,
+  .journey-copy li br,
+  .journey-copy .sub br,
+  .journey-copy > h1 br,
+  .journey-copy > .section-title br{display:none}
+}
+
+/* Space between a button row and the paragraph that follows it (e.g. Free Trial page). */
+.journey-copy .btn-row + p{margin-top:22px}
+
+/* Pages whose full-width heading wraps onto two lines: start the image below it. */
+@media(min-width:1001px){.journey-visual-below-long-title{margin-top:170px}}
+
+/* Longer image caption kept on a single line (Helpful Tips page). */
+.icon-badge-label-oneline{font-size:14px;letter-spacing:.01em}
+@media(min-width:1001px){.icon-badge-label-oneline{white-space:nowrap}}
+
+/* Installation page: single-line heading and caption on desktop; spec list styling. */
+@media(min-width:1001px){.nowrap-desktop{white-space:nowrap}}
+.icon-badge-label-oneline-lg{white-space:nowrap}
+.spec-list li strong{color:#fff}
+
+/* Cart: second price bar sits directly under the first. */
+.cart-line + .cart-line{margin-top:-10px}
