@@ -12,7 +12,8 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose prose-wide">
+      <div class="container journey-layout">
+        <div class="journey-copy prose">
         <p class="eyebrow">Programmes</p>
         <h1 class="section-title">Personal Use</h1>
 
@@ -26,18 +27,18 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
           confidence, without the cost of an ongoing subscription.
         </p>
 
-        <div class="feature-pills benefits-pills">
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>One time cost</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Lifetime access</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>No recurring fees</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Fully offline learning</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Real-world content</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>On-device speech analysis</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>On-device voice technology</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Engaging learning methodology</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>Zero data mining / monitoring</div>
-          <div class="pill"><span class="pill-ico pill-tick">${TICK_SVG}</span>No adverts to interrupt your learning</div>
-        </div>
+        <ul class="tick-list">
+          <li><span class="tick-ico">${TICK_SVG}</span>English for life</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>One low-cost payment</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>No recurring subscriptions</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>Unlimited lifetime access</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>Fully offline learning</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>Real-world content</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>On-device speech analysis</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>No data mining</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>No cloud dependency</li>
+          <li><span class="tick-ico">${TICK_SVG}</span>No disruptive ads</li>
+        </ul>
 
         <p class="note"><strong>Start your journey with nowUKan today.</strong></p>
 
@@ -93,7 +94,19 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
 
         <div class="btn-row">
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/register" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+        </div>
+        </div>
+
+        <div class="journey-visual journey-visual-top">
+          <figure class="people-cutout">
+            <img
+              src="assets/img/offline-install-graphic.webp"
+              alt="Phone downloading the nowUKan app from the cloud, with offline and verified icons"
+              width="760"
+              height="950"
+            />
+          </figure>
         </div>
       </div>
     </section>
