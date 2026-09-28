@@ -45,8 +45,8 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual">
-          <figure class="visual-card">
-            <img src="assets/img/account-management-crm.webp" alt="Account management — users, settings and CRM tools" />
+          <figure class="people-cutout">
+            <img src="assets/img/account-management.webp" alt="Secure account shield surrounded by a phone, tablet and laptop, with learning, audio and settings icons" width="760" height="955" />
           </figure>
         </div>
       </div>

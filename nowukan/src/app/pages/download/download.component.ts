@@ -51,8 +51,8 @@ import { RouterLink } from '@angular/router';
         </div>
 
         <div class="journey-visual journey-visual-below-long-title">
-          <figure class="people-cutout trial-badge">
-            <img src="assets/img/free-trial-badge.webp" alt="100% Free Trial — try nowUKan now" width="512" height="514" />
+          <figure class="people-cutout">
+            <img src="assets/img/free-trial-7-days.webp" alt="7 days free learning — a calendar with all seven days ticked and a Start Your Learning button" width="760" height="961" />
           </figure>
           <div class="icon-badge-label" style="text-align:center">7 Days Free <br />No Obligation</div>
         </div>

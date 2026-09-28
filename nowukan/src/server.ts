@@ -155,37 +155,74 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
   const siteUrl = process.env['SITE_URL'] || 'https://nowukan.io';
 
-  try {
-    const session = await stripe.checkout.sessions.create({
-      mode: plan.mode,
-      customer_email: email || undefined,
-      line_items: [
-        {
-          price_data: {
-            currency: plan.currency,
-            product_data: { name: plan.name },
-            unit_amount: plan.amount,
-            // Explicit, rather than relying on the account's default: tax is
-            // always calculated and added ON TOP of unit_amount, never
-            // absorbed into it. £11.99 is always what the buyer sees as the
-            // pre-tax price.
-            tax_behavior: 'exclusive',
-            ...(plan.mode === 'subscription'
-              ? { recurring: { interval: plan.interval || 'month' } }
-              : {}),
-          },
-          quantity: 1,
+  // Optional: the product tax category. If not set, Stripe uses the preset
+  // tax code from Dashboard -> Settings -> Tax. Set it in .env once your
+  // accountant confirms the right category for the app.
+  const taxCode = process.env['STRIPE_TAX_CODE'] || undefined;
+
+  const baseParams: Stripe.Checkout.SessionCreateParams = {
+    mode: plan.mode,
+    customer_email: email || undefined,
+    line_items: [
+      {
+        price_data: {
+          currency: plan.currency,
+          product_data: { name: plan.name, ...(taxCode ? { tax_code: taxCode } : {}) },
+          unit_amount: plan.amount,
+          // Explicit, rather than relying on the account's default: tax is
+          // always calculated and added ON TOP of unit_amount, never
+          // absorbed into it. £11.99 is always what the buyer sees as the
+          // pre-tax price.
+          tax_behavior: 'exclusive',
+          ...(plan.mode === 'subscription'
+            ? { recurring: { interval: plan.interval || 'month' } }
+            : {}),
         },
-      ],
-      // Stripe Tax calculates and adds the correct local GST/VAT automatically
-      // based on the customer's billing address. Requires Stripe Tax to be
-      // switched on in the Dashboard (Settings -> Tax) and your product's tax
-      // category configured there before this will actually apply anything.
-      automatic_tax: { enabled: true },
-      billing_address_collection: 'required',
-      success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/checkout/cancel`,
-    });
+        quantity: 1,
+      },
+    ],
+    // Stripe Tax adds the correct local GST/VAT based on the billing address.
+    // NOTE: Stripe only charges tax in countries where a tax REGISTRATION has
+    // been added in Dashboard -> Tax -> Registrations. Everywhere else it
+    // correctly returns zero tax.
+    automatic_tax: { enabled: true },
+    billing_address_collection: 'required',
+    // Adaptive Pricing: overseas buyers see and pay the price in their local
+    // currency; Stripe settles to us in GBP. The 2-4% conversion fee is paid
+    // by the buyer (they can still choose to pay in GBP instead).
+    adaptive_pricing: { enabled: true },
+    success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${siteUrl}/checkout/cancel`,
+  };
+
+  // nowUKan branding on the Stripe checkout page, set per session so it can't
+  // "go missing" if Dashboard branding differs between live and sandbox
+  // accounts. Needs Stripe API version 2025-09-30.clover or later, so it is
+  // sent with that version on this request only.
+  const logoUrl =
+    process.env['STRIPE_BRANDING_LOGO_URL'] || `${siteUrl}/brand/nowukan-logo.png`;
+  const brandedParams = {
+    ...baseParams,
+    branding_settings: {
+      display_name: 'nowUKan',
+      logo: { type: 'url', url: logoUrl },
+    },
+  } as unknown as Stripe.Checkout.SessionCreateParams;
+
+  try {
+    let session: Stripe.Checkout.Session;
+    try {
+      session = await stripe.checkout.sessions.create(brandedParams, {
+        apiVersion: '2025-09-30.clover',
+      });
+    } catch (brandingErr) {
+      // Never let branding block a payment: retry without it and log why.
+      console.warn(
+        'Stripe rejected branding settings — continuing without them:',
+        (brandingErr as Error).message,
+      );
+      session = await stripe.checkout.sessions.create(baseParams);
+    }
 
     res.json({ url: session.url });
   } catch (err) {

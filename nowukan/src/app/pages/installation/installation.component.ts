@@ -27,14 +27,44 @@ import { RouterLink } from '@angular/router';
             tech team: <a href="mailto:tech@nowukan.io?subject=Tech%20Team%20-%20Website">tech&#64;nowukan.io</a>
           </p>
 
-          <h3 class="nowrap-desktop">Minimum Device Requirements</h3>
+          <p class="note"><strong>Install once. Learn anywhere.</strong></p>
+
+          <h3>Minimum Device Specifications</h3>
+          <p>
+            To provide a reliable experience, the app requires a compatible mobile device <br />
+            meeting the following minimum specifications:
+          </p>
+
+          <h4 class="spec-heading">Apple iOS</h4>
           <ul class="spec-list">
-            @for (spec of confirmedSpecs; track spec.label) {
-              <li><strong>{{ spec.label }}:</strong> {{ spec.value }}</li>
-            }
+            <li><strong>Operating System:</strong> iOS 15.0 or later</li>
+            <li><strong>CPU:</strong> 64-bit Apple processor (A7 or later)</li>
+            <li><strong>RAM:</strong> 2 GB minimum</li>
+            <li><strong>Storage:</strong> At least 500 MB of available storage</li>
+            <li><strong>Internet:</strong> Wi-Fi or mobile data connection required for online features</li>
+          </ul>
+          <p class="note">
+            <strong>Note:</strong> Starting in Spring 2027, all iOS apps must have a MinimumOSVersion of 15.0
+          </p>
+
+          <h4 class="spec-heading">Android</h4>
+          <ul class="spec-list">
+            <li><strong>Operating System:</strong> Android 8.0 (API 26) or later</li>
+            <li><strong>CPU:</strong> 64-bit ARM processor recommended</li>
+            <li><strong>RAM:</strong> 2 GB minimum</li>
+            <li><strong>Storage:</strong> At least 500 MB of available storage</li>
+            <li><strong>Internet:</strong> Wi-Fi or mobile data connection required for online features</li>
           </ul>
 
-          <p class="note"><strong>Install once. <br />Learn anywhere.</strong></p>
+          <h3>Recommended Specification</h3>
+          <p>For the best performance, we recommend:</p>
+          <ul class="spec-list">
+            <li><strong>RAM:</strong> 4 GB or more</li>
+            <li>64-bit processor</li>
+            <li>Latest supported version of iOS or Android</li>
+            <li>At least 1 GB of available storage</li>
+            <li>A reliable Wi-Fi or mobile data connection</li>
+          </ul>
 
           <div class="btn-row">
             <a routerLink="/download" class="btn btn-benefits">Free Trial</a>
@@ -51,23 +81,4 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
 })
-export class InstallationComponent {
-  /**
-   * Minimum device requirements shown on the page.
-   *
-   * Any entry with an empty value is hidden automatically, so an unconfirmed
-   * placeholder can never appear on the live site. To add a spec once the
-   * app team confirms it, just fill in its value.
-   *
-   * Operating system wording is taken from the site's own Terms & Conditions
-   * (terms.component.html) — keep the two in sync if it changes.
-   */
-  readonly specs: { label: string; value: string }[] = [
-    { label: 'Operating system', value: 'Android 9 or above, or iOS 9 or above (iPhone 5S or newer, 64-bit)' },
-    { label: 'Storage', value: '' }, // e.g. 'At least 500 MB free space' — TO CONFIRM
-    { label: 'RAM', value: '' }, // e.g. '2 GB' — TO CONFIRM
-    { label: 'Screen size', value: '' }, // e.g. '4.7 inches or larger' — TO CONFIRM
-  ];
-
-  readonly confirmedSpecs = this.specs.filter((s) => s.value.trim() !== '');
-}
+export class InstallationComponent {}

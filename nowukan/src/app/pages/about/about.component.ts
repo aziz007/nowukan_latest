@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="container journey-layout">
         <div class="journey-copy prose">
           <p class="eyebrow">About</p>
-          <h1 class="section-title">Where Innovation Meets Excellence</h1>
+          <h1 class="section-title">Where Innovation Meets <br />Excellence</h1>
 
           <p class="sub">
             We are a dynamic team of visionaries, creators and innovators, united by a shared
@@ -45,7 +45,7 @@ import { RouterLink } from '@angular/router';
           </div>
         </div>
 
-        <div class="journey-visual journey-visual-lower">
+        <div class="journey-visual journey-visual-top">
           <figure class="people-cutout">
             <img src="assets/img/about-global-team.webp" alt="A global team of nowUKan learners and innovators" />
           </figure>

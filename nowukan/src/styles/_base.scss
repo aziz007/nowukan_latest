@@ -533,3 +533,7 @@ select.form-input option{background:#06142B;color:#fff}
 
 /* Cart: second price bar sits directly under the first. */
 .cart-line + .cart-line{margin-top:-10px}
+.spec-heading{color:var(--gold2);font-size:17px;margin:18px 0 6px}
+
+/* About page: image starts level with the heading (heading is kept short enough not to reach it). */
+@media(min-width:1001px){.journey-visual-top{margin-top:0}}

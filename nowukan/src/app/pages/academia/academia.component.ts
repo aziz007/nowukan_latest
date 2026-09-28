@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="journey-visual">
           <figure class="people-cutout">
-            <img src="assets/img/academia-cap.webp" alt="Gold graduation cap representing academic achievement with nowUKan" />
+            <img src="assets/img/academia-graduates.webp" alt="Graduates in gowns celebrating, throwing caps in front of a golden university building" width="760" height="892" />
           </figure>
           <div class="icon-badge-label" style="text-align:center">Supporting <br />Academic Success</div>
         </div>
