@@ -94,7 +94,7 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
 
         <div class="btn-row">
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
         </div>
         </div>
 

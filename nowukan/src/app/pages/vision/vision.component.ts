@@ -30,7 +30,7 @@ import { RouterLink } from '@angular/router';
           </p>
           <p>
             Our vision and commitment are also reflected in our ongoing development,
-            <span class="ukan-products-inline"><span class="p-junior">UKan Junior</span><span class="sep" aria-hidden="true"> | </span><span class="p-read">UKan Read</span><span class="sep" aria-hidden="true"> | </span><span class="p-spell">UKan Write</span><span class="sep" aria-hidden="true"> | </span><span class="p-listen">UKan Listen</span><span class="sep" aria-hidden="true"> | </span><span class="p-talk">UKan Speak</span></span>,
+            <span class="ukan-products-inline"><span class="p-junior">UKan Junior</span><span class="sep" aria-hidden="true"> | </span><span class="p-read">UKan Read</span><span class="sep" aria-hidden="true"> | </span><span class="p-spell">UKan Spell</span><span class="sep" aria-hidden="true"> | </span><span class="p-listen">UKan Listen</span><span class="sep" aria-hidden="true"> | </span><span class="p-talk">UKan Talk</span></span>,
             which are already in the pipeline.
           </p>
 
@@ -39,7 +39,7 @@ import { RouterLink } from '@angular/router';
           <div class="btn-row">
             <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
-            <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+            <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 

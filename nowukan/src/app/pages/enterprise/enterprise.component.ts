@@ -16,7 +16,7 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
         <p class="eyebrow">Enterprise</p>
         <h1 class="section-title">English Language Development at Scale</h1>
 
-        <p class="sub">Need to provide English language development to a large number of users?</p>
+        <p class="sub sub-full-width">Need to provide English language development to a large number of users?</p>
 
         <p>
           Our Enterprise Programme gives organisations a simple, cost-effective way to provide

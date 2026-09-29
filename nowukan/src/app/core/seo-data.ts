@@ -162,6 +162,16 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       'Enter for a chance to win a free lifetime nowUKan English licence for your entire school, college or university. No purchase necessary.',
     noindex: true,
   },
+  'buy-now': {
+    title: 'Buy Now — Lifetime Access | nowUKan',
+    description: "Buy your nowUKan App's lifetime access. One-time payment, no recurring subscription fees.",
+    noindex: true,
+  },
+  'registration-complete': {
+    title: 'Welcome to nowUKan — Free Trial Activated',
+    description: 'Your nowUKan free trial has been activated.',
+    noindex: true,
+  },
   'register': {
     title: 'Register Now — Create Your Account | nowUKan',
     description:

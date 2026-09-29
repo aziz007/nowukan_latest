@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="container journey-layout">
         <div class="journey-copy prose">
           <p class="eyebrow">Challenge</p>
-          <h1 class="section-title">Ready to Put Your English Skills <br />to the Test?</h1>
+          <h1 class="section-title">Ready to Put Your English <br />Skills to the Test?</h1>
 
           <p class="sub">
             Our nowUKan Challenge section lets you test your vocabulary, pronunciation,
@@ -37,11 +37,11 @@ import { RouterLink } from '@angular/router';
 
           <div class="btn-row">
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
-            <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+            <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 
-        <div class="journey-visual journey-visual-below-long-title">
+        <div class="journey-visual journey-visual-top journey-visual-top-large-only">
           <figure class="step-phone">
             <img src="assets/journey/challenge-screen.jpg" alt="nowUKan Challenge — 2 players required, connect via Bluetooth or Wi-Fi" />
           </figure>

@@ -36,14 +36,9 @@ import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form
         <p class="note"><strong>Let's talk about how nowUKan can work for you.</strong></p>
 
         <p>
-          Please complete the form below to request a consultation, or use our Calendly link to
-          book a convenient time directly with a member of our team.
+          Please complete the form below to request a consultation, and a member of our team
+          will be in touch to arrange a convenient time.
         </p>
-
-        <div class="btn-row">
-          <!-- TODO: replace with the real Calendly scheduling link -->
-          <a href="#" target="_blank" rel="noopener" class="btn btn-dark">Book Via Calendly</a>
-        </div>
 
         <app-enquiry-form
           heading="Request A Consultation"

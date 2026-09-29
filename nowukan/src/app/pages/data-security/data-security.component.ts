@@ -31,28 +31,20 @@ import { RouterLink } from '@angular/router';
 
           <div class="btn-row">
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
-            <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+            <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 
-        <div class="journey-visual journey-visual-mid">
-          <div class="icon-badge-panel">
-            <span class="icon-badge-ico">
-              <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="dsIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <path d="M32 44V32a18 18 0 0 1 36 0v12" fill="none" stroke="url(#dsIconGrad)" stroke-width="5" stroke-linecap="round"/>
-                <rect x="22" y="44" width="56" height="42" rx="10" fill="none" stroke="url(#dsIconGrad)" stroke-width="5"/>
-                <circle cx="50" cy="63" r="6" fill="url(#dsIconGrad)"/>
-                <path d="M50 69v9" stroke="url(#dsIconGrad)" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="icon-badge-label">Zero Data <br />Mining</span>
-          </div>
+        <div class="journey-visual journey-visual-top">
+          <figure class="people-cutout">
+            <img
+              src="assets/img/data-security.webp"
+              alt="Gold shield and padlock protecting the learner's data, with data selling, tracking and data mining crossed out"
+              width="760"
+              height="968"
+            />
+          </figure>
+          <div class="icon-badge-label" style="text-align:center">Zero Data <br />Mining</div>
         </div>
       </div>
     </section>

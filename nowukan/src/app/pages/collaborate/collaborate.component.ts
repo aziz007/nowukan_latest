@@ -62,20 +62,16 @@ import { RouterLink } from '@angular/router';
           </div>
         </div>
 
-        <div class="journey-visual">
-          <div class="collab-visual-panel">
-            <span class="collab-visual-ico">
-              <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="collabIconGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#F6C85F"/>
-                    <stop offset="1" stop-color="#D6A536"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="38" cy="50" r="26" fill="none" stroke="url(#collabIconGrad)" stroke-width="6"/>
-                <circle cx="62" cy="50" r="26" fill="none" stroke="#1687FF" stroke-width="6"/>
-              </svg>
-            </span>
+        <div class="journey-visual journey-visual-top">
+          <figure class="people-cutout">
+            <img
+              src="assets/img/collaborate-badge.webp"
+              alt="Collaborate with us — gold handshake in front of a globe, framed by laurel leaves"
+              width="760"
+              height="787"
+            />
+          </figure>
+          <div class="collab-visual-panel collab-visual-panel-plain">
             <span class="icon-badge-label">Let's Work <br />Together</span>
             <div class="collab-visual-icons">
               <div class="collab-visual-icon">

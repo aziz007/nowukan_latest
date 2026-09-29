@@ -32,7 +32,7 @@ import { RouterLink } from '@angular/router';
 
         <div class="btn-row">
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
-          <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+          <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
         </div>
       </div>

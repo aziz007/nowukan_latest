@@ -106,8 +106,14 @@
           <a routerLink="/legal/terms">Terms</a> &amp; <a routerLink="/legal/privacy">Privacy Policy</a>.
         </p>
 
+        @if (errorMessage()) {
+          <p class="form-error form-error-banner">{{ errorMessage() }}</p>
+        }
+
         <div class="btn-row">
-          <button type="submit" class="btn btn-gold">Submit Entry</button>
+          <button type="submit" class="btn btn-gold" [disabled]="submitting()">
+            {{ submitting() ? 'Submitting your entry…' : 'Submit Entry' }}
+          </button>
         </div>
       </form>
     }

@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import {
   AbstractControl,
   FormBuilder,
@@ -35,6 +35,7 @@ function minimumAgeValidator(): ValidatorFn {
 })
 export class RegisterComponent {
   private readonly fb = new FormBuilder();
+  private readonly router = inject(Router);
 
   /** Timestamp the form was rendered — used as a simple bot time-trap. */
   private readonly renderedAt = Date.now();
@@ -103,8 +104,8 @@ export class RegisterComponent {
       });
 
       if (response.ok) {
-        this.submitted.set(true);
         this.form.reset();
+        this.router.navigate(['/registration-complete']);
         return;
       }
 

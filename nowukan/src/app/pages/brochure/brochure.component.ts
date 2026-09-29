@@ -49,14 +49,14 @@ import { RouterLink } from '@angular/router';
             <li><a href="brochures/nowukan-brochure-middle-east.pdf" download target="_blank" rel="noopener">Middle East</a></li>
             <li><a href="brochures/nowukan-brochure-africa.pdf" download target="_blank" rel="noopener">African Continent</a></li>
             <li><a href="brochures/nowukan-brochure-central-eastern-europe.pdf" download target="_blank" rel="noopener">Central / Eastern Europe</a></li>
-            <li><a href="brochures/nowukan-brochure-china.pdf" download target="_blank" rel="noopener">Chinese Speaking</a></li>
+            <li><a href="brochures/nowukan-brochure-china.pdf" download target="_blank" rel="noopener">Chinese Speakers</a></li>
           </ul>
 
           <div class="btn-row">
             <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
             <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
             <a routerLink="/register" class="btn btn-gold">Register Now</a>
-            <a routerLink="/cart" class="btn btn-primary">Buy Now</a>
+            <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
 

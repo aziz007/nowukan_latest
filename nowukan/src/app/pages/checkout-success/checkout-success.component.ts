@@ -23,50 +23,45 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
           </svg>
         </div>
 
-        @if (isUpgrade) {
-          <!-- Scenario 12: existing trial user has just purchased Lifetime Access.
-               They already have a working login — no new credentials to show. -->
-          <h1 class="success-title">Your Lifetime Access Is Active!</h1>
-          <p class="success-message">
-            Congratulations! Your nowUKan Lifetime Access is now active. You can continue
-            learning and practising English, without worrying about your trial ending.
-          </p>
-          <p class="success-message">Pay once. Learn for life. No subscription.</p>
+        <h1 class="success-title">Congratulations and welcome to nowUKan!</h1>
 
-          <div class="btn-row" style="justify-content:center">
-            <a routerLink="/download" class="btn btn-primary">Continue Learning</a>
-            <a routerLink="/contact" class="btn btn-dark">Contact Support</a>
-          </div>
+        @if (mode === 'trial') {
+          <!-- Free trial: shown after Register Now. -->
+          <p class="success-message success-lead">
+            Your nowUKan App's FREE TRIAL access to nowUKan App has now been <br />
+            Successfully Activated.
+          </p>
+          <p class="success-message">
+            We have sent your unique username and temporary password to your registered <br />
+            Email Address.
+          </p>
+          <p class="success-message">Please check your inbox and spam folder for access instructions.</p>
+        } @else if (isUpgrade) {
+          <!-- Existing free-trial user who has just bought lifetime access:
+               they keep their current login, so no new credentials are sent. -->
+          <p class="success-message success-lead">
+            Your nowUKan App's lifetime access has been successfully activated.
+          </p>
+          <p class="success-message">
+            You can keep using your existing username and password. <br />
+            There is no need to log in again or reinstall the app.
+          </p>
         } @else {
-          <!-- Scenario 13: brand-new purchase with no prior trial account.
-               TODO: email/tempPassword below are placeholders until the
-               backend confirms whether these can be shown here directly
-               (vs. email-only) and how the webhook passes them through. -->
-          <h1 class="success-title">Purchase Successful!</h1>
-          <p class="success-message">
-            Congratulations and welcome to nowUKan! Your Lifetime Access has now been
-            successfully activated.
+          <!-- New buyer: account created at Buy Now, paid on Stripe. -->
+          <p class="success-message success-lead">
+            Your nowUKan App's lifetime access has been successfully activated.
           </p>
-
-          @if (email) {
-            <div class="success-credentials">
-              <div><strong>Email:</strong> {{ email }}</div>
-              @if (tempPassword) {
-                <div><strong>Temporary Password:</strong> {{ tempPassword }}</div>
-              }
-            </div>
-          }
-
           <p class="success-message">
-            We have also sent your unique username and temporary password to your registered
-            email address. Please check your inbox (and spam folder) for access instructions.
+            We have sent your unique username and temporary password to your registered <br />
+            Email Address.
           </p>
-
-          <div class="btn-row" style="justify-content:center">
-            <a routerLink="/download" class="btn btn-primary">Download the App</a>
-            <a routerLink="/contact" class="btn btn-dark">Contact Support</a>
-          </div>
+          <p class="success-message">Please check your inbox and spam folder for access instructions.</p>
         }
+
+        <div class="btn-row" style="justify-content:center">
+          <a routerLink="/" class="btn btn-primary">Back to Home</a>
+          <a routerLink="/contact" class="btn btn-dark">Contact Support</a>
+        </div>
       </div>
     </section>
   `,
@@ -75,29 +70,14 @@ export class CheckoutSuccessComponent {
   private readonly route = inject(ActivatedRoute);
 
   /**
-   * Note: this whole page is display-only. The presence of a session_id in
-   * the URL is NOT proof of payment — anyone could visit this URL directly.
-   * Real fulfilment happens server-side from the Stripe webhook
-   * (checkout.session.completed) in src/server.ts, not from this page.
+   * Display only. Reaching this page is NOT proof of payment (anyone can
+   * open the URL). Access is granted server-side by the Stripe webhook in
+   * src/server.ts, which marks the user Paid in the CRM.
+   *
+   *  - /registration-complete          -> free trial (route data mode: 'trial')
+   *  - /checkout/success?type=upgrade  -> trial user who bought lifetime access
+   *  - /checkout/success?type=new      -> new buyer (account created at Buy Now)
    */
-  readonly sessionId = this.route.snapshot.queryParamMap.get('session_id');
-
-  /**
-   * TODO: 'type' isn't wired up yet. The plan is to set this at checkout
-   * time — before creating the Stripe Checkout session, look up the
-   * customer's billing status via GET /users/billing-status; if they're
-   * already a Trial user, build the success_url as
-   * /checkout/success?type=upgrade, otherwise ?type=new (or omit it).
-   * That decision depends on the backend flow question still open with
-   * Muaz/the client.
-   */
+  readonly mode: 'trial' | 'purchase' = this.route.snapshot.data['mode'] === 'trial' ? 'trial' : 'purchase';
   readonly isUpgrade = this.route.snapshot.queryParamMap.get('type') === 'upgrade';
-
-  /**
-   * TODO: not wired up yet either — depends on whether the backend can
-   * return these synchronously for display here, or only send them by
-   * email (the open "display temp password instantly" question).
-   */
-  readonly email = this.route.snapshot.queryParamMap.get('email');
-  readonly tempPassword = this.route.snapshot.queryParamMap.get('temp_password');
 }

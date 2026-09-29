@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { CHECKOUT_FLOW } from './core/checkout-flow';
 
 export const routes: Routes = [
   {
@@ -129,6 +130,20 @@ export const routes: Routes = [
       import('./pages/win-free-english/win-free-english.component').then(
         (m) => m.WinFreeEnglishComponent,
       ),
+  },
+  // In the 'direct' checkout flow, Buy Now buttons go to the Cart instead
+  // (see src/app/core/checkout-flow.ts).
+  CHECKOUT_FLOW === 'direct'
+    ? { path: 'buy-now', redirectTo: 'cart', pathMatch: 'full' }
+    : {
+        path: 'buy-now',
+        loadComponent: () => import('./pages/buy-now/buy-now.component').then((m) => m.BuyNowComponent),
+      },
+  {
+    path: 'registration-complete',
+    loadComponent: () =>
+      import('./pages/checkout-success/checkout-success.component').then((m) => m.CheckoutSuccessComponent),
+    data: { mode: 'trial' },
   },
   {
     path: 'register',

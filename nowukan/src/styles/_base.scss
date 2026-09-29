@@ -549,3 +549,66 @@ select.form-input option{background:#06142B;color:#fff}
 .nav-links{gap:22px}
 .nav-links .nav-home{margin-left:10px}
 .nav-actions{margin-left:14px}
+
+/* Cart: promo code and email */
+.promo-box{margin:-8px 0 26px;padding:0 4px}
+.promo-box label,.cart-email label{display:block;font-weight:700;color:#fff;margin-bottom:8px;font-size:15px}
+.promo-row{display:flex;gap:10px;max-width:460px}
+.promo-row input,.cart-email input{flex:1;min-width:0;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font:inherit}
+.promo-row input:focus,.cart-email input:focus{outline:2px solid var(--gold2);outline-offset:1px}
+.promo-row .btn{white-space:nowrap}
+.promo-error{color:#ff8a8a;margin:8px 0 0}
+.promo-applied{margin:0;color:#b8f5b0;font-weight:600}
+.promo-remove{margin-left:10px;background:none;border:0;color:var(--gold2);text-decoration:underline;cursor:pointer;font:inherit}
+.cart-price-was{color:rgba(255,255,255,.5);text-decoration:line-through;font-size:.7em;margin-right:6px}
+.cart-email{margin:0 0 14px}
+.cart-email input{width:100%}
+.promo-agents{color:var(--blue);font-weight:700}
+
+/* Cart footer: info on the left, actions on the right under the prices. */
+.cart-footer{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-top:10px}
+.cart-footer-info{flex:1 1 auto;max-width:560px}
+.cart-secure{color:var(--blue);font-weight:800;font-size:20px;margin:0 0 8px}
+.cart-specialist{margin:0 0 12px;color:#fff;line-height:1.5}
+.cart-footer-actions{flex:0 0 440px;max-width:100%}
+.cart-actions{display:grid;grid-template-columns:auto 1fr;gap:12px}
+.cart-actions .btn{justify-content:center;text-align:center}
+.cart-checkout-btn{min-width:260px}
+.cart-consult-btn{grid-column:2}
+.cart-error{color:#ff8a8a;margin:0 0 12px}
+@media(max-width:860px){
+  .cart-footer{flex-direction:column;gap:22px}
+  .cart-footer-actions{flex:1 1 auto;width:100%}
+  .cart-checkout-btn{min-width:0}
+}
+@media(max-width:480px){
+  .cart-actions{grid-template-columns:1fr}
+  .cart-consult-btn{grid-column:auto}
+  .cart-actions .btn-dark{order:3}
+}
+
+/* Congratulations page */
+.success-card .success-message{max-width:660px;margin-left:auto;margin-right:auto}
+.success-lead{color:#fff;font-size:19px;font-weight:700}
+@media(max-width:760px){.success-card .success-message br{display:none}}
+
+/* Buy Now page */
+.form-hint{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.voucher-field .promo-row{max-width:none}
+.buy-summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);margin-top:8px;font-weight:700;color:#fff}
+.buy-summary strong{font-family:Quicksand,Inter,sans-serif;font-size:22px;color:var(--gold2);white-space:nowrap}
+.pay-stripe-btn{min-width:280px}
+@media(max-width:760px){.pay-stripe-btn{min-width:0}}
+/* Wider Congratulations card so the line breaks fall exactly where written. */
+.success-card{max-width:820px}
+.success-card .success-message{max-width:760px;margin-bottom:18px}
+.success-card .btn-row{margin-top:14px}
+/* Challenge: image at the top on normal screens, but below the heading on small laptops where the heading reaches the image column. */
+@media(min-width:1001px) and (max-width:1200px){.journey-visual-top-large-only{margin-top:170px}}
+.page-shell .sub.sub-full-width{max-width:none}
+.collab-visual-panel-plain{margin-top:6px;padding:28px 24px 26px}
+
+/* Home: competition section image (replaces the boxed trophy panel). */
+.competition-image{margin:0;display:flex;justify-content:center}
+.competition-image img{width:100%;max-width:440px;height:auto;display:block}
+@media(max-width:900px){.competition-image img{max-width:320px}}
