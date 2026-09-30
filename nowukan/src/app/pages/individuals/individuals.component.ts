@@ -98,13 +98,21 @@ const TICK_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" 
         </div>
         </div>
 
-        <div class="journey-visual journey-visual-top">
+        <div class="journey-visual journey-visual-top journey-visual-stack">
           <figure class="people-cutout">
             <img
               src="assets/img/offline-install-graphic.webp"
               alt="Phone downloading the nowUKan app from the cloud, with offline and verified icons"
               width="760"
               height="950"
+            />
+          </figure>
+          <figure class="people-cutout individuals-second-image">
+            <img
+              src="assets/img/adult-education.webp"
+              alt="Adult learners studying English together in class and at home, around a glowing open book and connected globe"
+              width="1536"
+              height="961"
             />
           </figure>
         </div>

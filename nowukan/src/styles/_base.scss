@@ -57,7 +57,7 @@ p{margin:0;color:#fff;font-size:17.5px;line-height:1.62}
 .hero-phones{min-height:520px;position:relative}
 .hero-phones:after{content:"";position:absolute;left:4%;right:0;bottom:60px;height:86px;background:linear-gradient(90deg,transparent,var(--blue),var(--purple),transparent);filter:blur(18px);opacity:.55}
 .phone{margin:0;border-radius:24px;padding:7px;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.13);box-shadow:0 24px 80px rgba(0,0,0,.36)}
-.phone img{border-radius:19px;width:100%}
+.phone img{border-radius:19px;width:100%;height:auto;display:block}
 .phone figcaption{text-align:center;color:var(--muted);font-size:11px;font-weight:900;margin-top:8px}
 .hero-phones .phone{position:absolute;width:230px}
 .hero-phones .p1{left:2%;top:12px;transform:rotate(-3deg);z-index:2}
@@ -612,3 +612,24 @@ select.form-input option{background:#06142B;color:#fff}
 .competition-image{margin:0;display:flex;justify-content:center}
 .competition-image img{width:100%;max-width:440px;height:auto;display:block}
 @media(max-width:900px){.competition-image img{max-width:320px}}
+
+/* --- Phones & tablets: when the text and image stack, don't reuse the desktop
+       96px column gap as vertical space (it left a ~120px empty band). --- */
+@media(max-width:1000px){
+  .journey-layout,.journey-layout-wide,.journey-layout-reverse{row-gap:28px}
+  .journey-visual,.journey-visual-top,.journey-visual-mid,.journey-visual-lower,
+  .journey-visual-below-long-title,.journey-visual-top-large-only{margin-top:0}
+}
+/* Desktop: tighter, consistent space between page content and the section below. */
+@media(min-width:761px){.page-shell{padding-bottom:24px}}
+/* Vision: the five product names stay together on one line on laptops/desktops. */
+@media(min-width:1001px){.ukan-products-line{white-space:nowrap}}
+/* Individuals: two images stacked in the image column (also on phones). */
+.individuals-second-image{margin-top:8px}
+@media(max-width:1000px){.journey-visual-stack{flex-direction:column;align-items:center}.journey-visual-stack .people-cutout{max-width:420px;width:100%}}
+
+/* Pricing page */
+.prose p.pricing-volume,.pricing-volume{font-family:Quicksand,Inter,sans-serif;font-weight:700;font-size:clamp(20px,2.2vw,26px);line-height:1.35;color:var(--gold2);margin:22px 0 14px}
+.journey-visual .people-cutout.pricing-coin{max-width:280px;margin:0 auto}
+.pricing-coin img{filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+@media(max-width:1000px){.journey-visual .people-cutout.pricing-coin{max-width:220px}}

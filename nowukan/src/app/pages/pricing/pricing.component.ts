@@ -7,7 +7,8 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <section class="page-shell">
-      <div class="container prose prose-wide">
+      <div class="container journey-layout">
+        <div class="journey-copy prose">
         <p class="eyebrow">Get Started</p>
         <h1 class="section-title">Pricing</h1>
         <p class="sub">Simple plans for learners, families and institutions.</p>
@@ -22,7 +23,7 @@ import { RouterLink } from '@angular/router';
         </p>
         <p>English language development and assessment for just a few pounds . . .</p>
 
-        <p class="note"><strong>For volume licence purchases, please contact us directly.</strong></p>
+        <p class="pricing-volume">For volume licence purchases, please contact us directly.</p>
 
         <p>
           A senior member of our team will talk with you to understand your objectives and
@@ -34,6 +35,13 @@ import { RouterLink } from '@angular/router';
           <a routerLink="/register" class="btn btn-gold">Register Now</a>
           <a routerLink="/buy-now" class="btn btn-primary">Buy Now</a>
           <a routerLink="/book-a-consultation" class="btn btn-dark">Book A Consultation</a>
+        </div>
+        </div>
+
+        <div class="journey-visual journey-visual-top">
+          <figure class="people-cutout pricing-coin">
+            <img src="assets/img/pricing-coin.webp" alt="Gold coin with a price tag" width="600" height="609" />
+          </figure>
         </div>
       </div>
     </section>
