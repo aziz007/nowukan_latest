@@ -610,8 +610,8 @@ select.form-input option{background:#06142B;color:#fff}
 
 /* Home: competition section image (replaces the boxed trophy panel). */
 .competition-image{margin:0;display:flex;justify-content:center}
-.competition-image img{width:100%;max-width:440px;height:auto;display:block}
-@media(max-width:900px){.competition-image img{max-width:320px}}
+.competition-image img{width:100%;max-width:308px;height:auto;display:block}
+@media(max-width:900px){.competition-image img{max-width:224px}}
 
 /* --- Phones & tablets: when the text and image stack, don't reuse the desktop
        96px column gap as vertical space (it left a ~120px empty band). --- */
@@ -633,3 +633,29 @@ select.form-input option{background:#06142B;color:#fff}
 .journey-visual .people-cutout.pricing-coin{max-width:280px;margin:0 auto}
 .pricing-coin img{filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
 @media(max-width:1000px){.journey-visual .people-cutout.pricing-coin{max-width:220px}}
+
+/* Temporary pause note under disabled Register / Pay / Checkout buttons */
+.paused-note{margin:10px 0 0;color:var(--gold2);font-weight:700;font-size:15px}
+.cart-paused-note{grid-column:1 / -1;text-align:right}
+button.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Videos page: YouTube Shorts are vertical (9:16). */
+.video-grid-shorts{max-width:1000px;grid-template-columns:repeat(3,1fr)}
+.video-grid-shorts .video-embed{position:relative;aspect-ratio:9/16;height:auto;padding:0}
+.video-grid-shorts .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.video-card.video-card-plain{padding-bottom:0}
+@media(max-width:1000px){.video-grid-shorts{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(max-width:640px){.video-grid-shorts{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+/* Home icon: larger and highlighted as a button (desktop menu + collapsed menu). */
+.nav-links .nav-home{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:12px;border-radius:12px;
+  background:rgba(214,165,54,.16);border:1px solid rgba(246,200,95,.55);box-shadow:0 0 18px rgba(246,200,95,.18);transition:background .15s ease,box-shadow .15s ease,transform .15s ease}
+.nav-links .nav-home img{width:22px;height:22px}
+.nav-links .nav-home:hover{opacity:1;background:rgba(214,165,54,.3);box-shadow:0 0 24px rgba(246,200,95,.35);transform:translateY(-1px)}
+.nav-actions .nav-home-mobile{width:44px;height:44px;background:rgba(214,165,54,.16);border-color:rgba(246,200,95,.55);box-shadow:0 0 14px rgba(246,200,95,.18)}
+.nav-actions .nav-home-mobile img{width:24px;height:24px}
+.nav-actions .nav-home-mobile:hover{background:rgba(214,165,54,.3)}
+/* Home icon drawn in the page (no image file to block or fail to load). */
+.nav-home .home-svg,.nav-home-mobile .home-svg{display:block;color:#fff;flex:0 0 auto}
+.nav-links .nav-home .home-svg{width:22px;height:22px}
+.nav-actions .nav-home-mobile .home-svg{width:24px;height:24px}

@@ -1,4 +1,5 @@
 import type { Handler } from '@netlify/functions';
+import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from '../../src/app/core/site-switches';
 
 const DEFAULT_BASE_URL = 'https://staging.nowukan.app/api/external';
 
@@ -20,6 +21,11 @@ export const handler: Handler = async (event) => {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method not allowed' }),
     };
+  }
+
+  // Temporary pause — see src/app/core/site-switches.ts
+  if (SIGNUPS_AND_PAYMENTS_PAUSED) {
+    return { statusCode: 503, body: JSON.stringify({ error: PAUSED_MESSAGE }) };
   }
 
   const apiKey = process.env['EXTERNAL_API_KEY'];

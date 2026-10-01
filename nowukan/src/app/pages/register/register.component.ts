@@ -1,3 +1,4 @@
+import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from '../../core/site-switches';
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import {
@@ -34,6 +35,9 @@ function minimumAgeValidator(): ValidatorFn {
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
+  /** Temporary pause — see src/app/core/site-switches.ts */
+  readonly paused = SIGNUPS_AND_PAYMENTS_PAUSED;
+  readonly pausedMessage = PAUSED_MESSAGE;
   private readonly fb = new FormBuilder();
   private readonly router = inject(Router);
 
@@ -63,6 +67,7 @@ export class RegisterComponent {
   readonly errorMessage = signal<string | null>(null);
 
   async submit(): Promise<void> {
+    if (this.paused) return;
     this.attemptedSubmit.set(true);
     this.errorMessage.set(null);
 

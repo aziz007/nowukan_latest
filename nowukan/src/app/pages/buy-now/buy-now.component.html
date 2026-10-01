@@ -124,9 +124,12 @@
         }
 
         <div class="btn-row">
-          <button type="submit" class="btn btn-primary pay-stripe-btn" [disabled]="submitting()">
+          <button type="submit" class="btn btn-primary pay-stripe-btn" [disabled]="submitting() || paused">
             {{ submitting() ? 'Taking you to secure payment…' : promo()?.price === 0 ? 'Activate Lifetime Access' : 'Pay securely via Stripe' }}
           </button>
+          @if (paused) {
+            <p class="paused-note">{{ pausedMessage }}</p>
+          }
         </div>
       </form>
   </div>

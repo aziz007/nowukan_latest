@@ -1,3 +1,4 @@
+import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from '../../core/site-switches';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
@@ -45,6 +46,9 @@ interface AppliedVoucher {
   templateUrl: './buy-now.component.html',
 })
 export class BuyNowComponent implements OnInit {
+  /** Temporary pause — see src/app/core/site-switches.ts */
+  readonly paused = SIGNUPS_AND_PAYMENTS_PAUSED;
+  readonly pausedMessage = PAUSED_MESSAGE;
   private readonly fb = new FormBuilder();
   private readonly route = inject(ActivatedRoute);
 
@@ -124,6 +128,7 @@ export class BuyNowComponent implements OnInit {
   }
 
   async pay(): Promise<void> {
+    if (this.paused) return;
     this.attemptedSubmit.set(true);
     this.errorMessage.set(null);
 

@@ -95,9 +95,12 @@
         }
 
         <div class="btn-row">
-          <button type="submit" class="btn btn-gold" [disabled]="submitting()">
+          <button type="submit" class="btn btn-gold" [disabled]="submitting() || paused">
             {{ submitting() ? 'Creating your account…' : 'Register Now' }}
           </button>
+          @if (paused) {
+            <p class="paused-note">{{ pausedMessage }}</p>
+          }
         </div>
       </form>
     }

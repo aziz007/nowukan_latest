@@ -24,20 +24,25 @@ interface VideoEntry {
         </p>
       </div>
 
-      <div class="container video-grid">
+      <div class="container video-grid video-grid-shorts">
         @for (video of videos; track video.youtubeId) {
-          <div class="video-card">
+          <div class="video-card" [class.video-card-plain]="!video.title && !video.description">
             <div class="video-embed">
               <iframe
                 [src]="embedUrl(video.youtubeId)"
-                title="{{ video.title }}"
+                [title]="video.title || 'nowUKan video ' + ($index + 1)"
+                loading="lazy"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </div>
-            <h3>{{ video.title }}</h3>
-            <p>{{ video.description }}</p>
+            @if (video.title) {
+              <h3>{{ video.title }}</h3>
+            }
+            @if (video.description) {
+              <p>{{ video.description }}</p>
+            }
           </div>
         }
       </div>
@@ -55,17 +60,18 @@ export class VideosComponent {
   private readonly sanitizer = inject(DomSanitizer);
 
   /**
-   * PLACEHOLDER video list — replace youtubeId, title and description for
-   * each with the real videos before this page goes live. Add or remove
-   * entries freely; the grid lays out any number of cards.
+   * nowUKan YouTube Shorts (youtube.com/@nowUKan).
+   * youtubeId = the code after /shorts/ in the link.
+   * title / description are optional: leave them '' to show just the video,
+   * or fill them in to show a caption under it.
    */
   readonly videos: VideoEntry[] = [
-    { title: 'Video title 1', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_1' },
-    { title: 'Video title 2', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_2' },
-    { title: 'Video title 3', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_3' },
-    { title: 'Video title 4', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_4' },
-    { title: 'Video title 5', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_5' },
-    { title: 'Video title 6', description: 'Short description of this video.', youtubeId: 'REPLACE_ME_6' },
+    { title: '', description: '', youtubeId: 'ifFGskcYLps' },
+    { title: '', description: '', youtubeId: '82DEPWo14R0' },
+    { title: '', description: '', youtubeId: 'Znmv3QAII8w' },
+    { title: '', description: '', youtubeId: 'UbOxIUUhTEY' },
+    { title: '', description: '', youtubeId: 'FwYuuCE7Gb0' },
+    { title: '', description: '', youtubeId: 'ppLWEufjOXA' },
   ];
 
   embedUrl(youtubeId: string): SafeResourceUrl {

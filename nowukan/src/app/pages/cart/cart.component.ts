@@ -1,3 +1,4 @@
+import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from '../../core/site-switches';
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CHECKOUT_FLOW } from '../../core/checkout-flow';
@@ -108,11 +109,14 @@ interface AppliedPromo {
               <button
                 type="button"
                 class="btn btn-primary cart-checkout-btn"
-                [disabled]="loading()"
+                [disabled]="loading() || paused"
                 (click)="checkout()"
               >
                 {{ loading() ? 'Redirecting to secure checkout…' : promo()?.price === 0 ? 'Get Free Access' : 'Checkout with Stripe' }}
               </button>
+              @if (paused) {
+                <p class="paused-note cart-paused-note">{{ pausedMessage }}</p>
+              }
               <a routerLink="/book-a-consultation" class="btn btn-benefits cart-consult-btn">Book A Consultation</a>
             </div>
           </div>
@@ -122,6 +126,9 @@ interface AppliedPromo {
   `,
 })
 export class CartComponent {
+  /** Temporary pause — see src/app/core/site-switches.ts */
+  readonly paused = SIGNUPS_AND_PAYMENTS_PAUSED;
+  readonly pausedMessage = PAUSED_MESSAGE;
   private readonly router = inject(Router);
   /** true = earlier flow (email + Stripe here); false = hand over to the Buy Now form. */
   readonly directFlow = CHECKOUT_FLOW === 'direct';
@@ -172,6 +179,7 @@ export class CartComponent {
   }
 
   checkout(): void {
+    if (this.paused) return;
     if (this.directFlow) {
       this.directCheckout();
       return;

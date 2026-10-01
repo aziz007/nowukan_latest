@@ -10,6 +10,7 @@ import Stripe from 'stripe';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { STRIPE_PLANS } from './stripe-plans';
+import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from './app/core/site-switches';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -392,6 +393,10 @@ async function createLifetimeCheckout(o: LifetimeCheckoutOptions): Promise<strin
 }
 
 app.post('/api/create-checkout-session', async (req, res) => {
+  if (SIGNUPS_AND_PAYMENTS_PAUSED) {
+    res.status(503).json({ error: PAUSED_MESSAGE });
+    return;
+  }
   if (!stripe) {
     console.error('STRIPE_SECRET_KEY is not set — checkout cannot run.');
     res.status(500).json({ error: 'Checkout is temporarily unavailable.' });
@@ -721,6 +726,10 @@ function buyNowRateLimited(req: express.Request): boolean {
  *     the CRM and redeems the voucher.
  */
 app.post('/api/buy-now', async (req, res) => {
+  if (SIGNUPS_AND_PAYMENTS_PAUSED) {
+    res.status(503).json({ error: PAUSED_MESSAGE });
+    return;
+  }
   const { firstName, lastName, email, password, password_confirmation, contact, location, age, promoCode } =
     req.body ?? {};
 
@@ -830,6 +839,10 @@ app.post('/api/buy-now', async (req, res) => {
 });
 
 app.post('/api/register', async (req, res) => {
+  if (SIGNUPS_AND_PAYMENTS_PAUSED) {
+    res.status(503).json({ error: PAUSED_MESSAGE });
+    return;
+  }
   const apiKey = process.env['EXTERNAL_API_KEY'];
   const baseUrl =
     process.env['EXTERNAL_API_BASE_URL'] || 'https://staging.nowukan.app/api/external';
@@ -857,17 +870,37 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-/** Serve static files from the browser build. */
+/**
+ * Serve static files from the browser build, with caching rules that let
+ * updates reach visitors straight away:
+ *  - Pages (.html): always re-checked with the server, so a new deploy shows
+ *    immediately (previously cached for a YEAR, so visitors kept seeing old
+ *    pages, menus and images).
+ *  - Build files with a content hash in the name (main-AB12CD34.js, ...):
+ *    their name changes on every build, so caching them for a year is safe.
+ *  - Everything else (images, PDFs, fonts — same name when replaced):
+ *    cached for 1 hour, then re-checked.
+ */
+const HASHED_BUILD_FILE = /-[A-Z0-9]{8}\.(js|css|mjs)$/;
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
     index: 'index.html',
     redirect: false,
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache');
+      } else if (HASHED_BUILD_FILE.test(filePath)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else {
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+      }
+    },
   }),
 );
 
-/** All other routes are rendered by Angular SSR. */
+/** All other routes are rendered by Angular SSR (never cached stale). */
 app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache');
   angularApp
     .handle(req)
     .then((response) =>
