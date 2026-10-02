@@ -42,6 +42,7 @@ import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form
 
         <app-enquiry-form
           heading="Request A Consultation"
+          formType="consultation"
           successMessage="Thanks — your consultation request has been received. We'll be in touch to schedule a time."
         />
         </div>

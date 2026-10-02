@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { EnquiryFormComponent } from '../../components/enquiry-form/enquiry-form.component';
 
 @Component({
   selector: 'app-pilot-programme',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, EnquiryFormComponent],
   template: `
     <section class="page-shell">
       <div class="container journey-layout journey-layout-wide">
@@ -37,6 +38,15 @@ import { RouterLink } from '@angular/router';
           <div class="btn-row">
             <a routerLink="/book-a-consultation" class="btn btn-benefits">Book A Consultation</a>
             <a routerLink="/collaborate" class="btn btn-benefits">Collaborate With Us</a>
+          </div>
+
+          <div class="pilot-form">
+            <app-enquiry-form
+              heading="Request A School Pilot Programme"
+              formType="pilot"
+              defaultTopic="School Pilot Programme"
+              successMessage="Thanks — your pilot programme request has been received. A senior member of our team will be in touch shortly."
+            />
           </div>
         </div>
 

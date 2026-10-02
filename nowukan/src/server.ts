@@ -578,12 +578,107 @@ app.post('/api/competition-entry', async (req, res) => {
   }
 });
 
+/**
+ * Website enquiry forms -> email to info@nowukan.io via Resend.
+ * Used by: Send Us A Message (Contact), Request A Consultation, and
+ * Request A School Pilot Programme. The subject line names the form.
+ * Reply-To is the visitor, so pressing Reply answers them directly.
+ */
+const ENQUIRY_FORMS: Record<string, string> = {
+  contact: 'Website message',
+  consultation: 'Consultation request',
+  pilot: 'School pilot programme request',
+};
+const enquiryHits = new Map<string, number[]>();
+
+app.post('/api/enquiry', async (req, res) => {
+  const resendApiKey = process.env['RESEND_API_KEY'];
+  const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
+  const notifyEmail = process.env['ENQUIRY_NOTIFY_EMAIL'] || 'info@nowukan.io';
+
+  if (!resendApiKey || !fromEmail) {
+    console.error('Enquiry received but RESEND_API_KEY / NEWSLETTER_FROM_EMAIL is not set.');
+    res.status(500).json({ error: 'Messages are temporarily unavailable. Please email info@nowukan.io directly.' });
+    return;
+  }
+
+  // Simple per-visitor limit against spam.
+  const ip = String(req.headers['x-forwarded-for'] || req.ip || 'unknown').split(',')[0].trim();
+  const now = Date.now();
+  const recent = (enquiryHits.get(ip) || []).filter((t) => now - t < 60 * 60_000);
+  recent.push(now);
+  enquiryHits.set(ip, recent);
+  if (enquiryHits.size > 5000) enquiryHits.clear();
+  if (recent.length > 8) {
+    res.status(429).json({ error: 'Too many messages from this connection. Please try again later.' });
+    return;
+  }
+
+  const line = (v: unknown, max = 200) => String(v ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, max);
+  const formLabel = ENQUIRY_FORMS[line(req.body?.formType, 30)] || ENQUIRY_FORMS['contact'];
+  const e = {
+    name: line(req.body?.name, 120),
+    email: line(req.body?.email, 200),
+    location: line(req.body?.location, 120),
+    company: line(req.body?.company, 160),
+    website: line(req.body?.website, 200),
+    topic: line(req.body?.topic, 120),
+    message: String(req.body?.message ?? '').trim().slice(0, 5000),
+  };
+
+  if (!e.name || !isEmail(e.email) || !e.location || !e.topic) {
+    res.status(400).json({ error: 'Please complete all required fields.' });
+    return;
+  }
+
+  const text = [
+    `New ${formLabel.toLowerCase()} from the nowUKan website`,
+    '',
+    `Name:          ${e.name}`,
+    `Email:         ${e.email}`,
+    `Location:      ${e.location}`,
+    `Organisation:  ${e.company || '—'}`,
+    `Website:       ${e.website || '—'}`,
+    `Topic:         ${e.topic}`,
+    '',
+    'Message:',
+    e.message || '—',
+    '',
+    `Submitted: ${new Date().toUTCString()}`,
+  ].join('\n');
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: notifyEmail,
+        reply_to: e.email,
+        subject: `${formLabel} — ${e.name}${e.company ? ` (${e.company})` : ''}`,
+        text,
+      }),
+    });
+    if (!response.ok) {
+      const body = await response.text().catch(() => '');
+      console.error('❌ Enquiry email failed:', response.status, body.slice(0, 300));
+      res.status(502).json({ error: 'We could not send your message. Please try again, or email info@nowukan.io.' });
+      return;
+    }
+    console.log('✅ Enquiry emailed:', formLabel, e.email);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('❌ Enquiry email error:', err);
+    res.status(502).json({ error: 'We could not send your message. Please try again, or email info@nowukan.io.' });
+  }
+});
+
 app.post('/api/newsletter-signup', async (req, res) => {
   const resendApiKey = process.env['RESEND_API_KEY'];
-  const notifyEmail = process.env['NEWSLETTER_NOTIFY_EMAIL'];
+  const notifyEmail = process.env['NEWSLETTER_NOTIFY_EMAIL'] || 'info@nowukan.io';
   const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
 
-  if (!resendApiKey || !notifyEmail || !fromEmail) {
+  if (!resendApiKey || !fromEmail) {
     console.error(
       'Newsletter signup received but RESEND_API_KEY / NEWSLETTER_NOTIFY_EMAIL / NEWSLETTER_FROM_EMAIL is not set.',
     );

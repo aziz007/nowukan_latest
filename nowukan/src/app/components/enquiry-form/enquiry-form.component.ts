@@ -12,6 +12,16 @@ export class EnquiryFormComponent {
   /** Shown above the form; lets each page frame the request appropriately. */
   @Input() heading = 'Send Us A Message';
 
+  /** Which form this is — names the email subject: 'contact' | 'consultation' | 'pilot'. */
+  @Input() formType: 'contact' | 'consultation' | 'pilot' = 'contact';
+
+  /** Optional topic pre-selected when the form loads. */
+  @Input() set defaultTopic(value: string) {
+    this.initialTopic = value || '';
+    if (value) this.form.controls.topic.setValue(value);
+  }
+  private initialTopic = '';
+
   /** Message shown after a successful (non-spam) submission. */
   @Input() successMessage =
     "Thanks — your enquiry has been received. We'll be in touch shortly.";
@@ -35,9 +45,12 @@ export class EnquiryFormComponent {
 
   readonly submitted = signal(false);
   readonly attemptedSubmit = signal(false);
+  readonly sending = signal(false);
+  readonly errorMessage = signal<string | null>(null);
 
   readonly topics = [
     'Educational Enquiry',
+    'School Pilot Programme',
     'Government / NGO',
     'eLearning / EdTech',
     'Marketing / Influencer',
@@ -48,8 +61,9 @@ export class EnquiryFormComponent {
     'Other',
   ];
 
-  submit(): void {
+  async submit(): Promise<void> {
     this.attemptedSubmit.set(true);
+    this.errorMessage.set(null);
 
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -71,11 +85,27 @@ export class EnquiryFormComponent {
       return;
     }
 
-    // Placeholder: wire this up to your email provider / backend
-    // (e.g. a serverless function or form-handling service) to actually
-    // deliver the enquiry. Angular alone can't send email from a static
-    // SSR build.
-    this.submitted.set(true);
-    this.form.reset();
+    // Emailed to info@nowukan.io by the server (/api/enquiry in server.ts).
+    const { name, email, location, company, website, topic, message } = this.form.value;
+    this.sending.set(true);
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType: this.formType, name, email, location, company, website, topic, message }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (response.ok) {
+        this.submitted.set(true);
+        this.attemptedSubmit.set(false);
+        this.form.reset({ topic: this.initialTopic });
+      } else {
+        this.errorMessage.set(data.error || 'We could not send your message. Please try again, or email info@nowukan.io.');
+      }
+    } catch {
+      this.errorMessage.set('We could not send your message. Please try again, or email info@nowukan.io.');
+    } finally {
+      this.sending.set(false);
+    }
   }
 }

@@ -70,7 +70,13 @@
     <a routerLink="/legal/terms">Terms</a> &amp; <a routerLink="/legal/privacy">Privacy Policy</a>.
   </p>
 
+  @if (errorMessage()) {
+    <p class="form-error enquiry-error">{{ errorMessage() }}</p>
+  }
+
   <div class="btn-row">
-    <button type="submit" class="btn btn-gold">Submit Enquiry</button>
+    <button type="submit" class="btn btn-gold" [disabled]="sending()">
+      {{ sending() ? 'Sending…' : 'Submit Enquiry' }}
+    </button>
   </div>
 </form>
