@@ -673,54 +673,90 @@ app.post('/api/enquiry', async (req, res) => {
   }
 });
 
+/**
+ * Saves an email as a lead in the CRM (POST /leads). The CRM ignores case and
+ * never duplicates: 201 = new lead, 200 = already stored. Both count as saved.
+ */
+async function saveCrmLead(email: string): Promise<{ ok: true; isNew: boolean } | { ok: false; status: number; detail: string }> {
+  const { apiKey, baseUrl } = crmConfig();
+  if (!apiKey) return { ok: false, status: 0, detail: 'EXTERNAL_API_KEY is not set.' };
+  const response = await fetch(`${baseUrl}/leads`, {
+    method: 'POST',
+    headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  if (response.status === 201 || response.status === 200) return { ok: true, isNew: response.status === 201 };
+  const detail = await response.text().catch(() => '');
+  return { ok: false, status: response.status, detail: detail.slice(0, 300) };
+}
+
+const signupHits = new Map<string, number[]>();
+
+/**
+ * Email signups: footer "Receive news and updates" and the Coming Soon popup
+ * ("Notify Me"). Each email is saved as a lead in the CRM. A notification
+ * email to info@nowukan.io is also sent via Resend when it is configured, but
+ * that is optional: a signup succeeds as soon as the CRM has saved it.
+ */
 app.post('/api/newsletter-signup', async (req, res) => {
-  const resendApiKey = process.env['RESEND_API_KEY'];
-  const notifyEmail = process.env['NEWSLETTER_NOTIFY_EMAIL'] || 'info@nowukan.io';
-  const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
+  const email = String(req.body?.email ?? '').trim();
+  const source = req.body?.source === 'coming-soon' ? 'Coming Soon popup' : 'Footer newsletter';
 
-  if (!resendApiKey || !fromEmail) {
-    console.error(
-      'Newsletter signup received but RESEND_API_KEY / NEWSLETTER_NOTIFY_EMAIL / NEWSLETTER_FROM_EMAIL is not set.',
-    );
-    res.status(500).json({ error: 'Signup is temporarily unavailable.' });
-    return;
-  }
-
-  const email = (req.body?.email ?? '').trim();
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if (!isValidEmail) {
+  if (!isEmail(email)) {
     res.status(400).json({ error: 'Please enter a valid email address.' });
     return;
   }
 
+  // Per-visitor limit (also protects the CRM's 30-per-minute limit).
+  const ip = String(req.headers['x-forwarded-for'] || req.ip || 'unknown').split(',')[0].trim();
+  const now = Date.now();
+  const recent = (signupHits.get(ip) || []).filter((t) => now - t < 60_000);
+  recent.push(now);
+  signupHits.set(ip, recent);
+  if (signupHits.size > 5000) signupHits.clear();
+  if (recent.length > 10) {
+    res.status(429).json({ error: 'Too many attempts. Please wait a minute and try again.' });
+    return;
+  }
+
+  // 1) CRM lead (required)
   try {
-    const upstream = await fetch('https://api.resend.com/emails', {
+    const lead = await saveCrmLead(email);
+    if (!lead.ok) {
+      console.error('❌ CRM lead not saved:', source, email, lead.status, lead.detail);
+      res.status(lead.status === 422 ? 400 : 502).json({
+        error: lead.status === 422 ? 'Please enter a valid email address.' : 'Unable to complete signup. Please try again.',
+      });
+      return;
+    }
+    console.log(`✅ CRM lead ${lead.isNew ? 'saved' : 'already existed'}:`, source, email);
+  } catch (err) {
+    console.error('❌ CRM lead error:', source, email, err);
+    res.status(502).json({ error: 'Unable to complete signup. Please try again.' });
+    return;
+  }
+
+  // 2) Notification email (optional — never blocks the signup)
+  const resendApiKey = process.env['RESEND_API_KEY'];
+  const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
+  const notifyEmail = process.env['NEWSLETTER_NOTIFY_EMAIL'] || 'info@nowukan.io';
+  if (resendApiKey && fromEmail) {
+    fetch('https://api.resend.com/emails', {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: fromEmail,
         to: notifyEmail,
+        reply_to: email,
         subject: 'New newsletter signup — nowUKan',
-        text: `A new visitor signed up for news and updates: ${email}`,
+        text: `New signup (${source}): ${email}\n\nSaved in the CRM as a lead.\nSubmitted: ${new Date().toUTCString()}`,
       }),
-    });
-
-    if (!upstream.ok) {
-      const detail = await upstream.text().catch(() => '');
-      console.error('Resend error:', upstream.status, detail);
-      res.status(502).json({ error: 'Unable to complete signup. Please try again.' });
-      return;
-    }
-
-    res.json({ ok: true });
-  } catch (err) {
-    console.error('Newsletter signup error:', err);
-    res.status(502).json({ error: 'Unable to complete signup. Please try again.' });
+    })
+      .then((r) => { if (!r.ok) console.warn('Signup notification email not sent (CRM lead is saved):', r.status); })
+      .catch((err) => console.warn('Signup notification email error (CRM lead is saved):', err));
   }
+
+  res.json({ ok: true });
 });
 
 /**

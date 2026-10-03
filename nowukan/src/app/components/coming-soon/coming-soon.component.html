@@ -26,9 +26,15 @@
             aria-label="Email address"
             [value]="email()"
             (input)="email.set($any($event.target).value)"
+            (keydown.enter)="subscribe()"
           />
-          <button type="button" class="btn btn-gold" (click)="subscribe()">Notify Me</button>
+          <button type="button" class="btn btn-gold" [disabled]="loading()" (click)="subscribe()">
+            {{ loading() ? 'Saving…' : 'Notify Me' }}
+          </button>
         </div>
+        @if (error()) {
+          <p class="form-error coming-soon-error">{{ error() }}</p>
+        }
       }
 
       <button type="button" class="coming-soon-dismiss" (click)="close()">Continue browsing</button>
