@@ -6,3 +6,6 @@
 .DS_Store
 .env
 .netlify
+
+# Form submission backups (personal data) — never commit
+/form-submissions

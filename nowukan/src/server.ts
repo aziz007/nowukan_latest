@@ -9,6 +9,7 @@ import express from 'express';
 import Stripe from 'stripe';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { appendFile, mkdir } from 'node:fs/promises';
 import { STRIPE_PLANS } from './stripe-plans';
 import { PAUSED_MESSAGE, SIGNUPS_AND_PAYMENTS_PAUSED } from './app/core/site-switches';
 
@@ -497,16 +498,29 @@ app.post('/api/create-checkout-session', async (req, res) => {
  * Needs RESEND_API_KEY and NEWSLETTER_FROM_EMAIL (a Resend-verified sender).
  */
 const competitionHits = new Map<string, number[]>();
+/**
+ * Backup of every form submission, saved on the server BEFORE the email is
+ * sent — so nothing is lost if email delivery fails (e.g. Resend domain not
+ * verified yet). One JSON line per submission in:
+ *   <project folder>/form-submissions/<form>.jsonl
+ * (folder can be changed with FORM_BACKUP_DIR in .env; not served publicly).
+ */
+async function backupSubmission(form: string, data: Record<string, unknown>): Promise<boolean> {
+  try {
+    const dir = process.env['FORM_BACKUP_DIR'] || resolve(process.cwd(), 'form-submissions');
+    await mkdir(dir, { recursive: true });
+    await appendFile(resolve(dir, `${form}.jsonl`), JSON.stringify({ submittedAt: new Date().toISOString(), ...data }) + '\n', 'utf8');
+    return true;
+  } catch (err) {
+    console.error('❌ Could not save form backup:', form, err);
+    return false;
+  }
+}
+
 app.post('/api/competition-entry', async (req, res) => {
   const resendApiKey = process.env['RESEND_API_KEY'];
   const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
   const notifyEmail = process.env['COMPETITION_NOTIFY_EMAIL'] || 'info@nowukan.io';
-
-  if (!resendApiKey || !fromEmail) {
-    console.error('Competition entry received but RESEND_API_KEY / NEWSLETTER_FROM_EMAIL is not set.');
-    res.status(500).json({ error: 'Entries are temporarily unavailable. Please try again later.' });
-    return;
-  }
 
   // Simple per-visitor limit against spam.
   const ip = String(req.headers['x-forwarded-for'] || req.ip || 'unknown').split(',')[0].trim();
@@ -552,28 +566,41 @@ app.post('/api/competition-entry', async (req, res) => {
     `Submitted: ${new Date().toUTCString()}`,
   ].join('\n');
 
-  try {
-    const upstream = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: notifyEmail,
-        reply_to: entry.email,
-        subject: `Competition entry — ${entry.schoolName} (${entry.role})`,
-        text,
-      }),
-    });
-    if (!upstream.ok) {
-      const detail = await upstream.text().catch(() => '');
-      console.error('❌ Competition entry email failed:', upstream.status, detail);
-      res.status(502).json({ error: 'We could not submit your entry. Please try again.' });
-      return;
+  // 1) Save a backup copy first, so the entry can never be lost.
+  const saved = await backupSubmission('competition-entries', entry);
+
+  // 2) Email it to info@nowukan.io (when Resend is configured).
+  let emailed = false;
+  if (resendApiKey && fromEmail) {
+    try {
+      const upstream = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: notifyEmail,
+          reply_to: entry.email,
+          subject: `Competition entry — ${entry.schoolName} (${entry.role})`,
+          text,
+        }),
+      });
+      if (upstream.ok) {
+        emailed = true;
+        console.log('✅ Competition entry emailed:', entry.email, entry.schoolName);
+      } else {
+        const detail = await upstream.text().catch(() => '');
+        console.error('❌ Competition entry email failed (entry kept in backup):', upstream.status, detail.slice(0, 300));
+      }
+    } catch (err) {
+      console.error('❌ Competition entry email error (entry kept in backup):', err);
     }
-    console.log('✅ Competition entry emailed:', entry.email, entry.schoolName);
+  } else {
+    console.error('❌ RESEND_API_KEY / NEWSLETTER_FROM_EMAIL not set — competition entry kept in backup only.');
+  }
+
+  if (emailed || saved) {
     res.json({ ok: true });
-  } catch (err) {
-    console.error('❌ Competition entry error:', err);
+  } else {
     res.status(502).json({ error: 'We could not submit your entry. Please try again.' });
   }
 });
@@ -595,12 +622,6 @@ app.post('/api/enquiry', async (req, res) => {
   const resendApiKey = process.env['RESEND_API_KEY'];
   const fromEmail = process.env['NEWSLETTER_FROM_EMAIL'];
   const notifyEmail = process.env['ENQUIRY_NOTIFY_EMAIL'] || 'info@nowukan.io';
-
-  if (!resendApiKey || !fromEmail) {
-    console.error('Enquiry received but RESEND_API_KEY / NEWSLETTER_FROM_EMAIL is not set.');
-    res.status(500).json({ error: 'Messages are temporarily unavailable. Please email info@nowukan.io directly.' });
-    return;
-  }
 
   // Simple per-visitor limit against spam.
   const ip = String(req.headers['x-forwarded-for'] || req.ip || 'unknown').split(',')[0].trim();
@@ -647,28 +668,41 @@ app.post('/api/enquiry', async (req, res) => {
     `Submitted: ${new Date().toUTCString()}`,
   ].join('\n');
 
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: notifyEmail,
-        reply_to: e.email,
-        subject: `${formLabel} — ${e.name}${e.company ? ` (${e.company})` : ''}`,
-        text,
-      }),
-    });
-    if (!response.ok) {
-      const body = await response.text().catch(() => '');
-      console.error('❌ Enquiry email failed:', response.status, body.slice(0, 300));
-      res.status(502).json({ error: 'We could not send your message. Please try again, or email info@nowukan.io.' });
-      return;
+  // 1) Save a backup copy first, so the message can never be lost.
+  const saved = await backupSubmission('enquiries', { form: formLabel, ...e });
+
+  // 2) Email it to info@nowukan.io (when Resend is configured).
+  let emailed = false;
+  if (resendApiKey && fromEmail) {
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${resendApiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: notifyEmail,
+          reply_to: e.email,
+          subject: `${formLabel} — ${e.name}${e.company ? ` (${e.company})` : ''}`,
+          text,
+        }),
+      });
+      if (response.ok) {
+        emailed = true;
+        console.log('✅ Enquiry emailed:', formLabel, e.email);
+      } else {
+        const body = await response.text().catch(() => '');
+        console.error('❌ Enquiry email failed (message kept in backup):', response.status, body.slice(0, 300));
+      }
+    } catch (err) {
+      console.error('❌ Enquiry email error (message kept in backup):', err);
     }
-    console.log('✅ Enquiry emailed:', formLabel, e.email);
+  } else {
+    console.error('❌ RESEND_API_KEY / NEWSLETTER_FROM_EMAIL not set — enquiry kept in backup only.');
+  }
+
+  if (emailed || saved) {
     res.json({ ok: true });
-  } catch (err) {
-    console.error('❌ Enquiry email error:', err);
+  } else {
     res.status(502).json({ error: 'We could not send your message. Please try again, or email info@nowukan.io.' });
   }
 });

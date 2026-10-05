@@ -15,7 +15,7 @@ export class LearningFlowComponent {
   /** One static preview screen per tier — no carousel, no auto-rotation. */
   readonly screens: JourneyScreen[] = [
     { id: 's1', img: 'assets/journey/K2.jpg', title: 'home screen, junior style' },
-    { id: 's2', img: 'assets/journey/ukan-spell.webp', title: 'UKan Spell home screen' },
+    { id: 's2', img: 'assets/journey/ukan-spell-v3.webp', title: 'UKan Spell home screen' },
     { id: 's3', img: 'assets/journey/T1.png', title: 'practice and develop screen' },
   ];
 }
