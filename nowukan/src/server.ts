@@ -580,7 +580,7 @@ app.post('/api/competition-entry', async (req, res) => {
           from: fromEmail,
           to: notifyEmail,
           reply_to: entry.email,
-          subject: `Competition entry — ${entry.schoolName} (${entry.role})`,
+          subject: `Competition Entry | ${entry.role} | ${entry.name} (${entry.schoolName})`,
           text,
         }),
       });
@@ -612,9 +612,9 @@ app.post('/api/competition-entry', async (req, res) => {
  * Reply-To is the visitor, so pressing Reply answers them directly.
  */
 const ENQUIRY_FORMS: Record<string, string> = {
-  contact: 'Website message',
-  consultation: 'Consultation request',
-  pilot: 'School pilot programme request',
+  contact: 'Send Us A Message',
+  consultation: 'Request A Consultation',
+  pilot: 'School Pilot Programme Request',
 };
 const enquiryHits = new Map<string, number[]>();
 
@@ -653,19 +653,20 @@ app.post('/api/enquiry', async (req, res) => {
   }
 
   const text = [
-    `New ${formLabel.toLowerCase()} from the nowUKan website`,
+    `Form:              ${formLabel}`,
+    `Looking for help:  ${e.topic}`,
     '',
-    `Name:          ${e.name}`,
-    `Email:         ${e.email}`,
-    `Location:      ${e.location}`,
-    `Organisation:  ${e.company || '—'}`,
-    `Website:       ${e.website || '—'}`,
-    `Topic:         ${e.topic}`,
+    `Name:              ${e.name}`,
+    `Email:             ${e.email}`,
+    `Location:          ${e.location}`,
+    `Organisation:      ${e.company || '—'}`,
+    `Website:           ${e.website || '—'}`,
     '',
     'Message:',
     e.message || '—',
     '',
     `Submitted: ${new Date().toUTCString()}`,
+    'Reply to this email to answer the sender directly.',
   ].join('\n');
 
   // 1) Save a backup copy first, so the message can never be lost.
@@ -682,7 +683,7 @@ app.post('/api/enquiry', async (req, res) => {
           from: fromEmail,
           to: notifyEmail,
           reply_to: e.email,
-          subject: `${formLabel} — ${e.name}${e.company ? ` (${e.company})` : ''}`,
+          subject: `${formLabel} | ${e.topic} | ${e.name}${e.company ? ` (${e.company})` : ''}`,
           text,
         }),
       });
@@ -782,7 +783,7 @@ app.post('/api/newsletter-signup', async (req, res) => {
         from: fromEmail,
         to: notifyEmail,
         reply_to: email,
-        subject: 'New newsletter signup — nowUKan',
+        subject: `${source === 'Coming Soon popup' ? 'Coming Soon Signup' : 'Newsletter Signup'} | ${email}`,
         text: `New signup (${source}): ${email}\n\nSaved in the CRM as a lead.\nSubmitted: ${new Date().toUTCString()}`,
       }),
     })
