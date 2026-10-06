@@ -1,0 +1,12 @@
+# NowUkan robots.txt
+User-agent: *
+Allow: /
+
+# Server endpoints are not pages
+Disallow: /api/
+
+# Cart and checkout pages carry a noindex tag instead of being blocked here,
+# so search engines can read that tag. (The old "Disallow: /legal" also
+# blocked /legal/terms and /legal/privacy by accident.)
+
+Sitemap: https://nowukan.io/sitemap.xml
