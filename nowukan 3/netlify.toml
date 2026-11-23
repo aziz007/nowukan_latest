@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist/nowukan/browser"
+  functions = "netlify/functions"
+
+# The Angular app calls /api/register — transparently route that to the
+# Netlify Function so no frontend code needs to know about the
+# /.netlify/functions/... path.
+[[redirects]]
+  from = "/api/register"
+  to = "/.netlify/functions/register"
+  status = 200
+  force = true
+
+# Angular is a single-page app for anything not already handled above —
+# let client-side routing take over for all other paths.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

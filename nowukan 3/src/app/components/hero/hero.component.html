@@ -1,0 +1,67 @@
+<section class="hero">
+  <div class="earth"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-tagline">Affordable English. Limitless Opportunities.</div>
+      <h1>English Language Development &amp; <br />Speech Assessment <span>Affordable . Accessible . Scalable</span></h1>
+      <p class="lead">nowUKan is a next-generation English language development and speech assessment platform designed to make high-quality English learning and assessment more affordable, accessible, and inclusive to a global audience.</p>
+      <p class="lead">Built for learners, schools, colleges, universities, governments, NGOs, employers, and education programmes, nowUKan combines practical English development with speech and pronunciation practice in a simple, engaging, and scalable solution that works completely offline after installation.</p>
+      <div class="btn-row hero-btns">
+        <a class="btn btn-benefits" routerLink="/benefits">Benefits</a>
+        <a class="btn btn-start" routerLink="/journey">Start Learning</a>
+        <a class="btn btn-volume" routerLink="/enterprise">Volume Purchase</a>
+        <a class="btn btn-challenge" routerLink="/challenge">Challenge</a>
+        <a class="btn btn-gold" routerLink="/contact">Request a Pilot</a>
+      </div>
+      <div class="feature-pills">
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Works online or offline</div>
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tablet / Smartphone ready</div>
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One time low cost</div>
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No recurring subscriptions</div>
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Speech analysis / feedback</div>
+        <div class="pill"><span class="pill-ico pill-tick"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="62" r="50" fill="none" stroke="#2CB24A" stroke-width="7"/><path d="M30 66 L52 86 L98 18" fill="none" stroke="#2CB24A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real world English</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-media" [class.is-playing]="playing()">
+        <!-- Poster: tiny image shown instantly (and the only thing shown if motion/data saving is on). -->
+        <img
+          class="hero-poster"
+          src="assets/video/hero-poster.webp"
+          srcset="assets/video/hero-poster-540.webp 540w, assets/video/hero-poster.webp 720w"
+          sizes="(max-width: 760px) 260px, 340px"
+          width="720"
+          height="1280"
+          fetchpriority="high"
+          alt="nowUKan product video — the nowUKan app for learning real-life English"
+        />
+        <!-- Video: no sources in the HTML, so it downloads nothing until the page has fully loaded. -->
+        <video
+          #heroVideo
+          class="hero-video"
+          muted
+          loop
+          playsinline
+          preload="none"
+          aria-hidden="true"
+          tabindex="-1"
+        ></video>
+        @if (playing()) {
+          <button
+            type="button"
+            class="hero-sound"
+            (click)="toggleSound()"
+            [attr.aria-label]="muted() ? 'Turn video sound on' : 'Turn video sound off'"
+            [attr.aria-pressed]="!muted()"
+          >
+            @if (muted()) {
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            } @else {
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            }
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+</section>

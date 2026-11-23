@@ -1,0 +1,22 @@
+@if (visible()) {
+  <div class="gdpr" role="dialog" aria-label="Cookie and privacy notice">
+    <div class="gdpr-inner">
+      <p>
+        We are committed to ensuring the security and protection of our customers and website
+        visitors! By using our website, you are agreeing to our terms and conditions and
+        privacy policy, thank you.
+      </p>
+      <p class="gdpr-links">
+        <a routerLink="/legal/terms">Our Terms</a>
+        <span>|</span>
+        <a routerLink="/legal/privacy">Our Privacy Policy</a>
+      </p>
+      <p>
+        Please note we use cookies to help our website run more effectively and to also help
+        us with the future development of our website.
+      </p>
+      <p class="gdpr-sign">nowUKan - Compliance Team.</p>
+    </div>
+    <button type="button" class="btn btn-gold gdpr-accept" (click)="accept()">Accept &amp; Close</button>
+  </div>
+}
